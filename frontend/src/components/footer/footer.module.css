@@ -1,0 +1,28 @@
+.Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    background-color: #0F76D2;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-top: 10px solid #FF9806; 
+}
+
+.icons {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.icons:focus,
+.icons:active,
+.icons:hover {
+    border-radius: 50%;
+    box-shadow: 0 0 40px #ffffff;
+}
+
+.title {
+    color: rgb(255, 255, 255);
+}

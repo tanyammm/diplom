@@ -1,0 +1,19 @@
+.button {
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #FF9806;
+    color: #fff;
+    text-align: center;
+    font-size: 26px;
+    opacity: 0.6 !important;
+    border: none;
+}
+
+.button:focus,
+.button:active,
+.button:hover {
+    opacity: 1;
+    cursor: pointer;
+}

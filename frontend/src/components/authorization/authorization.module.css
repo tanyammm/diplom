@@ -1,0 +1,281 @@
+:root {
+    --shadow-one: 0 4px 16px #020202;
+    --shadow-two: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
+    --white: #ffffff;
+    --black: #333333;
+    --s: 1s;
+    --ten: 10px;
+    --two: 2px;
+    --green: #00b61e;
+    --no-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+    --forty: 40px;
+  }
+  
+  .box {
+    display: flex; /*выравнять по горизонтали с помощью flex*/
+    display: -webkit-flex; /*поддержка ранних версий браузера*/
+    display: -moz-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    box-shadow: var(--shadow-one); /*цвет и толщина бордюра*/
+    -webkit-box-shadow: var(--shadow-one); /*поддержка ранних версий браузера*/
+    -moz-box-shadow: var(--shadow-one);
+    width: 30%;
+    margin: 5%;
+  }
+  
+  .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 500px;
+  }
+  
+  .flex::before /*зелёная полоска*/ /*псевдокласс*/ {
+    content: ""; /*параметры полоски*/
+    position: absolute;
+    width: var(--ten);
+    height: 580px;
+    background: var(--green);
+  }
+  
+  .form {
+    width: 500px; /*длина и высота*/
+    height: 580px;
+    background: var(--white);
+    overflow: hidden; /*если элемент не влезает в окно*/
+    background-color: var(--white); /*цвет*/
+  }
+  
+  .grouple {
+    display: flex; /*создание блока*/
+    display: -webkit-box; /*поддержка ранних версий браузера*/
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column; /*поддержка ранних версий браузера*/
+    justify-content: space-around;
+    -webkit-justify-content: space-around; /*поддержка ранних версий браузера*/
+    -ms-flex-pack: distribute;
+    align-items: center; /*по центру*/
+    -webkit-box-align: center; /*поддержка ранних версий браузера*/
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    height: 560px;
+    margin-left: auto; /*по центру*/
+    margin-right: auto;
+    width: 340px; /*ширина*/
+    background-color: var(--white);
+    clear: both; /*запрет обтекания*/
+  }
+  
+  .title {
+    font-family: Poppins-Bold; /*шрифт*/
+    font-size: 39px; /*размер шрифта*/
+    background-color: var(--white);
+  }
+  
+  .label {
+    font-family: Poppins-Regular; /*шрифт*/
+    font-size: 16px; /*размер шрифта*/
+    color: var(--black); /*цвет*/
+    background-color: var(--white);
+    display: block;
+    width: 250px;
+    justify-content: flex-start; /*выравнивание по левому краю(начало блока)*/
+    -webkit-box-pack: start; /*поддержка ранних версий браузера*/
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+  }
+  
+  .label1 {
+    font-family: Poppins-Regular; /*шрифт*/
+    font-size: 16px; /*размер шрифта*/
+    color: var(--black); /*цвет*/
+    background-color: var(--white);
+    display: flex;
+    width: 340px;
+    margin-left: auto; /*по центру*/
+    margin-right: auto;
+    justify-content: center; /*выравнивание по центру по горизонтали*/
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+  }
+  
+  .input {
+    display: flex; /*размещение в одну линию*/
+    display: -webkit-box; /* для поддержки ранних версий браузеров */
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -moz-box;
+  }
+  
+  .input img {
+    height: 30px; /*задаются параметры*/
+    width: 30px;
+    background-color: var(--white);
+    margin-right: var(--ten);
+  }
+  
+  .eMailAndPassword {
+    padding: 0 0 10px 0; /*величина*/
+    border: none; /*нет границ*/
+    border-bottom: 2px solid #e0e0e0; /*задаются свойства нижней границы*/
+    background-color: transparent; /*прозрачный цвет фона*/
+    outline: none; /*контур отсутсвует*/
+    font-family: Poppins-Medium; /*шрифт*/
+    font-size: 18px; /*размер шрифта*/
+    color: #000000; /*цвет*/
+    height: 20px; /*высота*/
+    width: 220px; /*длина*/
+    cursor: text; /*вид курсора*/
+  }
+  
+  .focusInput {
+    position: absolute; /*параметры полоски*/
+    display: block;
+    width: 220px;
+  }
+  
+  .focusInput:before /*параметры перехода и так далее*/ /*псевдокласс*/ {
+    content: "";
+    width: 0px;
+    display: block;
+    position: absolute;
+    top: 29.75px;
+    left: var(--forty);
+    height: var(--two);
+    background: #7f7f7f;
+    transition: var(--s); /*задержка*/
+    -webkit-transition: var(--s); /* для поддержки ранних версий браузеров */
+    -o-transition: var(--s);
+    -moz-transition: var(--s);
+    -ms-transition: var(--s);
+  }
+  
+  .eMailAndPassword:focus + .focusInput:before  /*нижняя граница меняет цвет, когда находится в фокусе*/ {
+    width: 100%;
+  }
+  
+  .eMailAndPassword:not(:placeholder-shown) + .focusInput:before /*нижняя граница не будет исчезать, если введён текст*/ {
+    width: 100%;
+  }
+  
+  .login {
+    padding: 10px 20px; /*расстрояние между краем рамки и содержимым  слева и справа по 20 пикселей, а сверху и снизу по 20  пикселей*/
+    border: none; /*нет границы*/
+    border-radius: 15px; /*радиус закругления*/
+    -webkit-border-radius: 15px; /*для старых браузеров*/
+    color: var(--white);
+    background: var(--green); /* Для старых браузеров - без градиента */
+    background-image: linear-gradient(
+      to left,
+      hsla(196, 60%, 24%, 0.871),
+      #00b61e
+    ); /*градиент*/
+    background: -o-linear-gradient(
+      to left,
+      #184d61de,
+      #00b61e
+    ); /*кроссбраузерный линейный градиент*/
+    background: -moz-linear-gradient(to left, #184d61de, #00b61e);
+    background-image: -webkit-linear-gradient(120deg, #184d61de, #00b61e);
+    cursor: pointer; /*задание формы курсора*/
+    font-size: 16px; /*размер шрифта*/
+    width: 250px; /*размеры кнопки*/
+    height: 45px;
+    box-shadow: var(--shadow-two); /*тень*/
+    -webkit-box-shadow: var(--shadow-two); /*тень*/
+    -moz-box-shadow: var(--shadow-two); /*тень*/
+  }
+  
+  .login:focus, /*когда кнопка будет в фокусе и при наведении на неё*/
+  .login:active,
+  .login:hover {
+    background: var(--white);
+    box-shadow: var(--no-shadow); /*нет тени*/
+    -webkit-box-shadow: var(--no-shadow); /*нет тени*/
+    -moz-box-shadow: var(--no-shadow); /*нет тени*/
+    outline: none; /*контур отсутсвует*/
+    border: 3px solid #4caf50; /*бордюр*/
+    color: black; /*цвет текста*/
+  }
+  
+  .msg /*надписи с предупреждениями*/ {
+    position: relative;
+    padding: 7px;
+    background: rgb(206, 38, 38);
+    border-radius: 30px;
+    color: var(--white);
+    text-align: center;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  .massage-class /*класс для надписей*/ {
+    background: var(--white);
+    border-left-width: 10px;
+    border-left: #00b61e solid 10px;
+  }
+  
+  .icon /*стили знака вопроса*/ {
+    color: #00b61e;
+    font-size: 1.5em;
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+  .icon:focus, /*когда кнопка будет в фокусе и при наведении на неё*/
+  .icon:active,
+  .icon:hover {
+    color: #184d61de;
+    cursor: pointer;
+  }
+  
+  .tooltip { /*стили всплытающей подсказки*/
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
