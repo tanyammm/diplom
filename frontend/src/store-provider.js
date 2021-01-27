@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useMemo } from "react";
 import { useLocalStore } from "mobx-react-lite";
-import { store } from "./store";
+import { createStore } from "./store/store";
 
 const StoreProvider = ({ children }) => {
-  const mainStore = useLocalStore(store);
+  const mainStore = useLocalStore(createStore);
 
-  const stores = useMemo(() => ({ mainStore }), [mainStore]);
+  const store = useMemo(() => ({ mainStore }), [mainStore]);
 
   return (
-    <storeContext.Provider value={stores}>{children}</storeContext.Provider>
+    <storeContext.Provider value={store}>{children}</storeContext.Provider>
   );
 };
 
