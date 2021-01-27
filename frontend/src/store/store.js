@@ -1,5 +1,10 @@
-import { observable } from "mobx";
+export const createStore = () => {
+  const store = {
+    onClick() {
+      // eslint-disable-next-line no-alert
+      alert("Это Mobx!");
+    },
+  };
 
-const store = {};
-
-export default observable(store);
+  return store;
+};
