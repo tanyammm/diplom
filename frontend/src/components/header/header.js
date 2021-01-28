@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import React from "react";
 import { Link } from "react-router-dom";
 import { Dropdown, Button, Input, Space } from "antd";
@@ -16,7 +14,6 @@ const Header = () => {
   }));
 
   const searchText = (value) => {
-    console.log(value);
     searchBookGeneral(value);
   };
 
@@ -25,10 +22,6 @@ const Header = () => {
     // нажатие на кнопку поиска
     searchText(value);
   };
-
-  // const filter = card.map((title) => {
-  //   return title.toString().toLowerCase().includes(text);
-  // });
 
   return (
     <div className={css.Header}>
@@ -43,7 +36,7 @@ const Header = () => {
           className={css.search}
           placeholder="введите текст для поиска"
           onSearch={onSearch}
-          enterButton
+          enterButton={<Link to="/library/search">Найти</Link>}
         />
         <Space>
           <Link to="/library/catalog">

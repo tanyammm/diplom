@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import card from "../api/books.json";
 
 /* eslint-disable no-alert */
@@ -7,9 +6,9 @@ export const createStore = () => {
     onClick() {
       alert("Это Mobx!");
     },
+    elements: [],
     searchBookGeneral(value) {
-      const elements = card.filter((item) => item.title === value);
-      console.log(elements);
+      this.elements = card.filter((item) => item.title === value);
     },
   };
 

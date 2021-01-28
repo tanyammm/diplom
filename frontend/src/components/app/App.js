@@ -13,6 +13,7 @@ import PageFour from "../pageFour";
 import Authorization from "../authorization";
 import Register from "../register";
 import ErrorHandling from "../errorHandling";
+import PageSearch from "../pageSearch";
 import "antd/dist/antd.css";
 import css from "./App.module.css";
 
@@ -33,6 +34,7 @@ const App = () => {
               component={Authorization}
             />
             <Route exact path="/library/register" component={Register} />
+            <Route exact path="/library/search" component={PageSearch} />
             <Route exact path="*" component={ErrorHandling} />
           </Switch>
           <Footer />
