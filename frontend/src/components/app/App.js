@@ -26,6 +26,9 @@ const App = () => {
           <Switch>
             <Route exact path="/library/" component={PageOne} />
             <Route exact path="/library/catalog" component={PageTwo} />
+            <Route exact path="/library/services" component={PageTwo} />
+            <Route exact path="/library/stocks" component={PageTwo} />
+            <Route exact path="/library/donation" component={PageTwo} />
             <Route exact path="/library/books" component={PageTree} />
             <Route exact path="/library/book" component={PageFour} />
             <Route

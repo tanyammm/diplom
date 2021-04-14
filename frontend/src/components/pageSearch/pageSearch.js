@@ -2,7 +2,7 @@
 import React from "react";
 import { Card, List, Typography } from "antd";
 import { Link } from "react-router-dom";
-import img from "../../img/libraries.png";
+import img from "../../img/обложка.jpg";
 // import card from "../../api/categories.json";
 import { useRootData } from "../../hooks/use-root-data";
 import "antd/dist/antd.css";
@@ -20,7 +20,7 @@ const PageSearch = () => {
     <div className={css.PageSearch}>
       <Title level={1}>Найдено</Title>
       <List
-        grid={{ gutter: 16, column: 5 }}
+        grid={{ gutter: 16, column: 2 }}
         className={css.list}
         dataSource={elements}
         renderItem={(item) => (

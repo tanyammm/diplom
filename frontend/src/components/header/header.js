@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Dropdown, Button, Input, Space } from "antd";
-import { DownOutlined, UserOutlined } from "@ant-design/icons";
+import { Button, Input, Space } from "antd";
+import { UserOutlined, SearchOutlined } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
-import menu from "./menu";
 import imgs from "./imgs";
 import "antd/dist/antd.css";
 import css from "./header.module.css";
@@ -26,29 +25,44 @@ const Header = () => {
   return (
     <div className={css.Header}>
       <div className={css.block}>
-        <Dropdown overlay={menu} className={css.menu}>
-          <Button>
-            Каталог книг
-            <DownOutlined />
-          </Button>
-        </Dropdown>
+        <div className={css.logo}>
+          <div className={css.voguLogo} />
+          <div className={css.text}>
+            Информационно-библиотечный комплекс ВоГУ
+          </div>
+        </div>
+        <Space className={css.rowButtons}>
+          <Link to="/library/catalog">
+            <Button type="link" className={css.button}>
+              Книги
+            </Button>
+          </Link>
+          <Link to="/library/services">
+            <Button type="link" className={css.button}>
+              Услуги
+            </Button>
+          </Link>
+          <Link to="/library/stocks">
+            <Button type="link" className={css.button}>
+              Акции
+            </Button>
+          </Link>
+          <Link to="/library/donation">
+            <Button type="link" className={css.button}>
+              Книга в дар
+            </Button>
+          </Link>
+        </Space>
         <Search
           className={css.search}
           placeholder="введите текст для поиска"
           onSearch={onSearch}
-          enterButton={<Link to="/library/search">Найти</Link>}
+          enterButton={
+            <Link to="/library/search">
+              <SearchOutlined />
+            </Link>
+          }
         />
-        <Space>
-          <Link to="/library/catalog">
-            <Button type="primary">Каталог</Button>
-          </Link>
-          <Link to="/library/">
-            <Button type="primary">Главная</Button>
-          </Link>
-          <a href="https://vogu35.ru/">
-            <Button type="primary">ВоГУ</Button>
-          </a>
-        </Space>
         <Link to="/library/authorization">
           <Button type="primary" icon={<UserOutlined />} />
         </Link>
