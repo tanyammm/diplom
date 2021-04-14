@@ -13,6 +13,7 @@ import PageFour from "../pageFour";
 import Authorization from "../authorization";
 import Register from "../register";
 import ErrorHandling from "../errorHandling";
+import PageSearch from "../pageSearch";
 import "antd/dist/antd.css";
 import css from "./App.module.css";
 
@@ -25,6 +26,9 @@ const App = () => {
           <Switch>
             <Route exact path="/library/" component={PageOne} />
             <Route exact path="/library/catalog" component={PageTwo} />
+            <Route exact path="/library/services" component={PageTwo} />
+            <Route exact path="/library/stocks" component={PageTwo} />
+            <Route exact path="/library/donation" component={PageTwo} />
             <Route exact path="/library/books" component={PageTree} />
             <Route exact path="/library/book" component={PageFour} />
             <Route
@@ -33,6 +37,7 @@ const App = () => {
               component={Authorization}
             />
             <Route exact path="/library/register" component={Register} />
+            <Route exact path="/library/search" component={PageSearch} />
             <Route exact path="*" component={ErrorHandling} />
           </Switch>
           <Footer />

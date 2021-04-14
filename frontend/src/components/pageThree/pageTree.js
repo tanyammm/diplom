@@ -2,7 +2,7 @@ import React from "react";
 import { Card, List, Typography, Image } from "antd";
 import { Link } from "react-router-dom";
 import img from "../../img/обложка.jpg";
-import card from "./card.json";
+import card from "../../api/books.json";
 import "antd/dist/antd.css";
 import css from "./pageTree.module.css";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { List } from "antd";
-import news from "./news.json";
+import news from "../../api/news.json";
 import css from "./pageOne.module.css";
 
 const PageOne = () => {

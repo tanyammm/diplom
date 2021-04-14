@@ -1,0 +1,22 @@
+.PageSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    padding-top: 2%;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 1%;
+    padding-right: 1%;    
+    padding-bottom: 2%;
+}
+
+.card {
+    margin: 14%;
+}
+

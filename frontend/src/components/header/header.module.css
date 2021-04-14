@@ -9,27 +9,63 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 1%;
-    background: #add8fd; 
+    background: #1B418C;
 }
 
-.menu {
-    background-color: #FFAF3E;
-    color: #000;
-    border: 1px solid #A66202 ;
+.logo {
+    display: flex;
+    width: 40%;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1%;
 }
 
-.menu:hover, 
-.menu:focus,
-.menu:active {
-    color: #000;
-    border-color: #000;
-    background-color: rgb(255, 255, 255);
+.voguLogo {
+    width: 49.16px;
+    height: 59.81px;
+    background: url(icons/vogy_logo.svg);
+    transform: rotate(-0.48deg); 
+}
+
+.text {
+    padding-left: 3%;
+    display: flex; 
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 22px;
+    color: #FFFFFF;    
+    @import url ('https://fonts.googleapis.com/css2? family = Montserrat: wght @ 100 & display = swap');
+}
+
+.rowButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.button {    
+    font-size: 20px;
+    color: #FFFFFF;
+    @import url ('https://fonts.googleapis.com/css2? family = Montserrat: wght @ 100 & display = swap');
 }
 
 
 .search {
-    width: 30%;
+    width: 23%;
+    background: #1B418C;
+    border-radius: 3px;
+}
+
+
+.ant-input.search { 
+    background: red !important;
+}
+
+.ant-input {
+    background-color: rgb(26, 160, 55) !important;
 }
 
 .carousel {
