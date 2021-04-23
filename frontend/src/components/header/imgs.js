@@ -12,7 +12,7 @@ import img6 from "../../img/6.jpg";
 import img7 from "../../img/7.jpg";
 import img8 from "../../img/8.jpg";
 import "antd/dist/antd.css";
-import css from "./header.module.css";
+import css from "./img.module.css";
 
 const carousel = createRef();
 const handleNext = () => carousel.current.next();

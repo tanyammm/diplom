@@ -1,4 +1,4 @@
-.Header {
+.header {
     background: #ffffff; 
 }
 
@@ -37,7 +37,7 @@
     font-size: 24px;
     line-height: 22px;
     color: #FFFFFF;    
-    @import url ('https://fonts.googleapis.com/css2? family = Montserrat: wght @ 100 & display = swap');
+    font-family: 'Montserrat', sans-serif;
 }
 
 .rowButtons {
@@ -46,12 +46,31 @@
     align-items: flex-start;
 }
 
+.catalog {
+    font-size: 20px;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+}
+
+.buttonCatalog {    
+    padding-bottom: 40%;
+}
+
+.buttonCatalog:hover,
+.buttonCatalog:active,
+.buttonCatalog:focus {    
+    color: #FFFFFF;
+    background: #4278C0;
+    border-radius: 3px 3px 0px 0px;
+}
+
 .button {    
     font-size: 20px;
     color: #FFFFFF;
-    @import url ('https://fonts.googleapis.com/css2? family = Montserrat: wght @ 100 & display = swap');
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
 }
-
 
 .search {
     width: 23%;
@@ -59,74 +78,17 @@
     border-radius: 3px;
 }
 
-
-.ant-input.search { 
-    background: red !important;
+:global(.ant-input),
+:global(.ant-btn.ant-btn-primary.ant-input-search-button),
+:global(.ant-input-group-addon),
+:global(.ant-input-wrapper.ant-input-group) {
+    background-color: #0A1C40;
+    border: 1px solid #0A1C40;
+    color:#ffffff;
 }
 
-.ant-input {
-    background-color: rgb(26, 160, 55) !important;
+:global(.ant-btn.ant-btn-primary.ant-input-search-button:hover),
+:global(.ant-btn.ant-btn-primary.ant-input-search-button:focus) {
+    border-color: #1890ff;
 }
 
-.carousel {
-    margin-bottom: 1%;
-    line-height: 0;
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    height: 300px;
-    width: 100%;
-    color: #fff;
-    line-height: 300px;
-    text-align: center;
-    background: #FF9806;
-}
-
-.img {
-    width: 100%;
-    height: 100%;
-}
-
-.ant_carousel_left {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 18%;
-    left: 0;
-    opacity: 0.4;
-    background-color: #000 ;
-    color: #fff;
-    font-size: 60px;
-    line-height: 100px;
-    text-align: center;
-}
-
-.ant_carousel_left:focus,
-.ant_carousel_left:active,
-.ant_carousel_left:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.ant_carousel_right {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 18%;
-    right: 0;
-    opacity: 0.4;
-    background-color: #000 ;
-    color: #fff;
-    font-size: 60px;
-    line-height: 100px;
-    text-align: center;
-}
-
-.ant_carousel_right:focus,
-.ant_carousel_right:active,
-.ant_carousel_right:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
