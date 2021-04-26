@@ -1,11 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Input, Space, Dropdown } from "antd";
-import {
-  UserOutlined,
-  SearchOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import imgs from "./imgs";
 import catalog from "./catalog";
@@ -69,14 +65,14 @@ const Header = () => {
           }
         />
         <Link to="/library/authorization">
-          <Button type="link" className={css.icon} icon={<UserOutlined />} />
+          <Button type="link">
+            <div className={css.user} />
+          </Button>
         </Link>
         <Link to="/library/authorization">
-          <Button
-            type="link"
-            className={css.icon}
-            icon={<ShoppingCartOutlined />}
-          />
+          <Button type="link">
+            <div className={css.shoppin} />
+          </Button>
         </Link>
       </div>
       {imgs}

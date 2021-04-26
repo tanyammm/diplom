@@ -80,8 +80,7 @@
 
 :global(.ant-input),
 :global(.ant-btn.ant-btn-primary.ant-input-search-button),
-:global(.ant-input-group-addon),
-:global(.ant-input-wrapper.ant-input-group) {
+:global(.ant-input-group-addon) {
     background-color: #0A1C40;
     border: 1px solid #0A1C40;
     color:#ffffff;
@@ -92,11 +91,21 @@
     border-color: #1890ff;
 }
 
-.icon {
-    color:#ffffff;
+
+.user {
+    background: url(icons/user.svg);
+    width: 27px;
+    height: 22.5px;
 }
 
-:global(.ant-btn ant-btn-link ant-btn-icon-only) {
-    width: 60px;
-    height: 60px
+.user:hover {
+    background: url(icons/user.svg);
+    width: 27px;
+    height: 22.5px;
+}
+
+.shoppin {
+    background: url(icons/shoppin.svg);
+    width: 30px;
+    height: 27px;
 }
