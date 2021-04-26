@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Input, Space } from "antd";
-import { UserOutlined, SearchOutlined } from "@ant-design/icons";
+import { Button, Input, Space, Dropdown } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import imgs from "./imgs";
+import catalog from "./catalog";
 import "antd/dist/antd.css";
 import css from "./header.module.css";
 
@@ -23,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <div className={css.Header}>
+    <div className={css.header}>
       <div className={css.block}>
         <div className={css.logo}>
           <div className={css.voguLogo} />
@@ -32,11 +33,11 @@ const Header = () => {
           </div>
         </div>
         <Space className={css.rowButtons}>
-          <Link to="/library/catalog">
-            <Button type="link" className={css.button}>
+          <Dropdown overlay={catalog} className={css.catalog}>
+            <Button type="link" className={css.buttonCatalog}>
               Книги
             </Button>
-          </Link>
+          </Dropdown>
           <Link to="/library/services">
             <Button type="link" className={css.button}>
               Услуги
@@ -58,13 +59,20 @@ const Header = () => {
           placeholder="введите текст для поиска"
           onSearch={onSearch}
           enterButton={
-            <Link to="/library/search">
+            <Link to="/library">
               <SearchOutlined />
             </Link>
           }
         />
         <Link to="/library/authorization">
-          <Button type="primary" icon={<UserOutlined />} />
+          <Button type="link">
+            <div className={css.user} />
+          </Button>
+        </Link>
+        <Link to="/library/authorization">
+          <Button type="link">
+            <div className={css.shoppin} />
+          </Button>
         </Link>
       </div>
       {imgs}
