@@ -2,16 +2,25 @@ import React from "react";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
+import css from "./catalog.module.css";
 
 const { SubMenu } = Menu;
 
 const catalog = (
-  <Menu>
+  <Menu className={css.menu}>
     <SubMenu key="1" title="Учебно-научная литература">
-      <Menu.Item>Издания</Menu.Item>
-      <Menu.Item>Монографии</Menu.Item>
-      <Menu.Item>Пособия</Menu.Item>
-      <Menu.Item>Методические указания</Menu.Item>
+      <Menu.Item>
+        <Link to="/library/books">Издания</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/library/books">Монографии</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/library/books">Пособия</Link>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="/library/books">Методические указания</Link>
+      </Menu.Item>
     </SubMenu>
     <Menu.Item key="2">
       <Link to="/library/books">Справочная литература</Link>

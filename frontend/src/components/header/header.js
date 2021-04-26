@@ -69,10 +69,14 @@ const Header = () => {
           }
         />
         <Link to="/library/authorization">
-          <Button type="primary" icon={<UserOutlined />} />
+          <Button type="link" className={css.icon} icon={<UserOutlined />} />
         </Link>
         <Link to="/library/authorization">
-          <Button type="primary" icon={<ShoppingCartOutlined />} />
+          <Button
+            type="link"
+            className={css.icon}
+            icon={<ShoppingCartOutlined />}
+          />
         </Link>
       </div>
       {imgs}

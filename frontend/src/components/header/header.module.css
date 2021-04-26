@@ -36,7 +36,7 @@
     font-weight: normal;
     font-size: 24px;
     line-height: 22px;
-    color: #FFFFFF;    
+    color: #ffffff;    
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -48,7 +48,7 @@
 
 .catalog {
     font-size: 20px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
 }
@@ -60,14 +60,14 @@
 .buttonCatalog:hover,
 .buttonCatalog:active,
 .buttonCatalog:focus {    
-    color: #FFFFFF;
+    color: #ffffff;
     background: #4278C0;
     border-radius: 3px 3px 0px 0px;
 }
 
 .button {    
     font-size: 20px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
 }
@@ -92,3 +92,11 @@
     border-color: #1890ff;
 }
 
+.icon {
+    color:#ffffff;
+}
+
+:global(.ant-btn ant-btn-link ant-btn-icon-only) {
+    width: 60px;
+    height: 60px
+}
