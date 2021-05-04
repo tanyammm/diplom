@@ -5,14 +5,14 @@
     align-items: flex-start;
     background: #0A1C40;
     padding-top: 40px;
-    padding-bottom: 40px;    
-    color: #ffffff;    
+    padding-bottom: 40px;
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
 }
 
 .title {
     font-size: 18px;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
 }
 
 .text {
@@ -29,11 +29,16 @@
 
 .phone {
     font-size: 24px;
+    font-weight: 600;
+}
+
+.icons {
+    display: inline-block;
 }
 
 :global(.ant-tooltip-inner) {
     background-color: #ffffff;
-    color:#000000;
+    color: #000000;
 }
 
 :global(.ant-tooltip-arrow-content) {

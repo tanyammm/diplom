@@ -60,7 +60,7 @@ const Header = () => {
             placeholder="введите текст для поиска"
             onSearch={onSearch}
             enterButton={
-              <Link to="/library">
+              <Link to="/library/search">
                 <SearchOutlined />
               </Link>
             }
