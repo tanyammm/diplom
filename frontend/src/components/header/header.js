@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Button, Input, Space, Dropdown, Affix } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
-import imgs from "./imgs";
-import catalog from "./catalog";
+import Imgs from "./imgs";
+import Catalog from "./catalog";
 import "antd/dist/antd.css";
 import css from "./header.module.css";
 
@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   const { Search } = Input;
-  const onSearch = (value) => {
+  const OnClickSearch = (value) => {
     // нажатие на кнопку поиска
     searchText(value);
   };
@@ -27,14 +27,16 @@ const Header = () => {
     <div className={css.header}>
       <Affix>
         <div className={css.block}>
-          <div className={css.logo}>
-            <div className={css.voguLogo} />
-            <div className={css.text}>
-              Информационно-библиотечный комплекс ВоГУ
+          <Link to="/library/">
+            <div className={css.logo}>
+              <div className={css.voguLogo} />
+              <div className={css.text}>
+                Информационно-библиотечный комплекс ВоГУ
+              </div>
             </div>
-          </div>
+          </Link>
           <Space className={css.rowButtons}>
-            <Dropdown overlay={catalog} className={css.catalog}>
+            <Dropdown overlay={Catalog} className={css.catalog}>
               <Button type="link" className={css.buttonCatalog}>
                 Книги
               </Button>
@@ -58,7 +60,7 @@ const Header = () => {
           <Search
             className={css.search}
             placeholder="введите текст для поиска"
-            onSearch={onSearch}
+            onSearch={OnClickSearch}
             enterButton={
               <Link to="/library/search">
                 <SearchOutlined />
@@ -77,7 +79,7 @@ const Header = () => {
           </Link>
         </div>
       </Affix>
-      {imgs}
+      {Imgs}
     </div>
   );
 };

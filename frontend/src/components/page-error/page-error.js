@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Result, Button } from "antd";
 import "antd/dist/antd.css";
-// import css from "./errorHandling.module.css";
 
-const ErrorHandling = () => {
+const PageError = () => {
   return (
     <div>
       <Result
@@ -21,4 +20,4 @@ const ErrorHandling = () => {
   );
 };
 
-export default ErrorHandling;
+export default PageError;

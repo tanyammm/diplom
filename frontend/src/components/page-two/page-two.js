@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import img from "../../img/libraries.png";
 import card from "../../api/categories.json";
 import "antd/dist/antd.css";
-import css from "./pageTwo.module.css";
+import css from "./page-two.module.css";
 
 const PageTwo = () => {
   const { Meta } = Card;

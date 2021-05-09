@@ -1,7 +1,7 @@
 import React from "react";
 import { List } from "antd";
 import news from "../../api/news.json";
-import css from "./pageOne.module.css";
+import css from "./page-one.module.css";
 
 const PageOne = () => {
   return (

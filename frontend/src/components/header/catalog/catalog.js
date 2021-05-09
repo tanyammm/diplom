@@ -6,7 +6,7 @@ import css from "./catalog.module.css";
 
 const { SubMenu } = Menu;
 
-const catalog = (
+const Catalog = (
   <Menu className={css.menu}>
     <SubMenu key="1" title="Учебно-научная литература">
       <Menu.Item>
@@ -34,4 +34,4 @@ const catalog = (
   </Menu>
 );
 
-export default catalog;
+export default Catalog;

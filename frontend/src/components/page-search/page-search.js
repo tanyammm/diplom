@@ -6,7 +6,7 @@ import img from "../../img/обложка.jpg";
 // import card from "../../api/categories.json";
 import { useRootData } from "../../hooks/use-root-data";
 import "antd/dist/antd.css";
-import css from "./pageSearch.module.css";
+import css from "./page-search.module.css";
 
 const PageSearch = () => {
   const { Meta } = Card;
