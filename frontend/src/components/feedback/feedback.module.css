@@ -1,14 +1,18 @@
 .feedback {
     background: #fa8c16;
-    font-size: 15px;    
     position: absolute;
     width: 250.72px;
     height: 57.1px;
-    left: 0px;
-    top: 758.96px;
-    margin-left: 0;
+    left: -100px;
     font-family: 'Montserrat', sans-serif;
-    color: #ffffff;
     transform: rotate(-90deg);
-    z-index: 999;
+    z-index: 2;
+    border-color: #d46b08;
+}
+
+.feedback:hover,
+.feedback:active,
+.feedback:focus {
+    background: #d46b08;
+    border-color: #ad4e00;
 }

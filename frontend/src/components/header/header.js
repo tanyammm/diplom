@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Input, Space, Dropdown, Affix } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import {
+  SearchOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import Imgs from "./imgs";
 import Catalog from "./catalog";
@@ -13,15 +17,7 @@ const Header = () => {
     searchBookGeneral: store.mainStore.searchBookGeneral,
   }));
 
-  const searchText = (value) => {
-    searchBookGeneral(value);
-  };
-
   const { Search } = Input;
-  const OnClickSearch = (value) => {
-    // нажатие на кнопку поиска
-    searchText(value);
-  };
 
   return (
     <div className={css.header}>
@@ -30,9 +26,9 @@ const Header = () => {
           <Link to="/library/">
             <div className={css.logo}>
               <div className={css.voguLogo} />
-              <div className={css.text}>
+              <Button type="link" className={css.text}>
                 Информационно-библиотечный комплекс ВоГУ
-              </div>
+              </Button>
             </div>
           </Link>
           <Space className={css.rowButtons}>
@@ -60,7 +56,7 @@ const Header = () => {
           <Search
             className={css.search}
             placeholder="введите текст для поиска"
-            onSearch={OnClickSearch}
+            onSearch={searchBookGeneral}
             enterButton={
               <Link to="/library/search">
                 <SearchOutlined />
@@ -68,13 +64,13 @@ const Header = () => {
             }
           />
           <Link to="/library/authorization">
-            <Button type="link">
-              <div className={css.user} />
+            <Button className={css.user} type="link">
+              <UserOutlined />
             </Button>
           </Link>
           <Link to="/library/authorization">
-            <Button type="link">
-              <div className={css.shoppin} />
+            <Button className={css.shoppin} type="link">
+              <ShoppingCartOutlined />
             </Button>
           </Link>
         </div>

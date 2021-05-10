@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
 import React from "react";
 import { BackTop } from "antd";
 import { UpOutlined } from "@ant-design/icons";
 import { orange } from "@ant-design/colors";
 
 const BackTopButton = () => {
-  console.log(orange);
   return (
     <BackTop>
       <UpOutlined

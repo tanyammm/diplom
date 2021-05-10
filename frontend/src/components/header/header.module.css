@@ -23,20 +23,20 @@
 }
 
 .voguLogo {
-    width: 49.16px;
+    width: 89.16px;
     height: 59.81px;
-    background: url(icons/vogy_logo.svg);
+    background: url(icons/vogy_logo.svg) no-repeat;
     transform: rotate(-0.48deg); 
 }
 
 .text {
-    padding-left: 3%;
+    padding-left: 1%;
     display: flex; 
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 22px;
-    color: #ffffff;    
+    color: #ffffff;   
 }
 
 .rowButtons {
@@ -87,21 +87,16 @@
     border-color: #1890ff;
 }
 
-
 .user {
-    background: url(icons/user.svg);
-    width: 27px;
-    height: 22.5px;
-}
-
-.user:hover {
-    background: url(icons/user.svg);
-    width: 27px;
-    height: 22.5px;
+    font-size: 30px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
 }
 
 .shoppin {
-    background: url(icons/shoppin.svg);
-    width: 30px;
-    height: 27px;
+    font-size: 30px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
 }

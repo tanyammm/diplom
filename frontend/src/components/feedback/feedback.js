@@ -1,15 +1,23 @@
 import React from "react";
-import { Button, Affix } from "antd";
+import { Affix, Button } from "antd";
+import { useRootData } from "../../hooks/use-root-data";
+import Modal from "./modal";
 import "antd/dist/antd.css";
 import css from "./feedback.module.css";
 
 const Feedback = () => {
+  const { openShowModal } = useRootData((store) => ({
+    openShowModal: store.mainStore.openShowModal,
+  }));
   return (
-    <Affix>
-      <Button className={css.feedback} type="primary">
-        Форма обратной связи
-      </Button>
-    </Affix>
+    <div>
+      <Affix offsetTop={508.96}>
+        <Button className={css.feedback} type="primary" onClick={openShowModal}>
+          Форма обратной связи
+        </Button>
+      </Affix>
+      <Modal />
+    </div>
   );
 };
 

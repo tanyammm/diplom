@@ -1,16 +1,14 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { createRef } from "react";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import img1 from "../../../img/1.jpg";
-import img2 from "../../../img/2.jpg";
-import img3 from "../../../img/3.jpg";
-import img4 from "../../../img/4.jpg";
-import img5 from "../../../img/5.jpg";
-import img6 from "../../../img/6.jpg";
-import img7 from "../../../img/7.jpg";
-import img8 from "../../../img/8.jpg";
+import img1 from "./img/1.jpg";
+import img2 from "./img/2.jpg";
+import img3 from "./img/3.jpg";
+import img4 from "./img/4.jpg";
+import img5 from "./img/5.jpg";
+import img6 from "./img/6.jpg";
+import img7 from "./img/7.jpg";
+import img8 from "./img/8.jpg";
 import "antd/dist/antd.css";
 import css from "./imgs.module.css";
 
@@ -62,10 +60,22 @@ const Imgs = (
         </h3>
       </div>
     </Carousel>
-    <div className={css.ant_carousel_left} onClick={handlePrev}>
+    <div
+      className={css.carouselLeft}
+      onClick={handlePrev}
+      onKeyDown={handlePrev}
+      role="button"
+      tabIndex="0"
+    >
       <LeftOutlined />
     </div>
-    <div className={css.ant_carousel_right} onClick={handleNext}>
+    <div
+      className={css.carouselRight}
+      onClick={handleNext}
+      onKeyDown={handleNext}
+      role="button"
+      tabIndex="0"
+    >
       <RightOutlined />
     </div>
   </div>

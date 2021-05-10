@@ -19,7 +19,10 @@
     height: 100%;
 }
 
-.ant_carousel_left {
+.carouselLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 20px;
     position: absolute;
     top: 18%;
@@ -33,14 +36,14 @@
     background: rgba(27, 65, 140, 0.5);
 }
 
-.ant_carousel_left:focus,
-.ant_carousel_left:active,
-.ant_carousel_left:hover {
+.carouselLeft:focus,
+.carouselLeft:active,
+.carouselLeft:hover {
     cursor: pointer;
     background: rgba(27, 65, 140, 0.8);
 }
 
-.ant_carousel_right {
+.carouselRight {
     margin-right: 20px;
     position: absolute;
     top: 18%;
@@ -54,9 +57,9 @@
     background: rgba(27, 65, 140, 0.5);
 }
 
-.ant_carousel_right:focus,
-.ant_carousel_right:active,
-.ant_carousel_right:hover {
+.carouselRight:focus,
+.carouselRight:active,
+.carouselRight:hover {
     cursor: pointer;
     background: rgba(27, 65, 140, 0.8);
 }
