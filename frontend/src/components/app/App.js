@@ -6,7 +6,7 @@ import reportWebVitals from "../../reportWebVitals";
 import Header from "../header";
 import Feedback from "../feedback";
 import Footer from "../footer";
-import PageOne from "../page-one";
+import PageNews from "../page-news";
 import PageTwo from "../page-two";
 import PageTree from "../page-three";
 import PageFour from "../page-four";
@@ -25,7 +25,7 @@ const App = () => {
           <Header />
           <Feedback />
           <Switch>
-            <Route exact path="/library/" component={PageOne} />
+            <Route exact path="/library/" component={PageNews} />
             <Route exact path="/library/catalog" component={PageTwo} />
             <Route exact path="/library/services" component={PageTwo} />
             <Route exact path="/library/stocks" component={PageTwo} />
