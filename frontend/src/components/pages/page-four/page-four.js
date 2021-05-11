@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Image, Button } from "antd";
-import img from "../../img/обложка.jpg";
+import img from "../../../img/обложка.jpg";
 import "antd/dist/antd.css";
 import css from "./page-four.module.css";
 

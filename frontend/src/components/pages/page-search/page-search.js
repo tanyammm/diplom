@@ -2,9 +2,9 @@
 import React from "react";
 import { Card, List, Typography } from "antd";
 import { Link } from "react-router-dom";
-import img from "../../img/обложка.jpg";
+import img from "../../../img/обложка.jpg";
 // import card from "../../api/categories.json";
-import { useRootData } from "../../hooks/use-root-data";
+import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-search.module.css";
 

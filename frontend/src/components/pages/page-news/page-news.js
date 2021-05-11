@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Typography, List } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import news from "../../api/news.json";
+import news from "../../../api/news.json";
 import css from "./page-news.module.css";
 
 const PageNews = () => {
