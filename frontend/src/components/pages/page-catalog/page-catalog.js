@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";
 import "antd/dist/antd.css";
-import css from "./page-three.module.css";
+import css from "./page-catalog.module.css";
 
-const PageTree = () => {
+const PageCatalog = () => {
   const { Meta } = Card;
   const { Title } = Typography;
 
   return (
-    <div className={css.PageTree}>
-      <Title level={1}>*Здесь будет написано название категории*</Title>
+    <div className={css.catalog}>
+      <Title level={3}>Издания</Title>
       <List
         grid={{ gutter: 16, column: 5 }}
         className={css.list}
@@ -42,4 +42,4 @@ const PageTree = () => {
   );
 };
 
-export default PageTree;
+export default PageCatalog;

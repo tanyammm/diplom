@@ -10,6 +10,7 @@
 
 :global(.ant-list-item) {
     background: #F6F6F6;
+    margin-bottom: 2%;
 }
 
 :global(.ant-typography) {

@@ -34,7 +34,7 @@ const ModalWindow = () => {
           rules={[
             {
               required: true,
-              message: "Пожалуйста, введите своё ФИО",
+              message: "Вы не ввели ФИО",
             },
           ]}
         >
@@ -46,12 +46,18 @@ const ModalWindow = () => {
           rules={[
             {
               type: "email",
-              email: `Неправильно введён адрес электронной почты. Проверьте введённый email`,
+              message:
+                "Неправильно введён адрес электронной почты. Проверьте введённый email",
+            },
+            {
               required: true,
-              message: "Пожалуйста, введите свой email",
+              message: "Вы не ввели email",
             },
           ]}
         >
+          <Input />
+        </Form.Item>
+        <Form.Item name={["user", "phone"]} label="Номер телефона">
           <Input />
         </Form.Item>
         <Form.Item
@@ -60,7 +66,7 @@ const ModalWindow = () => {
           rules={[
             {
               required: true,
-              message: "Пожалуйста, введите своё сообщение",
+              message: "Вы не ввели сообщение",
             },
           ]}
         >

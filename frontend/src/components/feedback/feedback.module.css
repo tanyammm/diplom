@@ -1,9 +1,9 @@
 .feedback {
     background: #fa8c16;
     position: absolute;
-    width: 250.72px;
+    width: 200.72px;
     height: 57.1px;
-    left: -100px;
+    left: -80px;
     font-family: 'Montserrat', sans-serif;
     transform: rotate(-90deg);
     z-index: 2;

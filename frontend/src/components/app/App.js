@@ -7,8 +7,7 @@ import Header from "../header";
 import Feedback from "../feedback";
 import Footer from "../footer";
 import PageNews from "../pages/page-news";
-import PageTwo from "../pages/page-two";
-import PageTree from "../pages/page-three";
+import PageCatalog from "../pages/page-catalog";
 import PageFour from "../pages/page-four";
 import Authorization from "../authorization";
 import Register from "../register";
@@ -26,11 +25,10 @@ const App = () => {
           <Feedback />
           <Switch>
             <Route exact path="/library/" component={PageNews} />
-            <Route exact path="/library/catalog" component={PageTwo} />
-            <Route exact path="/library/services" component={PageTwo} />
-            <Route exact path="/library/stocks" component={PageTwo} />
-            <Route exact path="/library/donation" component={PageTwo} />
-            <Route exact path="/library/books" component={PageTree} />
+            <Route exact path="/library/catalog" component={PageCatalog} />
+            <Route exact path="/library/services" component={PageCatalog} />
+            <Route exact path="/library/stocks" component={PageCatalog} />
+            <Route exact path="/library/donation" component={PageCatalog} />
             <Route exact path="/library/book" component={PageFour} />
             <Route
               exact
