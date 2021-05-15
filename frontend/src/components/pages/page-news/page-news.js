@@ -1,18 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography, List } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
+import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
+import StyledTitle from "../styled";
 import news from "../../../api/news.json";
 import css from "./page-news.module.css";
 
 const PageNews = () => {
-  const { Title } = Typography;
-
   return (
     <div>
-      <Title level={3}>Новости</Title>
-      <List
-        className={css.list}
+      <StyledTitle level={3}>Новости</StyledTitle>
+      <StyledList
         itemLayout="vertical"
         size="large"
         pagination={{
@@ -21,8 +19,8 @@ const PageNews = () => {
         }}
         dataSource={news}
         renderItem={(item) => (
-          <List.Item
-            key={item.title}
+          <StyledListItem
+            key={item.index}
             actions={[
               <Link
                 key="list-loadmore-edit"
@@ -34,9 +32,9 @@ const PageNews = () => {
             ]}
             extra={<img className={css.img} alt="logo" src={item.img} />}
           >
-            <List.Item.Meta title={item.title} description={item.description} />
+            <StyleListItemMeta title={item.title} />
             {item.content}
-          </List.Item>
+          </StyledListItem>
         )}
       />
     </div>

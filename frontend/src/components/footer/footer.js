@@ -1,57 +1,60 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Tooltip } from "antd";
 import { Icon48LogoVk } from "@vkontakte/icons";
+import { Tooltip } from "antd";
+import { StyledButtonTitle, StyledButtonText } from "./styled";
 import Maps from "./map";
 import "antd/dist/antd.css";
 import css from "./footer.module.css";
 
-const text = <span>Официальная страница в ВКонтакте</span>;
+const text = (
+  <span className={css.tooltip}>Официальная страница в ВКонтакте</span>
+);
 
 const Footer = () => {
   return (
     <div className={css.footer}>
       <div>
-        <div className={css.title}>О библиотеке</div>
+        <StyledButtonTitle>О библиотеке</StyledButtonTitle>
         <Link to="/library/donation">
-          <div className={css.text}>О библиотеке</div>
+          <StyledButtonText>О библиотеке</StyledButtonText>
         </Link>
         <Link to="/library/donation">
-          <div className={css.text}>Новости</div>
+          <StyledButtonText>Новости</StyledButtonText>
         </Link>
         <Link to="/library/donation">
-          <div className={css.text}>Время работы</div>
-        </Link>
-      </div>
-      <div>
-        <div className={css.title}>Интернет-магазин</div>
-        <Link to="/library/donation">
-          <div className={css.text}>Каталог</div>
-        </Link>
-        <Link to="/library/donation">
-          <div className={css.text}>Карта пункта выдачи</div>
-        </Link>
-        <Link to="/library/donation">
-          <div className={css.text}>Пользовательское соглашение</div>
+          <StyledButtonText>Время работы</StyledButtonText>
         </Link>
       </div>
       <div>
-        <div className={css.title}>Контакты</div>
+        <StyledButtonTitle>Интернет-магазин</StyledButtonTitle>
         <Link to="/library/donation">
-          <div className={css.text}>Помощь и ответы на вопросы</div>
+          <StyledButtonText>Каталог</StyledButtonText>
         </Link>
         <Link to="/library/donation">
-          <div className={css.text}>Контакты и реквизиты</div>
+          <StyledButtonText>Карта пункта выдачи</StyledButtonText>
         </Link>
         <Link to="/library/donation">
-          <div className={css.text}>Обратная связь</div>
+          <StyledButtonText>Пользовательское соглашение</StyledButtonText>
         </Link>
       </div>
       <div>
-        <div className={css.title}>Телефон</div>
+        <StyledButtonTitle>Контакты</StyledButtonTitle>
+        <Link to="/library/donation">
+          <StyledButtonText>Помощь и ответы на вопросы</StyledButtonText>
+        </Link>
+        <Link to="/library/donation">
+          <StyledButtonText>Контакты и реквизиты</StyledButtonText>
+        </Link>
+        <Link to="/library/donation">
+          <StyledButtonText>Обратная связь</StyledButtonText>
+        </Link>
+      </div>
+      <div>
+        <StyledButtonTitle>Телефон</StyledButtonTitle>
         <div className={css.phone}>8 (8172) 72-10-12</div>
         <div className={css.icons}>
-          <Tooltip placement="bottom" title={text}>
+          <Tooltip placement="bottom" title={text} color="#ffffff">
             <a href="https://vk.com/slibvsu">
               <Icon48LogoVk />
             </a>

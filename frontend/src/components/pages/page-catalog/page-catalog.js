@@ -12,7 +12,9 @@ const PageCatalog = () => {
 
   return (
     <div className={css.catalog}>
-      <Title level={3}>Издания</Title>
+      <Title level={3} className={css.title}>
+        Издания
+      </Title>
       <List
         grid={{ gutter: 16, column: 5 }}
         className={css.list}
@@ -24,11 +26,7 @@ const PageCatalog = () => {
               className={css.card}
               hoverable
               cover={
-                <Image
-                  src={img}
-                  title="Нажмите, чтобы просмотреть обложку в полноэкранном режиме"
-                  alt="example"
-                />
+                <Image src={img} title="Увеличить обложку" alt="example" />
               }
             >
               <Link to="/library/book">

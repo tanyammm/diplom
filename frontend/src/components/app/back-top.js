@@ -12,9 +12,9 @@ const BackTopButton = () => {
           width: "40px",
           height: "40px",
           display: "flex",
-          "align-items": "center",
-          "justify-content": "center",
-          "border-radius": "50%",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: "50%",
           color: "#ffffff",
         }}
       />

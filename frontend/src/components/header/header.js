@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Input, Space, Dropdown, Affix } from "antd";
+import { Button, Space, Dropdown, Affix } from "antd";
 import {
   SearchOutlined,
   ShoppingCartOutlined,
@@ -8,6 +8,7 @@ import {
 } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import Imgs from "./imgs";
+import StyledSearchInput from "./styled";
 import Catalog from "./catalog";
 import "antd/dist/antd.css";
 import css from "./header.module.css";
@@ -16,8 +17,6 @@ const Header = () => {
   const { searchBookGeneral } = useRootData((store) => ({
     searchBookGeneral: store.mainStore.searchBookGeneral,
   }));
-
-  const { Search } = Input;
 
   return (
     <div className={css.header}>
@@ -53,7 +52,7 @@ const Header = () => {
               </Button>
             </Link>
           </Space>
-          <Search
+          <StyledSearchInput
             className={css.search}
             placeholder="введите текст для поиска"
             onSearch={searchBookGeneral}

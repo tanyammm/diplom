@@ -70,21 +70,6 @@
 
 .search {
     width: 23%;
-    background: #1B418C;
-    border-radius: 3px;
-}
-
-:global(.ant-input),
-:global(.ant-btn.ant-btn-primary.ant-input-search-button),
-:global(.ant-input-group-addon) {
-    background-color: #0A1C40;
-    border: 1px solid #0A1C40;
-    color:#ffffff;
-}
-
-:global(.ant-btn.ant-btn-primary.ant-input-search-button:hover),
-:global(.ant-btn.ant-btn-primary.ant-input-search-button:focus) {
-    border-color: #1890ff;
 }
 
 .user {
@@ -99,4 +84,4 @@
     color: #ffffff;
     display: flex;
     align-items: center;
-}
+} 

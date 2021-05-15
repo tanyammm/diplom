@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, Modal, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useRootData } from "../../../hooks/use-root-data";
+import StyledModal from "./styled";
 import "antd/dist/antd.css";
-import css from "./modal.module.css";
 
-const ModalWindow = () => {
+const Modal = () => {
   const { showModal, handleOk, handleCancel } = useRootData((store) => ({
     showModal: store.mainStore.showModal,
     handleOk: store.mainStore.handleOk,
@@ -12,8 +12,7 @@ const ModalWindow = () => {
   }));
 
   return (
-    <Modal
-      className={css}
+    <StyledModal
       visible={showModal}
       title="Обратная связь"
       onOk={handleOk}
@@ -46,8 +45,7 @@ const ModalWindow = () => {
           rules={[
             {
               type: "email",
-              message:
-                "Неправильно введён адрес электронной почты. Проверьте введённый email",
+              message: "Email введён неверно",
             },
             {
               required: true,
@@ -57,7 +55,23 @@ const ModalWindow = () => {
         >
           <Input />
         </Form.Item>
-        <Form.Item name={["user", "phone"]} label="Номер телефона">
+        <Form.Item
+          name={["user", "phone"]}
+          label="Номер телефона"
+          rules={[
+            () => ({
+              validator(_, value) {
+                if (value.length <= 11) {
+                  return Promise.resolve();
+                }
+
+                return Promise.reject(
+                  new Error("Номер не может быть больше 11 символов")
+                );
+              },
+            }),
+          ]}
+        >
           <Input />
         </Form.Item>
         <Form.Item
@@ -73,8 +87,8 @@ const ModalWindow = () => {
           <Input.TextArea />
         </Form.Item>
       </Form>
-    </Modal>
+    </StyledModal>
   );
 };
 
-export default ModalWindow;
+export default Modal;
