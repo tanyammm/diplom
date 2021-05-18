@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
+import MaskedInput from "antd-mask-input";
 import { useRootData } from "../../../hooks/use-root-data";
 import StyledModal from "./styled";
 import "antd/dist/antd.css";
@@ -55,24 +56,12 @@ const Modal = () => {
         >
           <Input />
         </Form.Item>
-        <Form.Item
-          name={["user", "phone"]}
-          label="Номер телефона"
-          rules={[
-            () => ({
-              validator(_, value) {
-                if (value.length <= 11) {
-                  return Promise.resolve();
-                }
-
-                return Promise.reject(
-                  new Error("Номер не может быть больше 11 символов")
-                );
-              },
-            }),
-          ]}
-        >
-          <Input />
+        <Form.Item name={["user", "phone"]} label="Номер телефона">
+          <MaskedInput
+            placeholder="+7 (XXX) XXХ-XX-XX"
+            mask="+7 (111) 111-11-11"
+            name="card"
+          />
         </Form.Item>
         <Form.Item
           name={["user", "note"]}

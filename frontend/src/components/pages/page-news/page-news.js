@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
 import StyledTitle from "../styled";
+import Imgs from "./imgs";
 import news from "../../../api/news.json";
 import css from "./page-news.module.css";
 
 const PageNews = () => {
   return (
     <div>
-      <StyledTitle level={3}>Новости</StyledTitle>
+      {Imgs}
+      <StyledTitle level={2}>Новости</StyledTitle>
       <StyledList
         itemLayout="vertical"
         size="large"

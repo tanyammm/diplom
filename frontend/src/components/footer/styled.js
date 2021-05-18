@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
-export const StyledButtonTitle = styled.div`
+export const StyledTitle = styled.div`
   font-size: 18px;
   padding-bottom: 18px;
 `;
 
-export const StyledButtonText = styled.div`
+export const StyledLink = styled(Link)`
+  display: flex;
+  width: max-content;
   font-size: 14px;
   padding-bottom: 10px;
   color: #ffffff;
