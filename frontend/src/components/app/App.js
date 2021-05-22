@@ -19,8 +19,8 @@ import "antd/dist/antd.css";
 const App = () => {
   return (
     <ConfigProvider locale={ruRU}>
-      <div>
-        <BrowserRouter>
+      <BrowserRouter>
+        <div style={{ minHeight: "90vh" }}>
           <Header />
           <Feedback />
           <Switch>
@@ -39,10 +39,10 @@ const App = () => {
             <Route exact path="/library/search" component={PageSearch} />
             <Route exact path="*" component={PageError} />
           </Switch>
-          <Footer />
-          <BackTopButton />
-        </BrowserRouter>
-      </div>
+        </div>
+        <Footer />
+        <BackTopButton />
+      </BrowserRouter>
     </ConfigProvider>
   );
 };

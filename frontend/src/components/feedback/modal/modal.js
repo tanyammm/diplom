@@ -1,16 +1,19 @@
 import React from "react";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, Checkbox } from "antd";
 import MaskedInput from "antd-mask-input";
 import { useRootData } from "../../../hooks/use-root-data";
 import StyledModal from "./styled";
 import "antd/dist/antd.css";
 
 const Modal = () => {
-  const { showModal, handleOk, handleCancel } = useRootData((store) => ({
-    showModal: store.mainStore.showModal,
-    handleOk: store.mainStore.handleOk,
-    handleCancel: store.mainStore.handleCancel,
-  }));
+  const { showModal, handleOk, handleCancel, setCaptcha } = useRootData(
+    (store) => ({
+      showModal: store.mainStore.showModal,
+      handleOk: store.mainStore.handleOk,
+      handleCancel: store.mainStore.handleCancel,
+      setCaptcha: store.mainStore.setCaptcha,
+    })
+  );
 
   return (
     <StyledModal
@@ -74,6 +77,11 @@ const Modal = () => {
           ]}
         >
           <Input.TextArea />
+        </Form.Item>
+        <Form.Item name="remember" valuePropName="checked">
+          <Checkbox onChange={setCaptcha}>
+            Даю согласие на обработку персональных данных
+          </Checkbox>
         </Form.Item>
       </Form>
     </StyledModal>

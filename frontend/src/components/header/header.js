@@ -7,15 +7,86 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
-import StyledSearchInput from "./styled";
-import Catalog from "./catalog";
+import {
+  StyledMenu,
+  StyledSubMenu,
+  StyledMenuItem,
+  StyledSearchInput,
+} from "./styled";
 import "antd/dist/antd.css";
 import css from "./header.module.css";
 
 const Header = () => {
-  const { searchBookGeneral } = useRootData((store) => ({
+  const category1 = "Издания";
+  const category2 = "Монографии";
+  const category3 = "Пособия";
+  const category4 = "Методические указания";
+  const category5 = "Справочная литература";
+  const category6 = "Художественная литература";
+  const category7 = "Периодические издания";
+
+  const { searchBookGeneral, setBookCategory } = useRootData((store) => ({
     searchBookGeneral: store.mainStore.searchBookGeneral,
+    setBookCategory: store.mainStore.setBookCategory,
   }));
+
+  const Catalog = (
+    <StyledMenu className={css.menu}>
+      <StyledSubMenu key="1" title="Учебно-научная литература">
+        <StyledMenuItem>
+          <Link
+            to="/library/catalog"
+            className={css.subMenu}
+            onClick={() => setBookCategory(category1)}
+          >
+            {category1}
+          </Link>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <Link
+            to="/library/catalog"
+            className={css.subMenu}
+            onClick={() => setBookCategory(category2)}
+          >
+            {category2}
+          </Link>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <Link
+            to="/library/catalog"
+            className={css.subMenu}
+            onClick={() => setBookCategory(category3)}
+          >
+            {category3}
+          </Link>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <Link
+            to="/library/catalog"
+            className={css.subMenu}
+            onClick={() => setBookCategory(category4)}
+          >
+            {category4}
+          </Link>
+        </StyledMenuItem>
+      </StyledSubMenu>
+      <StyledMenuItem key="2">
+        <Link to="/library/catalog" onClick={() => setBookCategory(category5)}>
+          {category5}
+        </Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="3">
+        <Link to="/library/catalog" onClick={() => setBookCategory(category6)}>
+          {category6}
+        </Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="4">
+        <Link to="/library/catalog" onClick={() => setBookCategory(category7)}>
+          {category7}
+        </Link>
+      </StyledMenuItem>
+    </StyledMenu>
+  );
 
   return (
     <Affix className={css.header}>

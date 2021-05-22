@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 import card from "../api/books.json";
 
@@ -17,6 +18,20 @@ export const createStore = () => {
       console.log(values);
       /* ВРЕМЕННО */
       this.showModal = false;
+    },
+
+    /* ВРЕМЕННО */
+    setCaptcha(e) {
+      console.log(`${e.target.checked}`);
+      if (e.target.checked === true) {
+        console.log(`нажат чекбокс`);
+      }
+    },
+
+    selectBookCategory: "Каталог книг",
+
+    setBookCategory(value) {
+      this.selectBookCategory = value;
     },
 
     elements: [],
