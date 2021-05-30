@@ -12,7 +12,12 @@ const Feedback = () => {
   return (
     <div>
       <Affix offsetTop={508.96}>
-        <Button className={css.feedback} type="primary" onClick={openShowModal}>
+        <Button
+          className={css.feedback}
+          type="primary"
+          onClick={openShowModal}
+          data-testid="feedback"
+        >
           Обратная связь
         </Button>
       </Affix>

@@ -21,7 +21,7 @@ export const createStore = () => {
     },
 
     /* ВРЕМЕННО */
-    setCaptcha(e) {
+    setCheckbox(e) {
       console.log(`${e.target.checked}`);
       if (e.target.checked === true) {
         console.log(`нажат чекбокс`);

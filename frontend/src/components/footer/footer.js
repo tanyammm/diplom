@@ -12,7 +12,7 @@ const text = (
 
 const Footer = () => {
   return (
-    <div className={css.footer}>
+    <footer className={css.footer} data-testid="footer">
       <div>
         <StyledTitle>О библиотеке</StyledTitle>
         <StyledLink to="/library/donation">О библиотеке</StyledLink>
@@ -37,8 +37,10 @@ const Footer = () => {
       </div>
       <div>
         <StyledTitle>Телефон</StyledTitle>
-        <div className={css.phone}>8 (8172) 72-10-12</div>
-        <div className={css.icons}>
+        <div className={css.phone} data-testid="phone">
+          8 (8172) 72-10-12
+        </div>
+        <div className={css.icons} data-testid="icons">
           <Tooltip placement="bottom" title={text} color="#ffffff">
             <a href="https://vk.com/slibvsu">
               <Icon48LogoVk />
@@ -47,7 +49,7 @@ const Footer = () => {
         </div>
       </div>
       <Maps />
-    </div>
+    </footer>
   );
 };
 

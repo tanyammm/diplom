@@ -6,17 +6,18 @@ import StyledModal from "./styled";
 import "antd/dist/antd.css";
 
 const Modal = () => {
-  const { showModal, handleOk, handleCancel, setCaptcha } = useRootData(
+  const { showModal, handleOk, handleCancel, setCheckbox } = useRootData(
     (store) => ({
       showModal: store.mainStore.showModal,
       handleOk: store.mainStore.handleOk,
       handleCancel: store.mainStore.handleCancel,
-      setCaptcha: store.mainStore.setCaptcha,
+      setCheckbox: store.mainStore.setCheckbox,
     })
   );
 
   return (
     <StyledModal
+      data-testid="modal"
       visible={showModal}
       title="Обратная связь"
       onOk={handleOk}
@@ -79,7 +80,7 @@ const Modal = () => {
           <Input.TextArea />
         </Form.Item>
         <Form.Item name="remember" valuePropName="checked">
-          <Checkbox onChange={setCaptcha}>
+          <Checkbox onChange={setCheckbox}>
             Даю согласие на обработку персональных данных
           </Checkbox>
         </Form.Item>

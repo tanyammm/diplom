@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import ruRU from "antd/lib/locale/ru_RU";
-import reportWebVitals from "../../reportWebVitals";
 import Header from "../header";
 import Feedback from "../feedback";
 import Footer from "../footer";
@@ -47,5 +46,4 @@ const App = () => {
   );
 };
 
-reportWebVitals();
 export default App;

@@ -28,6 +28,7 @@ const PageNews = () => {
                 key="list-loadmore-edit"
                 to="/library/services"
                 className={css.farther}
+                data-testid="farther"
               >
                 Читать далее <ArrowRightOutlined />
               </Link>,

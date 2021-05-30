@@ -89,7 +89,7 @@ const Header = () => {
   );
 
   return (
-    <Affix className={css.header}>
+    <Affix className={css.header} data-testid="header">
       <div className={css.block}>
         <Link to="/library/">
           <div className={css.logo}>
