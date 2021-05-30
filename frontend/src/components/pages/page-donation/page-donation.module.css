@@ -1,0 +1,20 @@
+.donation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin-bottom: 40px;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.text {
+    text-indent: 30px; 
+    font-size: 18px;
+    text-align: left;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+}
+

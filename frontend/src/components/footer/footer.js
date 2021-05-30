@@ -15,25 +15,25 @@ const Footer = () => {
     <footer className={css.footer} data-testid="footer">
       <div>
         <StyledTitle>О библиотеке</StyledTitle>
-        <StyledLink to="/library/donation">О библиотеке</StyledLink>
+        <StyledLink to="/library/development/">О библиотеке</StyledLink>
         <StyledLink to="/library/">Новости</StyledLink>
-        <StyledLink to="/library/donation">Время работы</StyledLink>
+        <StyledLink to="/library/development/">Время работы</StyledLink>
       </div>
       <div>
         <StyledTitle>Интернет-магазин</StyledTitle>
-        <StyledLink to="/library/donation">Каталог</StyledLink>
-        <StyledLink to="/library/donation">Карта пункта выдачи</StyledLink>
-        <StyledLink to="/library/donation">
+        <StyledLink to="/library/development/">Каталог</StyledLink>
+        <StyledLink to="/library/development/">Карта пункта выдачи</StyledLink>
+        <StyledLink to="/library/development/">
           Пользовательское соглашение
         </StyledLink>
       </div>
       <div>
         <StyledTitle>Контакты</StyledTitle>
-        <StyledLink to="/library/donation">
+        <StyledLink to="/library/development/">
           Помощь и ответы на вопросы
         </StyledLink>
-        <StyledLink to="/library/donation">Контакты и реквизиты</StyledLink>
-        <StyledLink to="/library/donation">Обратная связь</StyledLink>
+        <StyledLink to="/library/development/">Контакты и реквизиты</StyledLink>
+        <StyledLink to="/library/development/">Обратная связь</StyledLink>
       </div>
       <div>
         <StyledTitle>Телефон</StyledTitle>

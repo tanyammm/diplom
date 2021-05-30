@@ -136,7 +136,7 @@ const Header = () => {
             <UserOutlined />
           </Button>
         </Link>
-        <Link to="/library/authorization">
+        <Link to="/library/development">
           <Button className={css.shoppin} type="link">
             <ShoppingCartOutlined />
           </Button>
