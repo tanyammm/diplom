@@ -1,8 +1,8 @@
 import React from "react";
 import { Card, List, Image } from "antd";
 import { Link } from "react-router-dom";
-import StyledButton from "./styled";
-import StyledTitle from "../styled";
+import StyledButton from "../style/styled-button";
+import StyledTitle from "../style/styled-title";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";

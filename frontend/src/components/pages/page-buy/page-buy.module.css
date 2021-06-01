@@ -1,0 +1,43 @@
+.buy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15%;
+    margin-right: 15%;    
+}
+
+.block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.form {
+    width: 33%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #F6F6F6;
+    padding: 2%;
+    width: 301px;
+    height: 334px;
+}
+
+.result {
+    font-size: 24px;
+}
+
+.product {
+    padding-top: 8%;
+}
+
+.buttun {    
+    margin-top: 57%;
+    padding: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

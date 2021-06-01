@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
-import StyledTitle from "../styled";
+import StyledTitle from "../style/styled-title";
 import Imgs from "./imgs";
 import news from "../../../api/news.json";
 import css from "./page-news.module.css";

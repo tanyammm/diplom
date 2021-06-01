@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography } from "antd";
-import StyledTitle from "../styled";
+import StyledTitle from "../style/styled-title";
 import "antd/dist/antd.css";
 import css from "./page-donation.module.css";
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Image, Button } from "antd";
+import { Link } from "react-router-dom";
 import img from "../../../img/обложка.jpg";
 import "antd/dist/antd.css";
 import css from "./page-four.module.css";
@@ -39,14 +40,11 @@ const PageFour = () => {
             конференции предназначены для научно-технических работников,
             преподавателей, студентов, аспирантов вузов и других учреждений.
           </Text>
-          <div className={css.buttons}>
-            <Button size="large" type="primary" className={css.button}>
-              Скачать
-            </Button>
+          <Link to="/library/buy">
             <Button size="large" type="primary" className={css.button}>
               Купить
             </Button>
-          </div>
+          </Link>
         </div>
       </div>
       <Title level={3}>

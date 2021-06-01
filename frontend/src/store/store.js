@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import card from "../api/books.json";
 import sendEmailFeedback from "../api/feedback-modal";
 
@@ -40,6 +41,18 @@ export const createStore = () => {
     elements: [],
     searchBookGeneral(value) {
       this.elements = card.filter((item) => item.title === value);
+    },
+
+    quantityProducts: 900,
+    amountBuy: 6,
+    orderStatus: true,
+
+    getDataBuyer(value) {
+      console.log(value.name, value.surname, value.email, value.phone);
+    },
+
+    setOrderStatus(value) {
+      this.orderStatus = value;
     },
   };
 

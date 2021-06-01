@@ -23,7 +23,7 @@ const Modal = () => {
       form.validateFields().then((value) => {
         form.resetFields();
         handleOk(value);
-        message.success("Сообщение отправлено");
+        message.success("Благодарим Вас за обратную связь!");
       });
     } else message.error("Оставьте поле пустым");
   };
@@ -44,7 +44,7 @@ const Modal = () => {
         </Button>,
       ]}
     >
-      <Form name="nest-messages" form={form}>
+      <Form name="nest-messages" form={form} layout="vertical">
         <Form.Item
           name="name"
           label="ФИО"
@@ -55,7 +55,7 @@ const Modal = () => {
             },
           ]}
         >
-          <Input />
+          <Input placeholder="Иванов Иван Иванович" />
         </Form.Item>
         <Form.Item
           name="email"
@@ -71,9 +71,9 @@ const Modal = () => {
             },
           ]}
         >
-          <Input />
+          <Input placeholder="ivanov@vogu35.ru" />
         </Form.Item>
-        <Form.Item name="phone" label="Номер телефона">
+        <Form.Item name="phone" label="Телефон">
           <MaskedInput
             placeholder="+7 (XXX) XXХ-XX-XX"
             mask="+7 (111) 111-11-11"
@@ -90,7 +90,7 @@ const Modal = () => {
             },
           ]}
         >
-          <Input.TextArea />
+          <Input.TextArea placeholder="Ваше сообщение" />
         </Form.Item>
         <Form.Item className={css.none} label="Оставьте это поле пустым" />
         <Input

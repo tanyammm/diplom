@@ -24,6 +24,7 @@ export const StyledListItem = styled(List.Item)`
   .ant-list-item-main {
     font-size: 20px;
     color: #171717;
+    padding-top: 1%;
   }
 `;
 
