@@ -1,10 +1,14 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
 import card from "../api/books.json";
+import sendEmailFeedback from "../api/feedback-modal";
 
 export const createStore = () => {
   const store = {
     showModal: false,
+    // nameModal: "",
+    // emailModal: "",
+    // phoneModal: "",
+    // messageModal: "",
+    botModal: "",
 
     openShowModal() {
       this.showModal = true;
@@ -14,18 +18,17 @@ export const createStore = () => {
       this.showModal = false;
     },
 
-    handleOk(values) {
-      console.log(values);
-      /* ВРЕМЕННО */
+    handleOk(value) {
+      // this.nameModal = value.name;
+      // this.emailModal = value.email;
+      // this.phoneModal = value.phone;
+      // this.messageModal = value.message;
+      sendEmailFeedback(value.name, value.email, value.phone, value.message);
       this.showModal = false;
     },
 
-    /* ВРЕМЕННО */
-    setCheckbox(e) {
-      console.log(`${e.target.checked}`);
-      if (e.target.checked === true) {
-        console.log(`нажат чекбокс`);
-      }
+    searchBotModal(value) {
+      this.botModal = value;
     },
 
     selectBookCategory: "Каталог книг",
