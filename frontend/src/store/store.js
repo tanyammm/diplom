@@ -4,12 +4,11 @@ import sendEmailFeedback from "../api/feedback-modal";
 
 export const createStore = () => {
   const store = {
+    /* модальное окно обратной связи */
     showModal: false,
-    // nameModal: "",
-    // emailModal: "",
-    // phoneModal: "",
-    // messageModal: "",
     botModal: "",
+    themeModal: "",
+    themeModalInput: "",
 
     openShowModal() {
       this.showModal = true;
@@ -19,12 +18,24 @@ export const createStore = () => {
       this.showModal = false;
     },
 
+    setTheme(value) {
+      this.themeModal = value;
+      this.themeModalInput = this.themeModal;
+    },
+
+    setThemeInput(value) {
+      this.themeModalInput = `${this.themeModal}: ${value}`;
+    },
+
     handleOk(value) {
-      // this.nameModal = value.name;
-      // this.emailModal = value.email;
-      // this.phoneModal = value.phone;
-      // this.messageModal = value.message;
-      sendEmailFeedback(value.name, value.email, value.phone, value.message);
+      sendEmailFeedback(
+        value.name,
+        value.email,
+        value.phone,
+        this.themeModalInput,
+        value.message,
+        value.file
+      );
       this.showModal = false;
     },
 
@@ -32,28 +43,43 @@ export const createStore = () => {
       this.botModal = value;
     },
 
-    selectBookCategory: "Каталог книг",
+    /* сохранение информации об ошибках */
+    errorModal: "",
+    setError(value) {
+      this.errorModal = value;
+    },
 
+    /* название категории каталога книг */
+    selectBookCategory: "Каталог книг",
     setBookCategory(value) {
       this.selectBookCategory = value;
     },
 
+    /* поиск книг по каталогу */
     elements: [],
     searchBookGeneral(value) {
       this.elements = card.filter((item) => item.title === value);
     },
 
-    quantityProducts: 900,
-    amountBuy: 6,
-    orderStatus: true,
+    /* количество покупок в корзине */
+    numberPurchases: 7,
 
+    /* сумма покупок */
+    quantityProducts: 900,
+
+    /* статус заказа */
+    orderStatus: true,
+    setOrderStatus(value) {
+      this.orderStatus = value;
+    },
+
+    /* данные заказчика */
     getDataBuyer(value) {
       console.log(value.name, value.surname, value.email, value.phone);
     },
 
-    setOrderStatus(value) {
-      this.orderStatus = value;
-    },
+    /* номер заказа */
+    numberOrder: 1236,
   };
 
   return store;

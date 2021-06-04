@@ -22,7 +22,7 @@
     background: #F6F6F6;
     padding: 2%;
     width: 301px;
-    height: 334px;
+    max-height: 301px;
 }
 
 .result {
@@ -30,11 +30,11 @@
 }
 
 .product {
-    padding-top: 8%;
+    padding-top: 5%;
 }
 
 .buttun {    
-    margin-top: 57%;
+    margin-top: 45%;
     padding: 12%;
     display: flex;
     justify-content: center;

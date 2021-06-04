@@ -1,6 +1,13 @@
 import axios from "axios";
 
-const sendEmailFeedback = (nameModal, emailModal, phoneModal, messageModal) =>
+const sendEmailFeedback = (
+  nameModal,
+  emailModal,
+  phoneModal,
+  themeModal,
+  messageModal,
+  fileModal
+) =>
   axios({
     method: "post",
     url: "http://localhost:8000/feedback",
@@ -8,7 +15,9 @@ const sendEmailFeedback = (nameModal, emailModal, phoneModal, messageModal) =>
       nameModal,
       emailModal,
       phoneModal,
+      themeModal,
       messageModal,
+      fileModal,
     },
   });
 

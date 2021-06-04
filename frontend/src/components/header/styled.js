@@ -1,4 +1,4 @@
-import { Input, Menu } from "antd";
+import { Input, Menu, Badge } from "antd";
 import styled from "@emotion/styled";
 
 const { Search } = Input;
@@ -48,5 +48,13 @@ export const StyledSearchInput = styled(Search)`
   .ant-input-group-addon :hover,
   .ant-input-group-addon :focus {
     border-color: #1890ff !important;
+  }
+`;
+
+export const StyledBadge = styled(Badge)`
+  .ant-badge-count {
+    background: #f27d16;
+    box-shadow: none;
+    font-weight: 600;
   }
 `;

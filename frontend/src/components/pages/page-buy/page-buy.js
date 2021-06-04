@@ -1,9 +1,16 @@
-/* eslint-disable promise/catch-or-return */
 import React from "react";
-import { Typography, Form, Input, Alert } from "antd";
-import MaskedInput from "antd-mask-input";
+import { Link } from "react-router-dom";
+import { Typography, Form, message } from "antd";
+import {
+  ModalName,
+  ModalEmail,
+  ModalPhone,
+  ModalCheckbox,
+  ModalBot,
+} from "../../modal";
 import StyledButton from "../style/styled-button";
 import StyledTitle from "../style/styled-title";
+import StyledAlert from "./styled";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-buy.module.css";
@@ -13,26 +20,39 @@ const { Text } = Typography;
 const PageBuy = () => {
   const {
     quantityProducts,
-    amountBuy,
+    numberPurchases,
     getDataBuyer,
+    botModal,
     orderStatus,
     setOrderStatus,
+    setError,
+    numberOrder,
   } = useRootData((store) => ({
     quantityProducts: store.mainStore.quantityProducts,
-    amountBuy: store.mainStore.amountBuy,
+    numberPurchases: store.mainStore.numberPurchases,
     getDataBuyer: store.mainStore.getDataBuyer,
+    botModal: store.mainStore.botModal,
     orderStatus: store.mainStore.orderStatus,
     setOrderStatus: store.mainStore.setOrderStatus,
+    setError: store.mainStore.setError,
+    numberOrder: store.mainStore.numberOrder,
   }));
 
   const [form] = Form.useForm();
 
   const onSubmit = () => {
-    form.validateFields().then((value) => {
-      form.resetFields();
-      getDataBuyer(value);
-      setOrderStatus(false);
-    });
+    if (botModal === "") {
+      form
+        .validateFields()
+        .then((value) => {
+          form.resetFields();
+          getDataBuyer(value);
+          setOrderStatus(false);
+        })
+        .catch((error) => {
+          setError(error);
+        });
+    } else message.error("Оставьте поле пустым");
   };
 
   const onClose = () => {
@@ -47,56 +67,28 @@ const PageBuy = () => {
         form={form}
         className={css.form}
       >
-        <Form.Item
-          name="name"
-          label="Имя"
-          rules={[
-            {
-              required: true,
-              message: "Вы не ввели имя",
-            },
-          ]}
-        >
-          <Input placeholder="Иван" />
-        </Form.Item>
-        <Form.Item
-          name="surname"
-          label="Фамилия"
-          rules={[
-            {
-              required: true,
-              message: "Вы не ввели фамилию",
-            },
-          ]}
-        >
-          <Input placeholder="Иванов" />
-        </Form.Item>
-        <Form.Item name="phone" label="Телефон">
-          <MaskedInput
-            placeholder="+7 (XXX) XXХ-XX-XX"
-            mask="+7 (111) 111-11-11"
-            name="card"
-          />
-        </Form.Item>
-        <Form.Item
-          name="email"
-          label="Email"
-          rules={[
-            {
-              type: "email",
-              message: "Email введён неверно",
-            },
-            {
-              required: true,
-              message: "Вы не ввели email",
-            },
-          ]}
-        >
-          <Input placeholder="ivanov@vogu35.ru" />
-        </Form.Item>
+        <ModalName />
+        <ModalPhone />
+        <ModalEmail />
+        <ModalBot />
+        <ModalCheckbox />
       </Form>
     );
   };
+
+  const description = (
+    <>
+      Подробнее по заказу можно узнать в{" "}
+      <Link to="/library/authorization">личном кабинете</Link>
+    </>
+  );
+
+  const label = (
+    <>
+      Поздравляем! Вы успешно оформили заказ №{" "}
+      <Link to="/library/development">{numberOrder}</Link>
+    </>
+  );
 
   return (
     <div className={css.buy}>
@@ -106,7 +98,7 @@ const PageBuy = () => {
           <ComponentForm />
           <div className={css.card}>
             <Text className={css.result}>Итог {quantityProducts} ₽</Text>
-            <Text className={css.product}>Товаров {amountBuy} шт.</Text>
+            <Text className={css.product}>Товаров {numberPurchases} шт.</Text>
             <StyledButton
               type="primary"
               className={css.buttun}
@@ -117,11 +109,13 @@ const PageBuy = () => {
           </div>
         </div>
       ) : (
-        <Alert
-          message="Поздравляем! Вы успешно оформили заказ №345-9879908"
-          type="warning"
+        <StyledAlert
+          message={label}
+          description={description}
+          type="success"
           closable
           onClose={onClose}
+          showIcon
         />
       )}
     </div>

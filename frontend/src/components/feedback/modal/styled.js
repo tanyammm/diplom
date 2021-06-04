@@ -8,7 +8,7 @@ const StyledModal = styled(Modal)`
   }
 
   .ant-form-item-control-input-content textarea {
-    height: 250px;
+    height: 200px;
   }
 `;
 

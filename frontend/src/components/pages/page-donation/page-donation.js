@@ -12,9 +12,9 @@ const PageDonation = () => {
       <StyledTitle level={2}>Книга в дар</StyledTitle>
       <Text strong className={css.text}>
         Чтобы передать книгу в дар Информационно-библиотечному комплексу ВоГУ,
-        ознакомтесь с Положением
+        ознакомтесь с Положением{" "}
         <a href="http://localhost:3000/library/donation">
-          О комплектовании фондов ИБК ВоГУ
+          О комплектовании фондов ИБК ВоГУ.
         </a>
       </Text>
       <Text strong className={css.text}>

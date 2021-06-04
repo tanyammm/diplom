@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Space, Dropdown, Affix } from "antd";
+
 import {
   SearchOutlined,
   ShoppingCartOutlined,
@@ -12,6 +13,7 @@ import {
   StyledSubMenu,
   StyledMenuItem,
   StyledSearchInput,
+  StyledBadge,
 } from "./styled";
 import "antd/dist/antd.css";
 import css from "./header.module.css";
@@ -25,10 +27,13 @@ const Header = () => {
   const category6 = "Художественная литература";
   const category7 = "Периодические издания";
 
-  const { searchBookGeneral, setBookCategory } = useRootData((store) => ({
-    searchBookGeneral: store.mainStore.searchBookGeneral,
-    setBookCategory: store.mainStore.setBookCategory,
-  }));
+  const { searchBookGeneral, setBookCategory, numberPurchases } = useRootData(
+    (store) => ({
+      searchBookGeneral: store.mainStore.searchBookGeneral,
+      setBookCategory: store.mainStore.setBookCategory,
+      numberPurchases: store.mainStore.numberPurchases,
+    })
+  );
 
   const Catalog = (
     <StyledMenu className={css.menu}>
@@ -137,9 +142,11 @@ const Header = () => {
           </Button>
         </Link>
         <Link to="/library/development">
-          <Button className={css.shoppin} type="link">
-            <ShoppingCartOutlined />
-          </Button>
+          <StyledBadge count={numberPurchases} offset={[-5, 1]}>
+            <Button className={css.shoppin} type="link">
+              <ShoppingCartOutlined />
+            </Button>
+          </StyledBadge>
         </Link>
       </div>
     </Affix>
