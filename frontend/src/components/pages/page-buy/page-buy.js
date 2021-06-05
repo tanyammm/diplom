@@ -27,6 +27,7 @@ const PageBuy = () => {
     setOrderStatus,
     setError,
     numberOrder,
+    clearCount,
   } = useRootData((store) => ({
     quantityProducts: store.mainStore.quantityProducts,
     numberPurchases: store.mainStore.numberPurchases,
@@ -36,6 +37,7 @@ const PageBuy = () => {
     setOrderStatus: store.mainStore.setOrderStatus,
     setError: store.mainStore.setError,
     numberOrder: store.mainStore.numberOrder,
+    clearCount: store.mainStore.clearCount,
   }));
 
   const [form] = Form.useForm();
@@ -48,6 +50,7 @@ const PageBuy = () => {
           form.resetFields();
           getDataBuyer(value);
           setOrderStatus(false);
+          clearCount();
         })
         .catch((error) => {
           setError(error);

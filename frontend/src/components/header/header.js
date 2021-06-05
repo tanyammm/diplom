@@ -38,7 +38,7 @@ const Header = () => {
   const Catalog = (
     <StyledMenu className={css.menu}>
       <StyledSubMenu key="1" title="Учебно-научная литература">
-        <StyledMenuItem>
+        <StyledMenuItem key={category1}>
           <Link
             to="/library/catalog"
             className={css.subMenu}
@@ -47,7 +47,7 @@ const Header = () => {
             {category1}
           </Link>
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem key={category2}>
           <Link
             to="/library/catalog"
             className={css.subMenu}
@@ -56,7 +56,7 @@ const Header = () => {
             {category2}
           </Link>
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem key={category3}>
           <Link
             to="/library/catalog"
             className={css.subMenu}
@@ -65,7 +65,7 @@ const Header = () => {
             {category3}
           </Link>
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem key={category4}>
           <Link
             to="/library/catalog"
             className={css.subMenu}
@@ -75,17 +75,17 @@ const Header = () => {
           </Link>
         </StyledMenuItem>
       </StyledSubMenu>
-      <StyledMenuItem key="2">
+      <StyledMenuItem key={category5}>
         <Link to="/library/catalog" onClick={() => setBookCategory(category5)}>
           {category5}
         </Link>
       </StyledMenuItem>
-      <StyledMenuItem key="3">
+      <StyledMenuItem key={category6}>
         <Link to="/library/catalog" onClick={() => setBookCategory(category6)}>
           {category6}
         </Link>
       </StyledMenuItem>
-      <StyledMenuItem key="4">
+      <StyledMenuItem key={category7}>
         <Link to="/library/catalog" onClick={() => setBookCategory(category7)}>
           {category7}
         </Link>
@@ -141,7 +141,7 @@ const Header = () => {
             <UserOutlined />
           </Button>
         </Link>
-        <Link to="/library/development">
+        <Link to="/library/buy">
           <StyledBadge count={numberPurchases} offset={[-5, 1]}>
             <Button className={css.shoppin} type="link">
               <ShoppingCartOutlined />

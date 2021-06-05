@@ -1,20 +1,30 @@
 .catalog {
     display: flex;
-    flex-direction: column;
-}
-
-.list {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 40px;
-    font-family: "Montserrat", sans-serif;
+    flex-direction: column;    
     margin-left: 15%;
     margin-right: 15%;
 }
 
+.list {
+    margin-bottom: 40px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.img {
+    padding-left: 50px;    
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
 .card {
-    width: 50%;
-    height: 50%;
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    height: 440,03px;
+    background: #F6F6F6;
+}
+
+.button {
+    width: 224px;
+    height: 46px;
 }

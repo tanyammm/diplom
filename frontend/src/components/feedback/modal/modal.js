@@ -124,9 +124,10 @@ const Modal = () => {
               Другое
               {themeModal === "Другое" ? (
                 <Input
-                  placeholder="Тема сообщения"
-                  style={{ width: 200, marginLeft: 10 }}
+                  bordered={false}
+                  style={{ marginLeft: 10 }}
                   onChange={onChangeInput}
+                  className={css.input}
                 />
               ) : null}
             </Radio>

@@ -61,11 +61,21 @@ export const createStore = () => {
       this.elements = card.filter((item) => item.title === value);
     },
 
-    /* количество покупок в корзине */
-    numberPurchases: 7,
-
     /* сумма покупок */
-    quantityProducts: 900,
+    quantityProducts: 0,
+
+    /* количество покупок в корзине */
+    numberPurchases: 0,
+
+    clearCount() {
+      this.numberPurchases = 0;
+      this.quantityProducts = 0;
+    },
+
+    addShopping(value) {
+      this.numberPurchases += 1;
+      this.quantityProducts += value;
+    },
 
     /* статус заказа */
     orderStatus: true,
