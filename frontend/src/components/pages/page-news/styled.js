@@ -14,10 +14,6 @@ export const StyledList = styled(List)`
     background: #f6f6f6;
     margin-bottom: 2%;
   }
-
-  .ant-pagination {
-    text-align: center;
-  }
 `;
 
 export const StyledListItem = styled(List.Item)`

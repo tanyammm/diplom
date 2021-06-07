@@ -115,11 +115,9 @@ const Modal = () => {
             value={themeModal}
             onChange={onChangeRadio}
           >
-            <Radio value="Предложение сотрудничества">
-              Предложение сотрудничества
-            </Radio>
-            <Radio value="Технические неполадки">Технические неполадки</Radio>
-            <Radio value="Задать вопрос">Задать вопрос</Radio>
+            <Radio value="Вопрос">Вопрос</Radio>
+            <Radio value="Сайт">Сайт</Radio>
+            <Radio value="Предложение">Предложение</Radio>
             <Radio value="Другое">
               Другое
               {themeModal === "Другое" ? (

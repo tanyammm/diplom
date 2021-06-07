@@ -1,0 +1,88 @@
+.book {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 40px;
+}
+
+.name {
+    padding-bottom: 0% !important;
+}
+
+.divider {
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.block {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 3%;
+}
+
+.img {
+    max-width: 312px;
+    max-height: 460px;
+}
+
+.group {
+    display: flex;
+    flex-direction: column; 
+    padding-left: 4%;
+}
+
+.description {
+    display: flex;
+    min-width: 600px;
+}
+
+.label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    min-width: max-content;
+}
+
+.data {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-start;
+    min-width: 200px;
+}
+
+.price {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+}
+
+.ruble {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.title {
+    justify-content: flex-start !important;
+}
+
+.text {
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.document {
+   display: flex;
+   justify-content: center;
+   flex-direction: row;
+   align-items: center;
+}
+
+.button {
+    width: 220px;
+    height: 51.74px;
+    font-size: 18px;
+    margin-top: 5%;
+    font-family: "Montserrat", sans-serif;
+}

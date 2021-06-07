@@ -20,6 +20,10 @@ const PageCatalog = () => {
     <div className={css.catalog}>
       <StyledTitle level={2}>{selectBookCategory}</StyledTitle>
       <List
+        pagination={{
+          pageSize: 20,
+          showSizeChanger: false,
+        }}
         grid={{
           gutter: 86,
           xs: 1,
@@ -33,23 +37,12 @@ const PageCatalog = () => {
         dataSource={card}
         renderItem={(item) => (
           <List.Item key={item.title}>
-            <StyledCard
-              key={item.title}
-              className={css.card}
-              hoverable
-              cover={
-                <Image
-                  src={img}
-                  className={css.img}
-                  title="Увеличить обложку"
-                  alt="обложка книги"
-                />
-              }
-            >
+            <StyledCard key={item.title} className={css.card} hoverable>
               <Link to="/library/book">
+                <Image src={img} alt="Обложка книги" preview={false} />
                 <StyledMeta title={item.title} description={item.author} />
+                <StyledTitle level={5}>{item.price} ₽</StyledTitle>
               </Link>
-              <StyledTitle level={5}>{item.price} ₽</StyledTitle>
               <StyledButton
                 type="primary"
                 className={css.button}
@@ -57,7 +50,7 @@ const PageCatalog = () => {
                   addShopping(item.price);
                 }}
               >
-                Купить
+                Добавить
               </StyledButton>
             </StyledCard>
           </List.Item>

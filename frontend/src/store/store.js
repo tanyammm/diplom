@@ -90,6 +90,12 @@ export const createStore = () => {
 
     /* номер заказа */
     numberOrder: 1236,
+
+    /* предпросмотр книги */
+    numberPage: 1,
+    setNumberPage(value) {
+      this.numberPage += value;
+    },
   };
 
   return store;

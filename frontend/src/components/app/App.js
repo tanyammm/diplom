@@ -8,7 +8,7 @@ import Footer from "../footer";
 import PageNews from "../pages/page-news";
 import PageCatalog from "../pages/page-catalog";
 import PageBuy from "../pages/page-buy";
-import PageFour from "../pages/page-four";
+import PageBook from "../pages/page-book";
 import Authorization from "../authorization";
 import Register from "../register";
 import PageError from "../page-error";
@@ -32,7 +32,7 @@ const App = () => {
             <Route exact path="/library/services" component={PageDevelopment} />
             <Route exact path="/library/stocks" component={PageDevelopment} />
             <Route exact path="/library/donation" component={PageDonation} />
-            <Route exact path="/library/book" component={PageFour} />
+            <Route exact path="/library/book" component={PageBook} />
             <Route
               exact
               path="/library/authorization"
