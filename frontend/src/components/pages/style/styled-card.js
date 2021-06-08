@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 const { Meta } = Card;
 
 export const StyledCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  background: #f6f6f6;
   cursor: default;
   .ant-card-body {
     display: flex;

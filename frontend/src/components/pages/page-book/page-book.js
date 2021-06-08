@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Image, Button, Divider } from "antd";
+import { Typography, Image, Divider, Carousel, List } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Document, Page, pdfjs } from "react-pdf";
 import ErrorHandling from "./error-handling";
@@ -7,12 +7,18 @@ import StyledTitle from "../style/styled-title";
 import StyledText from "../style/styled-text";
 import StyledSpin from "../style/styled-spin";
 import StyledButton from "../style/styled-button";
+import StyledButtonLeaf from "../style/styled-button-leaf";
+import { StyledCard, StyledMeta } from "../style/styled-card";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";
 import pdf from "./infos.pdf";
 import "antd/dist/antd.css";
 import css from "./page-book.module.css";
+
+const carouselOne = card.slice(0, 4);
+const carouselTwo = card.slice(4, 8);
+const carouselThree = card.slice(8, 12);
 
 const PageBook = () => {
   const { numberPage, setNumberPage, addShopping } = useRootData((store) => ({
@@ -23,6 +29,41 @@ const PageBook = () => {
 
   const { Text } = Typography;
 
+  const moveList = (value) => {
+    return (
+      <List
+        grid={{
+          gutter: 86,
+          xs: 1,
+          sm: 1,
+          md: 2,
+          lg: 2,
+          xl: 3,
+          xxl: 4,
+        }}
+        className={css.list}
+        dataSource={value}
+        renderItem={(item) => (
+          <List.Item key={item.title}>
+            <StyledCard key={item.title} hoverable>
+              <Image src={img} alt="Обложка книги" preview={false} />
+              <StyledMeta title={item.title} description={item.author} />
+              <StyledTitle level={5}>{item.price} ₽</StyledTitle>
+              <StyledButton
+                type="primary"
+                className={css.buy}
+                onClick={() => {
+                  addShopping(item.price);
+                }}
+              >
+                Добавить
+              </StyledButton>
+            </StyledCard>
+          </List.Item>
+        )}
+      />
+    );
+  };
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
   return (
@@ -83,9 +124,9 @@ const PageBook = () => {
           </StyledButton>
         </div>
       </div>
-      <StyledTitle level={4} className={css.title}>
-        Описание
-      </StyledTitle>
+      <Divider orientation="left" className={css.title}>
+        <StyledTitle level={4}>Описание</StyledTitle>
+      </Divider>
       <StyledText className={css.text}>
         В сборнике представлены материалы по информатизации процессов управления
         в различных отраслях промышленного производства, компьютерному
@@ -97,13 +138,13 @@ const PageBook = () => {
         предназначены для научно-технических работников, преподавателей,
         студентов, аспирантов вузов и других учреждений.
       </StyledText>
-      <StyledTitle level={4} className={css.title}>
-        Ключевые слова
-      </StyledTitle>
+      <Divider orientation="left" className={css.title}>
+        <StyledTitle level={4}>Ключевые слова</StyledTitle>
+      </Divider>
       <StyledText className={css.text}>{card[0].keywords}</StyledText>
-      <StyledTitle level={4} className={css.title}>
-        Предпросмотр
-      </StyledTitle>
+      <Divider orientation="left" className={css.title}>
+        <StyledTitle level={4}>Ознакомительный фрагмент</StyledTitle>
+      </Divider>
       <Document
         className={css.document}
         loading={<StyledSpin />}
@@ -112,39 +153,45 @@ const PageBook = () => {
         error={ErrorHandling}
         onSourceError={ErrorHandling}
       >
-        <Button
+        <StyledButtonLeaf
           shape="circle"
           type="primary"
+          size="large"
           disabled={numberPage <= 1}
           onClick={() => {
             setNumberPage(-1);
           }}
         >
           <LeftOutlined />
-        </Button>
-        <div style={{ minHeight: "85vh" }}>
-          <Page
-            pageNumber={numberPage}
-            error={ErrorHandling}
-            noData={ErrorHandling}
-            onRenderError={ErrorHandling}
-            loading={<StyledSpin />}
-          />
-        </div>
-        <Button
+        </StyledButtonLeaf>
+        <Page
+          className={css.page}
+          pageNumber={numberPage}
+          error={ErrorHandling}
+          noData={ErrorHandling}
+          onRenderError={ErrorHandling}
+          loading="Загрузка"
+        />
+        <StyledButtonLeaf
           shape="circle"
           type="primary"
+          size="large"
           disabled={numberPage >= 10}
           onClick={() => {
             setNumberPage(1);
           }}
         >
           <RightOutlined />
-        </Button>
+        </StyledButtonLeaf>
       </Document>
-      <StyledTitle level={4} className={css.title}>
-        Рекомендации
-      </StyledTitle>
+      <Divider orientation="left" className={css.title}>
+        <StyledTitle level={4}>Рекомендации</StyledTitle>
+      </Divider>
+      <Carousel autoplay className={css.carousel}>
+        <div>{moveList(carouselOne)}</div>
+        <div>{moveList(carouselTwo)}</div>
+        <div>{moveList(carouselThree)}</div>
+      </Carousel>
     </div>
   );
 };

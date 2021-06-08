@@ -2,22 +2,16 @@
     display: flex;
     flex-direction: column;    
     margin-left: 15%;
-    margin-right: 15%;
+    margin-right: 15%;    
+    margin-bottom: 40px;
 }
 
 .list {
-    margin-bottom: 40px;
     font-family: "Montserrat", sans-serif;
 }
 
 :global(.ant-pagination ) {
     text-align: center;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    background: #F6F6F6;
 }
 
 .button {

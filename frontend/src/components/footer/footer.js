@@ -15,7 +15,7 @@ const Footer = () => {
     <footer className={css.footer} data-testid="footer">
       <div>
         <StyledTitle>О библиотеке</StyledTitle>
-        <StyledLink to="/library/development/">О библиотеке</StyledLink>
+        <StyledLink to="/library/about">О нас</StyledLink>
         <StyledLink to="/library/">Новости</StyledLink>
         <StyledLink to="/library/development/">Время работы</StyledLink>
       </div>

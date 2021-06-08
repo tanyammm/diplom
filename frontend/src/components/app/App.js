@@ -15,6 +15,7 @@ import PageError from "../page-error";
 import PageDevelopment from "../pages/page-development";
 import PageSearch from "../pages/page-search";
 import PageDonation from "../pages/page-donation";
+import PageAbout from "../pages/page-about";
 import BackTopButton from "./back-top";
 import "antd/dist/antd.css";
 
@@ -32,6 +33,7 @@ const App = () => {
             <Route exact path="/library/services" component={PageDevelopment} />
             <Route exact path="/library/stocks" component={PageDevelopment} />
             <Route exact path="/library/donation" component={PageDonation} />
+            <Route exact path="/library/about" component={PageAbout} />
             <Route exact path="/library/book" component={PageBook} />
             <Route
               exact
@@ -39,7 +41,7 @@ const App = () => {
               component={Authorization}
             />
             <Route exact path="/library/register" component={Register} />
-            <Route exact path="/library/search" component={PageSearch} />{" "}
+            <Route exact path="/library/search" component={PageSearch} />
             <Route
               exact
               path="/library/development"

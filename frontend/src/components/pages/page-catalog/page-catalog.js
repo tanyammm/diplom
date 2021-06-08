@@ -3,7 +3,7 @@ import { List, Image } from "antd";
 import { Link } from "react-router-dom";
 import StyledButton from "../style/styled-button";
 import StyledTitle from "../style/styled-title";
-import { StyledCard, StyledMeta } from "./styled";
+import { StyledCard, StyledMeta } from "../style/styled-card";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";
@@ -37,7 +37,7 @@ const PageCatalog = () => {
         dataSource={card}
         renderItem={(item) => (
           <List.Item key={item.title}>
-            <StyledCard key={item.title} className={css.card} hoverable>
+            <StyledCard key={item.title} hoverable>
               <Link to="/library/book">
                 <Image src={img} alt="Обложка книги" preview={false} />
                 <StyledMeta title={item.title} description={item.author} />
