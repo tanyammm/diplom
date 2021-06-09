@@ -18,7 +18,7 @@ const handlePrev = () => carousel.current.prev();
 
 const Imgs = (
   <div>
-    <Carousel className={css.carousel} autoplay ref={carousel}>
+    <Carousel className={css.carousel} autoplay ref={carousel} dots={false}>
       <div>
         <h3 className={css.content}>
           <img className={css.img} src={img1} alt="фотография с книгами" />

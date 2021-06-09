@@ -96,35 +96,38 @@ const Header = () => {
   return (
     <Affix className={css.header} data-testid="header">
       <div className={css.block}>
-        <Link to="/library/">
-          <div className={css.logo}>
-            <div className={css.voguLogo} />
-            <Button type="link" className={css.text}>
-              Информационно-библиотечный комплекс ВоГУ
-            </Button>
+        <div className={css.logo}>
+          <div className={css.voguLogo} />
+          <div className={css.text}>
+            Информационно-библиотечный комплекс ВоГУ
           </div>
-        </Link>
+        </div>
         <Space className={css.rowButtons}>
+          <Link to="/library/">
+            <Button type="link" className={css.button}>
+              Новости
+            </Button>
+          </Link>
           <Dropdown overlay={Catalog} className={css.catalog}>
             <Button type="link" className={css.buttonCatalog}>
               Книги
             </Button>
           </Dropdown>
-          <Link to="/library/services">
+          <Link to="/library/about">
             <Button type="link" className={css.button}>
-              Услуги
+              ИБК
             </Button>
           </Link>
-          <Link to="/library/stocks">
+          <Link to="/library/about">
             <Button type="link" className={css.button}>
-              Акции
+              Студентам
             </Button>
           </Link>
-          <Link to="/library/donation">
+          <a href="https://vogu35.ru/">
             <Button type="link" className={css.button}>
-              Книга в дар
+              ВоГУ
             </Button>
-          </Link>
+          </a>
         </Space>
         <StyledSearchInput
           className={css.search}

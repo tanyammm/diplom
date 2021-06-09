@@ -7,9 +7,8 @@ export const StyledTitle = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  display: flex;
-  width: max-content;
   font-size: 14px;
+  width: fit-content;
   padding-bottom: 10px;
   color: #ffffff;
 

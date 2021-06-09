@@ -1,11 +1,35 @@
 .donation {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
     margin-bottom: 40px;
-    text-align: center;
     margin-left: 15%;
     margin-right: 15%;
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #F6F6F6;
+    padding: 2%;
+    min-width: 301px;
+}
+
+.buttun {    
+    margin-top: 45%;
+    padding: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .text {
@@ -14,7 +38,6 @@
     text-align: left;
     font-family: "Montserrat", sans-serif;
     font-style: normal;
-    font-weight: 300;
     font-size: 15px;
     padding-top: 15px;
 }

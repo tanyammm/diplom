@@ -9,6 +9,7 @@ const Feedback = () => {
   const { openShowModal } = useRootData((store) => ({
     openShowModal: store.mainStore.openShowModal,
   }));
+
   return (
     <div>
       <Affix offsetTop={508.96}>

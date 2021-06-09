@@ -5,8 +5,8 @@ const { Text } = Typography;
 
 const StyledText = styled(Text)`
   font-family: "Montserrat", sans-serif;
+  color: #000000;
   display: flex;
-  font-weight: 300;
   font-size: 15px;
 `;
 

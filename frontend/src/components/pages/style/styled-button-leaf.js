@@ -23,8 +23,8 @@ const StyledButtonLeaf = styled(Button)`
   }
 
   &:disabled {
-    background: #ffffff !important;
-    border-color: #ffffff !important;
+    background: #f6f6f6 !important;
+    border-color: #f6f6f6 !important;
   }
 `;
 
