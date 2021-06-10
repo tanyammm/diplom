@@ -120,7 +120,7 @@ const PageBook = () => {
               addShopping(card[0].price);
             }}
           >
-            Купить
+            Добавить
           </StyledButton>
         </div>
       </div>

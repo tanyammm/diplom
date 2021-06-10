@@ -93,6 +93,29 @@ const Header = () => {
     </StyledMenu>
   );
 
+  const Menu = (
+    <StyledMenu className={css.menu}>
+      <StyledMenuItem key="О нас">
+        <Link to="/library/about">О нас</Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="Книга в дар">
+        <Link to="/library/donation">Книга в дар</Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="Центр СИиРБТ ВоГУ">
+        <Link to="/library/centre">Центр СИиРБТ ВоГУ</Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="Документы">
+        <Link to="/library/documents">Документы</Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="Контакты и режим работы">
+        <Link to="/library/contacts">Контакты и режим работы</Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="ВоГУ">
+        <a href="https://vogu35.ru/">ВоГУ</a>
+      </StyledMenuItem>
+    </StyledMenu>
+  );
+
   return (
     <Affix className={css.header} data-testid="header">
       <div className={css.block}>
@@ -113,21 +136,21 @@ const Header = () => {
               Книги
             </Button>
           </Dropdown>
-          <Link to="/library/about">
-            <Button type="link" className={css.button}>
-              ИБК
-            </Button>
-          </Link>
-          <Link to="/library/about">
+          <Link to="/library/educational">
             <Button type="link" className={css.button}>
               Студентам
             </Button>
           </Link>
-          <a href="https://vogu35.ru/">
+          <Dropdown overlay={Menu} className={css.catalog}>
+            <Button type="link" className={css.buttonCatalog}>
+              Об ИБК
+            </Button>
+          </Dropdown>
+          {/* <a href="https://vogu35.ru/">
             <Button type="link" className={css.button}>
               ВоГУ
             </Button>
-          </a>
+          </a> */}
         </Space>
         <StyledSearchInput
           className={css.search}

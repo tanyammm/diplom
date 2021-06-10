@@ -96,6 +96,21 @@ export const createStore = () => {
     setNumberPage(value) {
       this.numberPage += value;
     },
+
+    /* авторизация и регистрация */
+    sendAuthorization(value) {
+      sendEmailFeedback(value.login, value.password);
+    },
+    sendRegister(value) {
+      sendEmailFeedback(
+        value.surname,
+        value.name,
+        value.patronymic,
+        value.email,
+        value.phone,
+        value.password
+      );
+    },
   };
 
   return store;

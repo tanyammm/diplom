@@ -9,11 +9,12 @@ import PageNews from "../pages/page-news";
 import PageCatalog from "../pages/page-catalog";
 import PageBuy from "../pages/page-buy";
 import PageBook from "../pages/page-book";
-import Authorization from "../authorization";
-import Register from "../register";
+import PageAuthorization from "../pages/page-authorization";
+import PageRegister from "../pages/page-register";
 import PageError from "../page-error";
 import PageSearch from "../pages/page-search";
 import PageDonation from "../pages/page-donation";
+import PageDevelopment from "../pages/page-development";
 import PageAbout from "../pages/page-about";
 import PageCentre from "../pages/page-centre";
 import PageEducational from "../pages/page-educational";
@@ -33,6 +34,7 @@ const App = () => {
             <Route exact path="/library/" component={PageNews} />
             <Route exact path="/library/catalog" component={PageCatalog} />
             <Route exact path="/library/buy" component={PageBuy} />
+            <Route exact path="/library/services" component={PageDevelopment} />
             <Route exact path="/library/donation" component={PageDonation} />
             <Route exact path="/library/centre" component={PageCentre} />
             <Route
@@ -45,9 +47,9 @@ const App = () => {
             <Route
               exact
               path="/library/authorization"
-              component={Authorization}
+              component={PageAuthorization}
             />
-            <Route exact path="/library/register" component={Register} />
+            <Route exact path="/library/register" component={PageRegister} />
             <Route exact path="/library/search" component={PageSearch} />
             <Route exact path="/library/documents" component={PageDocuments} />
             <Route exact path="/library/contacts" component={PageContacts} />

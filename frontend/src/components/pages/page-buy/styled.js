@@ -14,7 +14,6 @@ const StyledAlert = styled(Alert)`
 
   .ant-alert-message {
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
     font-size: 18px;
   }
 

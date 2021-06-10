@@ -57,6 +57,23 @@ export const ModalPhone = () => {
   );
 };
 
+export const ModalPassword = () => {
+  return (
+    <Form.Item
+      label="Пароль"
+      name="password"
+      rules={[
+        {
+          required: true,
+          message: "Вы не ввели пароль",
+        },
+      ]}
+    >
+      <Input.Password placeholder="********" />
+    </Form.Item>
+  );
+};
+
 export const ModalCheckbox = () => {
   return (
     <div className={css.checkbox}>
