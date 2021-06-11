@@ -13,32 +13,37 @@
 
 .block {
     display: flex;
-    flex-direction: column;
-}
+    flex-direction: column; 
+    margin-right: 3%;
+}   
 
 .card {
     display: flex;
     flex-direction: column;
     background: #F6F6F6;
     padding: 2%;
-    min-width: 301px;
-}
-
-.buttun {    
-    margin-top: 45%;
-    padding: 12%;
-    display: flex;
+    min-width: 460px;
     justify-content: center;
     align-items: center;
 }
 
+.buttun {    
+    width: 220px;
+    padding-top: 27px;
+    padding-bottom: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin-bottom: 20px;
+}
+
 .text {
     text-indent: 30px; 
-    font-size: 18px;
-    text-align: left;
-    font-family: "Montserrat", sans-serif;
-    font-style: normal;
-    font-size: 15px;
-    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.name {
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 

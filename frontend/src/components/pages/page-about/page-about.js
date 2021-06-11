@@ -250,6 +250,25 @@ const PageAbout = () => {
           />
         </Image.PreviewGroup>
       </div>
+      <Divider orientation="left" className={css.title}>
+        <StyledTitle level={4}>Контакты</StyledTitle>
+      </Divider>
+      <StyledText className={css.text}>
+        Адрес: 160000, г. Вологда, ул. Галкинская, 1;
+      </StyledText>
+      <StyledText className={css.text}>
+        телефон: 8 (8172) 72-10-12; факс: 8 (8172) 72-54-48;
+      </StyledText>
+      <StyledText className={css.text}>e-mail: lib@vogu35.ru</StyledText>
+      <StyledText className={css.text}>
+        Интернет-сайт: www.library.vogu35.ru
+      </StyledText>
+      <StyledText className={css.text}>
+        Директор библиотеки: Меньшакова Любовь Владимировна,
+      </StyledText>
+      <StyledText className={css.text}>
+        тел.: 8 (8172) 72-10-12 (2-76)
+      </StyledText>
     </div>
   );
 };

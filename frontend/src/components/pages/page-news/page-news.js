@@ -26,7 +26,7 @@ const PageNews = () => {
             actions={[
               <Link
                 key="list-loadmore-edit"
-                to="/library/services"
+                to="/library/development"
                 className={css.farther}
                 data-testid="farther"
               >

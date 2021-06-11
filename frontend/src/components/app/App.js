@@ -20,6 +20,7 @@ import PageCentre from "../pages/page-centre";
 import PageEducational from "../pages/page-educational";
 import PageDocuments from "../pages/page-documents";
 import PageContacts from "../pages/page-contacts";
+import PageServices from "../pages/page-services";
 import BackTopButton from "./back-top";
 import "antd/dist/antd.css";
 
@@ -34,9 +35,14 @@ const App = () => {
             <Route exact path="/library/" component={PageNews} />
             <Route exact path="/library/catalog" component={PageCatalog} />
             <Route exact path="/library/buy" component={PageBuy} />
-            <Route exact path="/library/services" component={PageDevelopment} />
+            <Route
+              exact
+              path="/library/development"
+              component={PageDevelopment}
+            />
             <Route exact path="/library/donation" component={PageDonation} />
             <Route exact path="/library/centre" component={PageCentre} />
+            <Route exact path="/library/services" component={PageServices} />
             <Route
               exact
               path="/library/educational"

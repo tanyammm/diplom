@@ -1,8 +1,15 @@
 import React from "react";
-import { Typography, Form, message } from "antd";
-import { ModalName, ModalEmail, ModalCheckbox, ModalBot } from "../../modal";
+import { Form, message, Input } from "antd";
+import {
+  ModalName,
+  ModalEmail,
+  ModalCheckbox,
+  ModalBot,
+  ModalPhone,
+} from "../../modal";
 import StyledTitle from "../style/styled-title";
 import StyledButton from "../style/styled-button";
+import StyledText from "../style/styled-text";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-donation.module.css";
@@ -14,8 +21,6 @@ const PageDonation = () => {
     setError: store.mainStore.setError,
   }));
 
-  const { Text } = Typography;
-
   const [form] = Form.useForm();
 
   const onSubmit = () => {
@@ -25,6 +30,7 @@ const PageDonation = () => {
         .then((value) => {
           form.resetFields();
           getDataBuyer(value);
+          message.info("Заявка отправлена!");
         })
         .catch((error) => {
           setError(error);
@@ -37,14 +43,11 @@ const PageDonation = () => {
       <StyledTitle level={2}>Книга в дар</StyledTitle>
       <div className={css.group}>
         <div className={css.block}>
-          <Text strong className={css.text}>
+          <StyledText className={css.text}>
             Чтобы передать книгу в дар Информационно-библиотечному комплексу
-            ВоГУ, ознакомтесь с Положением{" "}
-            <a href="http://localhost:3000/library/donation">
-              О комплектовании фондов ИБК ВоГУ.
-            </a>
-          </Text>
-          <Text strong className={css.text}>
+            ВоГУ, ознакомтесь с Положением О комплектовании фондов ИБК ВоГУ.
+          </StyledText>
+          <StyledText className={css.text}>
             Просим заранее, ещё до вашего приезда в библиотеку или до высылки
             изданий почтой, передать нам по телефону или по электронной почте
             информацию о будущих дарах. Мы дорожим вашим временем и не хотим,
@@ -58,7 +61,7 @@ const PageDonation = () => {
             заносятся в Книги даров Российской государственной библиотеки.
             Сообщения о наиболее ценных экземплярах размещаются на официальном
             сайте библиотеки.
-          </Text>
+          </StyledText>
         </div>
         <div className={css.block}>
           <div className={css.card}>
@@ -70,7 +73,20 @@ const PageDonation = () => {
               className={css.form}
             >
               <ModalName />
+              <Form.Item
+                name="book"
+                label="Название книги"
+                rules={[
+                  {
+                    required: true,
+                    message: "Вы не ввели название книги",
+                  },
+                ]}
+              >
+                <Input placeholder="Интеллектуально-информационные технологии" />
+              </Form.Item>
               <ModalEmail />
+              <ModalPhone />
               <ModalBot />
               <ModalCheckbox />
             </Form>
@@ -79,17 +95,17 @@ const PageDonation = () => {
               onClick={onSubmit}
               className={css.buttun}
             >
-              Оформить заказ
+              Отправить
             </StyledButton>
           </div>
-          <Text strong className={css.text}>
-            <div>
+          <StyledText className={css.text}>
+            <div className={css.name}>
               Контакты:
               <div>E-mail: library@vogu35.ru, lib@vogu35.ru</div>
               <div>Телефон: 8 (8172) 72-10-12</div>
               <div>Адрес: Вологда, ул. Галкинская, 1, корп. 2</div>
             </div>
-          </Text>
+          </StyledText>
         </div>
       </div>
     </div>

@@ -98,6 +98,9 @@ const Header = () => {
       <StyledMenuItem key="О нас">
         <Link to="/library/about">О нас</Link>
       </StyledMenuItem>
+      <StyledMenuItem key="Услуги">
+        <Link to="/library/services">Услуги</Link>
+      </StyledMenuItem>
       <StyledMenuItem key="Книга в дар">
         <Link to="/library/donation">Книга в дар</Link>
       </StyledMenuItem>
