@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, message, Input } from "antd";
+import { Form, message, Input, Upload, Button } from "antd";
+import { PaperClipOutlined } from "@ant-design/icons";
 import {
   ModalName,
   ModalEmail,
@@ -88,6 +89,9 @@ const PageDonation = () => {
               <ModalEmail />
               <ModalPhone />
               <ModalBot />
+              <Upload className={css.upload}>
+                <Button icon={<PaperClipOutlined />}>Прикрепить файлы</Button>
+              </Upload>
               <ModalCheckbox />
             </Form>
             <StyledButton

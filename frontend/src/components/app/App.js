@@ -21,6 +21,7 @@ import PageEducational from "../pages/page-educational";
 import PageDocuments from "../pages/page-documents";
 import PageContacts from "../pages/page-contacts";
 import PageServices from "../pages/page-services";
+import PageList from "../pages/page-list";
 import BackTopButton from "./back-top";
 import "antd/dist/antd.css";
 
@@ -59,6 +60,7 @@ const App = () => {
             <Route exact path="/library/search" component={PageSearch} />
             <Route exact path="/library/documents" component={PageDocuments} />
             <Route exact path="/library/contacts" component={PageContacts} />
+            <Route exact path="/library/list" component={PageList} />
             <Route exact path="*" component={PageError} />
           </Switch>
         </div>

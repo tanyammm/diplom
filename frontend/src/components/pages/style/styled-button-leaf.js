@@ -5,26 +5,26 @@ const StyledButtonLeaf = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1b418c !important;
-  border-color: #1b418c !important;
+  background: #1b418c;
+  border-color: #1b418c;
   opacity: 0.7;
 
   &:hover,
   &:focus {
-    background: #0a1c40 !important;
-    border-color: #0a1c40 !important;
+    background: #0a1c40;
+    border-color: #0a1c40;
     opacity: 0.9;
   }
 
   &:active {
-    background: #000000 !important;
-    border-color: #000000 !important;
+    background: #000000;
+    border-color: #000000;
     opacity: 0.9;
   }
 
   &:disabled {
-    background: #f6f6f6 !important;
-    border-color: #f6f6f6 !important;
+    background: #f6f6f6;
+    border-color: #f6f6f6;
   }
 `;
 

@@ -2,18 +2,18 @@ import { Button } from "antd";
 import styled from "@emotion/styled";
 
 const StyledButton = styled(Button)`
-  background: #fa8c16 !important;
-  border-color: #fa8c16 !important;
+  background: #fa8c16;
+  border-color: #fa8c16;
 
   &:hover,
   &:focus {
-    background: #ffa940 !important;
-    border-color: #ffa940 !important;
+    background: #ffa940;
+    border-color: #ffa940;
   }
 
   &:active {
-    background: #d46b08 !important;
-    border-color: #d46b08 !important;
+    background: #d46b08;
+    border-color: #d46b08;
   }
 `;
 

@@ -6,6 +6,7 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
   UserOutlined,
+  DownOutlined,
 } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import {
@@ -136,7 +137,7 @@ const Header = () => {
           </Link>
           <Dropdown overlay={Catalog} className={css.catalog}>
             <Button type="link" className={css.buttonCatalog}>
-              Книги
+              Книги <DownOutlined />
             </Button>
           </Dropdown>
           <Link to="/library/educational">
@@ -146,7 +147,7 @@ const Header = () => {
           </Link>
           <Dropdown overlay={Menu} className={css.catalog}>
             <Button type="link" className={css.buttonCatalog}>
-              Об ИБК
+              Об ИБК <DownOutlined />
             </Button>
           </Dropdown>
           {/* <a href="https://vogu35.ru/">
