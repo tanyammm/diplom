@@ -2,7 +2,13 @@
 import React from "react";
 import { Upload, Button, Form, Input, message, Radio } from "antd";
 import { PaperClipOutlined } from "@ant-design/icons";
-import { ModalName, ModalEmail, ModalBot, ModalCheckbox } from "../../modal";
+import {
+  ModalName,
+  ModalEmail,
+  ModalMessage,
+  ModalBot,
+  ModalCheckbox,
+} from "../../modal";
 import { useRootData } from "../../../hooks/use-root-data";
 import StyledModal from "./styled";
 import "antd/dist/antd.css";
@@ -133,18 +139,7 @@ const Modal = () => {
             </Radio>
           </Radio.Group>
         </Form.Item>
-        <Form.Item
-          name="message"
-          label="Сообщение"
-          rules={[
-            {
-              required: true,
-              message: "Вы не ввели сообщение",
-            },
-          ]}
-        >
-          <Input.TextArea placeholder="Текст сообщения" />
-        </Form.Item>
+        <ModalMessage />
         <ModalBot />
         <Upload className={css.upload} {...uploadingFiles}>
           <Button icon={<PaperClipOutlined />}>Прикрепить файлы</Button>

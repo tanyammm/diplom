@@ -25,6 +25,7 @@ const StyledButtonBlue = styled("button")`
 
   &:hover,
   &:focus {
+    color: #096dd9 !important;
     background: var(--white);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
     -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
@@ -36,7 +37,7 @@ const StyledButtonBlue = styled("button")`
 
   &:active {
     border: 3px solid #1b418c; /*бордюр*/
-    background: #f6f6f6;
+    color: #1b418c !important;
   }
 `;
 

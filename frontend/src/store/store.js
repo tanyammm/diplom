@@ -124,6 +124,22 @@ export const createStore = () => {
         value.funding
       );
     },
+
+    /* данные заказчика при подаче заявки в ЦСИиРБТ ВоГУ */
+    getDataCenter(value) {
+      console.log(
+        value.organization,
+        value.name,
+        value.phone,
+        value.email,
+        value.message
+      );
+    },
+    /* статус заказа */
+    centerStatus: true,
+    setCenterStatus(value) {
+      this.centerStatus = value;
+    },
   };
 
   return store;

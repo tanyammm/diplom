@@ -8,8 +8,7 @@ import {
   ModalCheckbox,
   ModalBot,
 } from "../../modal";
-import { StyledTitle, StyledButtonOrange } from "../style";
-import StyledAlert from "./styled";
+import { StyledTitle, StyledButtonOrange, StyledAlert } from "../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-buy.module.css";

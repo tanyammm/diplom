@@ -153,11 +153,6 @@ const Header = () => {
               Об ИБК <DownOutlined />
             </Button>
           </Dropdown>
-          {/* <a href="https://vogu35.ru/">
-            <Button type="link" className={css.button}>
-              ВоГУ
-            </Button>
-          </a> */}
         </Space>
         <StyledSearchInput
           className={css.search}

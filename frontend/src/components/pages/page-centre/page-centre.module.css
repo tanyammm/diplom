@@ -1,4 +1,43 @@
 .centre {
     margin-left: 15%;
-    margin-right: 15%;   
+    margin-right: 15%;  
+}
+
+.text {
+    text-indent: 30px; 
+    margin-bottom: 20px;
+}
+
+.indent {
+    text-indent: 30px; 
+}
+
+.ul {
+    margin-bottom: 20px !important;
+}
+
+.button {
+    padding: 27px 30px;
+    display: flex; 
+    align-items: center;
+}
+
+.space {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contacts {
+    text-indent: 30px; 
+    margin-top: 20px;
+}
+
+.form {
+    min-width: 440px;
+}
+
+.orange {
+    width: 210px;
+    height: 46px;
 }

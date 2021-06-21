@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import { useRootData } from "../../hooks/use-root-data";
 import css from "./modal.module.css";
 
-const { Text } = Typography;
+const { Text, Link } = Typography;
 
 export const ModalName = () => {
   return (
@@ -20,6 +20,23 @@ export const ModalName = () => {
       ]}
     >
       <Input placeholder="Иванов Иван Иванович" />
+    </Form.Item>
+  );
+};
+
+export const ModalMessage = () => {
+  return (
+    <Form.Item
+      name="message"
+      label="Сообщение"
+      rules={[
+        {
+          required: true,
+          message: "Вы не ввели сообщение",
+        },
+      ]}
+    >
+      <Input.TextArea rows={8} placeholder="Текст сообщения" />
     </Form.Item>
   );
 };
@@ -95,9 +112,9 @@ export const ModalCheckbox = () => {
       >
         <Checkbox className={css.checkbox}>
           Даю согласие на{" "}
-          <a href="https://vogu35.ru/politiki/obrabotka-personalnyh-dannyh">
+          <Link href="https://vogu35.ru/politiki/obrabotka-personalnyh-dannyh">
             обработку своих персональных данных
-          </a>
+          </Link>
         </Checkbox>
       </Form.Item>
     </div>

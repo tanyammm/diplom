@@ -37,7 +37,9 @@ const Footer = () => {
       </div>
       <div className={css.blok}>
         <StyledTitle>Контакты</StyledTitle>
-        <StyledLink onClick={openShowModal}>Обратная связь</StyledLink>
+        <StyledLink to="/#" onClick={openShowModal}>
+          Обратная связь
+        </StyledLink>
         <StyledLink to="/library/documents/">Документы</StyledLink>{" "}
         <StyledLink to="/library/contacts/">Контакты и режим работы</StyledLink>
       </div>

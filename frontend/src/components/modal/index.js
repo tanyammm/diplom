@@ -1,5 +1,6 @@
 import {
   ModalName,
+  ModalMessage,
   ModalEmail,
   ModalPhone,
   ModalCheckbox,
@@ -9,6 +10,7 @@ import {
 
 export {
   ModalName,
+  ModalMessage,
   ModalEmail,
   ModalPhone,
   ModalCheckbox,

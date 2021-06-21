@@ -1,5 +1,4 @@
 import { Form, Input, message } from "antd";
-import "antd/dist/antd.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
@@ -16,6 +15,7 @@ import {
   StyledForm,
   StyledButtonBlue,
 } from "../style";
+import "antd/dist/antd.css";
 
 const PageRegister = () => {
   const { sendRegister, botModal, setError } = useRootData((store) => ({

@@ -43,7 +43,7 @@
 }
 
 .carouselRight {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     position: absolute;
     top: 18%;
     right: 0;

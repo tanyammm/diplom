@@ -1,8 +1,10 @@
 import React from "react";
-import { Divider, Image } from "antd";
+import { Divider, Image, Typography } from "antd";
 import { StyledTitle, StyledText } from "../style";
 import "antd/dist/antd.css";
 import css from "./page-about.module.css";
+
+const { Text } = Typography;
 
 const PageAbout = () => {
   return (
@@ -273,17 +275,19 @@ const PageAbout = () => {
         <StyledTitle level={4}>Контакты</StyledTitle>
       </Divider>
       <StyledText className={css.text}>
-        Адрес: 160000, г. Вологда, ул. Галкинская, 1;
+        <Text strong>Адрес</Text> {": "} 160000, г. Вологда, ул. Галкинская, 1;
       </StyledText>
       <StyledText className={css.text}>
-        телефон: 8 (8172) 72-10-12, факс: 8 (8172) 72-54-48, e-mail:
-        lib@vogu35.ru
+        <Text strong>телефон</Text> {": "} 8 (8172) 72-10-12,
+        <Text strong>факс</Text> {": "} 8 (8172) 72-54-48,
+        <Text strong>e-mail</Text> {": "} lib@vogu35.ru
       </StyledText>
       <StyledText className={css.text}>
-        Интернет-сайт: www.library.vogu35.ru
+        <Text strong>Интернет-сайт</Text> {": "} www.library.vogu35.ru
       </StyledText>
       <StyledText className={css.text}>
-        Директор ИБК: Воскресенская Оксана Владимировна,
+        <Text strong>Директор ИБК</Text> {": "} Воскресенская Оксана
+        Владимировна,
       </StyledText>
       <StyledText className={css.text}>
         тел.: 8 (8172) 72-10-12 (2-76), e-mail: voskresenskaiaov@vogu35.ru
