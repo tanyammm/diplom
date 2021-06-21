@@ -1,5 +1,9 @@
-.list {
-    margin-left: 15%;
-    margin-right: 15%;   
-    margin-bottom: 40px; 
+.form {
+    margin-top: 20px;
+    min-width: 440px;
+}
+
+.button {
+    width: 210px;
+    height: 46px;
 }

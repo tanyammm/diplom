@@ -1,9 +1,10 @@
 import { Button } from "antd";
 import styled from "@emotion/styled";
 
-const StyledButton = styled(Button)`
+const StyledButtonOrange = styled(Button)`
   background: #fa8c16;
   border-color: #fa8c16;
+  border-radius: 3px;
 
   &:hover,
   &:focus {
@@ -17,4 +18,4 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export default StyledButton;
+export default StyledButtonOrange;

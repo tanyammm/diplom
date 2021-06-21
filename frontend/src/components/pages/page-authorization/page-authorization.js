@@ -4,9 +4,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
 import { ModalBot, ModalCheckbox, ModalPassword } from "../../modal";
-import StyledTitle from "../style/styled-title";
-import StyledText from "../style/styled-text";
-import css from "./page-authorization.module.css";
+import {
+  StyledText,
+  StyledTitle,
+  StyledForm,
+  StyledButtonBlue,
+} from "../style";
 
 const PageAuthorization = () => {
   const { sendAuthorization, botModal, setError } = useRootData((store) => ({
@@ -35,7 +38,7 @@ const PageAuthorization = () => {
   };
 
   return (
-    <div className={css.authorization}>
+    <StyledForm>
       <StyledTitle level={2}>Авторизация</StyledTitle>
       <Form name="nest-messages" form={form} layout="vertical">
         <Form.Item
@@ -58,10 +61,10 @@ const PageAuthorization = () => {
         У вас нет аккаунта? -{" "}
         <Link to="/library/register">зарегистрируйтесь!</Link>
       </StyledText>
-      <button className={css.login} onClick={onSubmit} type="button">
+      <StyledButtonBlue onClick={onSubmit} type="button">
         Войти
-      </button>
-    </div>
+      </StyledButtonBlue>
+    </StyledForm>
   );
 };
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const StyledTitle = styled.div`
   font-size: 18px;
   padding-bottom: 18px;
+  font-weight: 600;
 `;
 
 export const StyledLink = styled(Link)`

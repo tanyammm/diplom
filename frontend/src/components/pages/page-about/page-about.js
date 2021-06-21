@@ -1,7 +1,6 @@
 import React from "react";
 import { Divider, Image } from "antd";
-import StyledTitle from "../style/styled-title";
-import StyledText from "../style/styled-text";
+import { StyledTitle, StyledText } from "../style";
 import "antd/dist/antd.css";
 import css from "./page-about.module.css";
 
@@ -169,82 +168,102 @@ const PageAbout = () => {
       <div className={css.preview}>
         <Image.PreviewGroup>
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/01_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/02_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/03_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/04_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/05_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/06_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/07_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/08_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/09_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/10_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/11_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/12_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/13_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/14_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/15_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/16_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/17_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/18_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/19_commend.jpg"
           />
           <Image
+            alt="изображение грамоты"
             className={css.img}
             src="http://library.vogu35.ru/images/gr/big/20_commend.jpg"
           />
@@ -257,17 +276,17 @@ const PageAbout = () => {
         Адрес: 160000, г. Вологда, ул. Галкинская, 1;
       </StyledText>
       <StyledText className={css.text}>
-        телефон: 8 (8172) 72-10-12; факс: 8 (8172) 72-54-48;
+        телефон: 8 (8172) 72-10-12, факс: 8 (8172) 72-54-48, e-mail:
+        lib@vogu35.ru
       </StyledText>
-      <StyledText className={css.text}>e-mail: lib@vogu35.ru</StyledText>
       <StyledText className={css.text}>
         Интернет-сайт: www.library.vogu35.ru
       </StyledText>
       <StyledText className={css.text}>
-        Директор библиотеки: Меньшакова Любовь Владимировна,
+        Директор ИБК: Воскресенская Оксана Владимировна,
       </StyledText>
       <StyledText className={css.text}>
-        тел.: 8 (8172) 72-10-12 (2-76)
+        тел.: 8 (8172) 72-10-12 (2-76), e-mail: voskresenskaiaov@vogu35.ru
       </StyledText>
     </div>
   );

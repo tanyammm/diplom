@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon48LogoVk } from "@vkontakte/icons";
+import { Icon28LogoVkColor } from "@vkontakte/icons";
 import { Tooltip } from "antd";
 import { useRootData } from "../../hooks/use-root-data";
 import { StyledTitle, StyledLink } from "./styled";
@@ -49,7 +49,7 @@ const Footer = () => {
         <div className={css.icons} data-testid="icons">
           <Tooltip placement="bottom" title={text} color="#ffffff">
             <a href="https://vk.com/slibvsu">
-              <Icon48LogoVk />
+              <Icon28LogoVkColor width={48} height={48} />
             </a>
           </Tooltip>
         </div>

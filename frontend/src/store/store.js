@@ -111,6 +111,19 @@ export const createStore = () => {
         value.password
       );
     },
+
+    /* данные студента при заказе обходного листа */
+    getDataStudent(value) {
+      console.log(
+        value.name,
+        value.phone,
+        value.email,
+        value.group,
+        value.faculty,
+        value.educational,
+        value.funding
+      );
+    },
   };
 
   return store;

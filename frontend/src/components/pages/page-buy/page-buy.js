@@ -8,8 +8,7 @@ import {
   ModalCheckbox,
   ModalBot,
 } from "../../modal";
-import StyledButton from "../style/styled-button";
-import StyledTitle from "../style/styled-title";
+import { StyledTitle, StyledButtonOrange } from "../style";
 import StyledAlert from "./styled";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
@@ -102,13 +101,13 @@ const PageBuy = () => {
           <div className={css.card}>
             <Text className={css.result}>Итог {quantityProducts} ₽</Text>
             <Text className={css.product}>Товаров {numberPurchases} шт.</Text>
-            <StyledButton
+            <StyledButtonOrange
               type="primary"
               className={css.buttun}
               onClick={onSubmit}
             >
               Оформить заказ
-            </StyledButton>
+            </StyledButtonOrange>
           </div>
         </div>
       ) : (

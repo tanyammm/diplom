@@ -13,7 +13,7 @@ const Maps = () => {
       <Map
         defaultState={mapData}
         modules={["control.ZoomControl", "control.FullscreenControl"]}
-        width="628px"
+        width="580px"
         height="200px"
       >
         <GeoObject

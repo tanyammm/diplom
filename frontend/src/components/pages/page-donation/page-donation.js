@@ -8,9 +8,7 @@ import {
   ModalBot,
   ModalPhone,
 } from "../../modal";
-import StyledTitle from "../style/styled-title";
-import StyledButton from "../style/styled-button";
-import StyledText from "../style/styled-text";
+import { StyledTitle, StyledButtonOrange, StyledText } from "../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-donation.module.css";
@@ -67,12 +65,7 @@ const PageDonation = () => {
         <div className={css.block}>
           <div className={css.card}>
             <StyledTitle level={5}>Оставить заявку</StyledTitle>
-            <Form
-              name="nest-messages"
-              layout="vertical"
-              form={form}
-              className={css.form}
-            >
+            <Form name="nest-messages" layout="vertical" form={form}>
               <ModalName />
               <Form.Item
                 name="book"
@@ -94,13 +87,13 @@ const PageDonation = () => {
               </Upload>
               <ModalCheckbox />
             </Form>
-            <StyledButton
+            <StyledButtonOrange
               type="primary"
               onClick={onSubmit}
               className={css.buttun}
             >
               Отправить
-            </StyledButton>
+            </StyledButtonOrange>
           </div>
           <StyledText className={css.text}>
             <div className={css.name}>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Divider, Image } from "antd";
-import StyledTitle from "../style/styled-title";
-import StyledText from "../style/styled-text";
+import { StyledTitle, StyledText } from "../style";
 import "antd/dist/antd.css";
 import css from "./page-contacts.module.css";
 

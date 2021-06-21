@@ -10,9 +10,12 @@ import {
   ModalCheckbox,
   ModalPassword,
 } from "../../modal";
-import StyledTitle from "../style/styled-title";
-import StyledText from "../style/styled-text";
-import css from "./page-register.module.css";
+import {
+  StyledTitle,
+  StyledText,
+  StyledForm,
+  StyledButtonBlue,
+} from "../style";
 
 const PageRegister = () => {
   const { sendRegister, botModal, setError } = useRootData((store) => ({
@@ -41,7 +44,7 @@ const PageRegister = () => {
   };
 
   return (
-    <div className={css.register}>
+    <StyledForm>
       <StyledTitle level={2}>Регистрация</StyledTitle>
       <Form name="nest-messages" form={form} layout="vertical">
         <Form.Item
@@ -93,10 +96,10 @@ const PageRegister = () => {
         У вас есть аккаунт? -{" "}
         <Link to="/library/authorization">авторизуйтесь!</Link>
       </StyledText>
-      <button className={css.login} onClick={onSubmit} type="button">
+      <StyledButtonBlue onClick={onSubmit} type="button">
         Зарегистрироваться
-      </button>
-    </div>
+      </StyledButtonBlue>
+    </StyledForm>
   );
 };
 

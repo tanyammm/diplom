@@ -1,7 +1,6 @@
 .contacts {
     margin-left: 15%;
     margin-right: 15%;   
-    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;

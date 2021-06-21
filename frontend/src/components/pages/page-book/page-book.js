@@ -3,12 +3,15 @@ import { Typography, Image, Divider, Carousel, List } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Document, Page, pdfjs } from "react-pdf";
 import ErrorHandling from "./error-handling";
-import StyledTitle from "../style/styled-title";
-import StyledText from "../style/styled-text";
-import StyledSpin from "../style/styled-spin";
-import StyledButton from "../style/styled-button";
-import StyledButtonLeaf from "../style/styled-button-leaf";
-import { StyledCard, StyledMeta } from "../style/styled-card";
+import {
+  StyledTitle,
+  StyledText,
+  StyledSpin,
+  StyledButtonOrange,
+  StyledButtonLeaf,
+  StyledCard,
+  StyledMeta,
+} from "../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";
@@ -49,7 +52,7 @@ const PageBook = () => {
               <Image src={img} alt="Обложка книги" preview={false} />
               <StyledMeta title={item.title} description={item.author} />
               <StyledTitle level={5}>{item.price} ₽</StyledTitle>
-              <StyledButton
+              <StyledButtonOrange
                 type="primary"
                 className={css.buy}
                 onClick={() => {
@@ -57,7 +60,7 @@ const PageBook = () => {
                 }}
               >
                 Добавить
-              </StyledButton>
+              </StyledButtonOrange>
             </StyledCard>
           </List.Item>
         )}
@@ -113,7 +116,7 @@ const PageBook = () => {
               ₽
             </Text>
           </div>
-          <StyledButton
+          <StyledButtonOrange
             type="primary"
             className={css.button}
             onClick={() => {
@@ -121,7 +124,7 @@ const PageBook = () => {
             }}
           >
             Добавить
-          </StyledButton>
+          </StyledButtonOrange>
         </div>
       </div>
       <Divider orientation="left" className={css.title}>

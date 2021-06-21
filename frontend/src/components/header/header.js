@@ -99,14 +99,17 @@ const Header = () => {
       <StyledMenuItem key="О нас">
         <Link to="/library/about">О нас</Link>
       </StyledMenuItem>
-      <StyledMenuItem key="Услуги">
-        <Link to="/library/services">Услуги</Link>
+      <StyledMenuItem key="Обходной лист">
+        <Link to="/library/list">Обходной лист</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Книга в дар">
         <Link to="/library/donation">Книга в дар</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Центр СИиРБТ ВоГУ">
         <Link to="/library/centre">Центр СИиРБТ ВоГУ</Link>
+      </StyledMenuItem>
+      <StyledMenuItem key="Услуги">
+        <Link to="/library/services">Услуги</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Документы">
         <Link to="/library/documents">Документы</Link>

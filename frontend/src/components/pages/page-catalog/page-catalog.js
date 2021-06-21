@@ -1,9 +1,12 @@
 import React from "react";
 import { List, Image } from "antd";
 import { Link } from "react-router-dom";
-import StyledButton from "../style/styled-button";
-import StyledTitle from "../style/styled-title";
-import { StyledCard, StyledMeta } from "../style/styled-card";
+import {
+  StyledButtonOrange,
+  StyledTitle,
+  StyledCard,
+  StyledMeta,
+} from "../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";
@@ -43,7 +46,7 @@ const PageCatalog = () => {
                 <StyledMeta title={item.title} description={item.author} />
                 <StyledTitle level={5}>{item.price} ₽</StyledTitle>
               </Link>
-              <StyledButton
+              <StyledButtonOrange
                 type="primary"
                 className={css.button}
                 onClick={() => {
@@ -51,7 +54,7 @@ const PageCatalog = () => {
                 }}
               >
                 Добавить
-              </StyledButton>
+              </StyledButtonOrange>
             </StyledCard>
           </List.Item>
         )}
