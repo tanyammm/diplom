@@ -1,5 +1,5 @@
-import { Form, Input, message } from "antd";
 import React from "react";
+import { Form, Input, message } from "antd";
 import { Link } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
 import { ModalBot, ModalCheckbox, ModalPassword } from "../../modal";
@@ -10,6 +10,7 @@ import {
   StyledButtonBlue,
 } from "../style";
 import "antd/dist/antd.css";
+import css from "../style/page-form.module.css";
 
 const PageAuthorization = () => {
   const { sendAuthorization, botModal, setError } = useRootData((store) => ({
@@ -40,7 +41,12 @@ const PageAuthorization = () => {
   return (
     <StyledForm>
       <StyledTitle level={2}>Авторизация</StyledTitle>
-      <Form name="nest-messages" form={form} layout="vertical">
+      <Form
+        name="nest-messages"
+        form={form}
+        layout="vertical"
+        className={css.form}
+      >
         <Form.Item
           label="Логин"
           name="login"
@@ -61,7 +67,7 @@ const PageAuthorization = () => {
         У вас нет аккаунта? -{" "}
         <Link to="/library/register">зарегистрируйтесь!</Link>
       </StyledText>
-      <StyledButtonBlue onClick={onSubmit} type="button">
+      <StyledButtonBlue onClick={onSubmit} type="submit">
         Войти
       </StyledButtonBlue>
     </StyledForm>

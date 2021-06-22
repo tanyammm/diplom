@@ -15,7 +15,7 @@ const StyledResult = styled(Result)`
 const ErrorHandling = () => {
   return (
     <StyledResult
-      icon={<FrownTwoTone twoToneColor="#eb2f96" />}
+      icon={<FrownTwoTone twoToneColor="#f5222d" />}
       title="Упс! При просмотре ознакомительного фрагмента произошла ошибка"
     />
   );

@@ -90,7 +90,7 @@ const PageCentreForm = () => {
       <StyledButtonOrange
         type="primary"
         onClick={onSubmit}
-        className={css.orange}
+        className={css.button}
       >
         Отправить
       </StyledButtonOrange>

@@ -9,17 +9,11 @@
 }
 
 .indent {
-    text-indent: 30px; 
+    text-indent: 30px;
 }
 
 .ul {
     margin-bottom: 20px !important;
-}
-
-.button {
-    padding: 27px 30px;
-    display: flex; 
-    align-items: center;
 }
 
 .space {
@@ -28,16 +22,15 @@
     justify-content: center;
 }
 
-.contacts {
-    text-indent: 30px; 
-    margin-top: 20px;
-}
-
 .form {
     min-width: 440px;
 }
 
-.orange {
+.button {
     width: 210px;
     height: 46px;
+}
+
+.title {
+    padding-top: 3%;
 }

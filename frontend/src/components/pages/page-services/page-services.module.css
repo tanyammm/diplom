@@ -7,3 +7,11 @@
     text-indent: 30px; 
     margin-bottom: 20px;
 }
+
+.ul {
+    margin-bottom: 20px !important;
+}
+
+.indent {
+    text-indent: 30px;
+}

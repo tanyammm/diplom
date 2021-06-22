@@ -2,3 +2,11 @@
     margin-left: 15%;
     margin-right: 15%;   
 }
+
+.ul {
+    margin-bottom: 20px !important;
+}
+
+.indent {
+    text-indent: 30px;
+}

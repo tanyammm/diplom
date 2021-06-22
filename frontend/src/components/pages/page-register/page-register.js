@@ -1,5 +1,5 @@
-import { Form, Input, message } from "antd";
 import React from "react";
+import { Form, Input, message } from "antd";
 import { Link } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
 import {
@@ -16,6 +16,7 @@ import {
   StyledButtonBlue,
 } from "../style";
 import "antd/dist/antd.css";
+import css from "../style/page-form.module.css";
 
 const PageRegister = () => {
   const { sendRegister, botModal, setError } = useRootData((store) => ({
@@ -33,7 +34,7 @@ const PageRegister = () => {
         .then((value) => {
           form.resetFields();
           sendRegister(value);
-          if (value.password === value.password1) {
+          if (value.password === value.passwordAgain) {
             message.success("Вы успешно зарегистрировались!");
           } else message.error("Пароли не совпадают!");
         })
@@ -46,7 +47,12 @@ const PageRegister = () => {
   return (
     <StyledForm>
       <StyledTitle level={2}>Регистрация</StyledTitle>
-      <Form name="nest-messages" form={form} layout="vertical">
+      <Form
+        name="nest-messages"
+        form={form}
+        layout="vertical"
+        className={css.form}
+      >
         <Form.Item
           label="Фамилия"
           name="surname"
@@ -79,7 +85,7 @@ const PageRegister = () => {
         <ModalPassword />
         <Form.Item
           label="Пароль повторно"
-          name="password1"
+          name="passwordAgain"
           rules={[
             {
               required: true,
@@ -96,7 +102,7 @@ const PageRegister = () => {
         У вас есть аккаунт? -{" "}
         <Link to="/library/authorization">авторизуйтесь!</Link>
       </StyledText>
-      <StyledButtonBlue onClick={onSubmit} type="button">
+      <StyledButtonBlue onClick={onSubmit} type="submit">
         Зарегистрироваться
       </StyledButtonBlue>
     </StyledForm>

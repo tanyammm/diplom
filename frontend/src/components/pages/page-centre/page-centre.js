@@ -1,5 +1,6 @@
 import React from "react";
-import { Typography, Space, Button } from "antd";
+import { Divider, Space, Button } from "antd";
+import { DownloadOutlined } from "@ant-design/icons";
 import PageCentreForm from "./form";
 import {
   StyledTitle,
@@ -10,8 +11,6 @@ import {
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-centre.module.css";
-
-const { Text } = Typography;
 
 const PageCentre = () => {
   const { setCenterStatus, centerStatus } = useRootData((store) => ({
@@ -28,6 +27,9 @@ const PageCentre = () => {
       <StyledTitle level={2}>
         Центр содействия инновациям и развитию бережливых технологий ВоГУ
       </StyledTitle>
+      <Divider orientation="left">
+        <StyledTitle level={4}>О Центре</StyledTitle>
+      </Divider>
       <StyledText className={css.text}>
         Центр содействия инновациям и развитию бережливых технологий
         Вологодского государственного университета создан с целью поддержки
@@ -63,17 +65,38 @@ const PageCentre = () => {
           </li>
         </ul>
       </StyledText>
-      <Space size="1" className={css.space}>
-        <Button type="dashed" className={css.button} onClick={openNotification}>
+      <Space size="large" className={css.space}>
+        <Button
+          type="primary"
+          shape="round"
+          icon={<DownloadOutlined />}
+          size="large"
+          onClick={openNotification}
+        >
           Биржа проектов
         </Button>
-        <Button type="dashed" className={css.button} onClick={openNotification}>
+        <Button
+          type="primary"
+          shape="round"
+          icon={<DownloadOutlined />}
+          size="large"
+          onClick={openNotification}
+        >
           Отзывы партнеров
         </Button>
-        <Button type="dashed" className={css.button} onClick={openNotification}>
+        <Button
+          type="primary"
+          shape="round"
+          icon={<DownloadOutlined />}
+          size="large"
+          onClick={openNotification}
+        >
           База партнёров ВоГУ
         </Button>
       </Space>
+      <Divider orientation="left" className={css.title}>
+        <StyledTitle level={4}>Предложить проект</StyledTitle>
+      </Divider>
       <StyledText className={css.text}>
         Вы можете предложить проект, заполнив форму ниже.
       </StyledText>
@@ -81,7 +104,7 @@ const PageCentre = () => {
         <PageCentreForm />
       ) : (
         <StyledAlert
-          message="Спасибо! Ваша заявка принята."
+          message="Спасибо! Ваша заявка принята"
           description="Мы свяжемся с Вами в ближайшее время"
           type="success"
           closable
@@ -89,12 +112,15 @@ const PageCentre = () => {
           showIcon
         />
       )}
-      <StyledText className={css.contacts}>
-        <Text strong>Контакты Центра:</Text>
+      <Divider orientation="left" className={css.title}>
+        <StyledTitle level={4}>Контакты Центра</StyledTitle>
+      </Divider>
+      <StyledText className={css.text}>
+        Менеджер Центра: Елизавета Николаевна Скороходова;
       </StyledText>
-      <StyledText className={css.indent}>e-mail: sirbet@vogu35.ru;</StyledText>
-      <StyledText className={css.indent}>тел.: (8172) 72-10-12;</StyledText>
-      <StyledText className={css.indent}>
+      <StyledText className={css.text}>e-mail: sirbet@vogu35.ru;</StyledText>
+      <StyledText className={css.text}>телефон: (8172) 72-10-12;</StyledText>
+      <StyledText className={css.text}>
         адрес: 160000, г. Вологда, ул. Галкинская, 1.
       </StyledText>
     </div>

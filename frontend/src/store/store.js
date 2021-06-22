@@ -99,15 +99,15 @@ export const createStore = () => {
 
     /* авторизация и регистрация */
     sendAuthorization(value) {
-      sendEmailFeedback(value.login, value.password);
+      console.log(value.login, value.password);
     },
     sendRegister(value) {
-      sendEmailFeedback(
+      console.log(
         value.surname,
         value.name,
         value.patronymic,
-        value.email,
         value.phone,
+        value.email,
         value.password
       );
     },
@@ -124,6 +124,11 @@ export const createStore = () => {
         value.funding
       );
     },
+    /* статус заказа обходного листа */
+    listStatus: true,
+    setListStatus(value) {
+      this.listStatus = value;
+    },
 
     /* данные заказчика при подаче заявки в ЦСИиРБТ ВоГУ */
     getDataCenter(value) {
@@ -135,7 +140,7 @@ export const createStore = () => {
         value.message
       );
     },
-    /* статус заказа */
+    /* статус заказа в ЦСИиРБТ ВоГУ */
     centerStatus: true,
     setCenterStatus(value) {
       this.centerStatus = value;

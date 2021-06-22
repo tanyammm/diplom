@@ -12,7 +12,7 @@ const Feedback = () => {
 
   return (
     <div>
-      <Affix offsetTop={508.96}>
+      <Affix offsetTop={window.innerHeight / 2}>
         <Button
           className={css.feedback}
           type="primary"

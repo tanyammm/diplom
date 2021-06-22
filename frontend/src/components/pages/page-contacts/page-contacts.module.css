@@ -6,12 +6,6 @@
     align-items: center;
 }
 
-.blok {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
 .img {
     width: 558px;
     height: 372px;

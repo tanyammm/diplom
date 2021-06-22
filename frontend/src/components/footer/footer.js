@@ -2,7 +2,7 @@ import React from "react";
 import { Icon28LogoVkColor } from "@vkontakte/icons";
 import { Tooltip } from "antd";
 import { useRootData } from "../../hooks/use-root-data";
-import { StyledTitle, StyledLink } from "./styled";
+import { StyledTitle, StyledLink, StyledText } from "./styled";
 import Maps from "./map";
 import "antd/dist/antd.css";
 import css from "./footer.module.css";
@@ -37,10 +37,8 @@ const Footer = () => {
       </div>
       <div className={css.blok}>
         <StyledTitle>Контакты</StyledTitle>
-        <StyledLink to="/#" onClick={openShowModal}>
-          Обратная связь
-        </StyledLink>
-        <StyledLink to="/library/documents/">Документы</StyledLink>{" "}
+        <StyledText onClick={openShowModal}>Обратная связь</StyledText>
+        <StyledLink to="/library/documents/">Документы</StyledLink>
         <StyledLink to="/library/contacts/">Контакты и режим работы</StyledLink>
       </div>
       <div className={css.blok}>

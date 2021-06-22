@@ -26,3 +26,23 @@ export const StyledLink = styled(Link)`
     border-color: #096dd9;
   }
 `;
+
+export const StyledText = styled("div")`
+  font-size: 14px;
+  width: fit-content;
+  padding-bottom: 10px;
+  color: #ffffff;
+
+  &:hover,
+  &:focus {
+    color: #40a9ff;
+    background: transparent;
+    border-color: #40a9ff;
+  }
+
+  &:active {
+    color: #096dd9;
+    background: transparent;
+    border-color: #096dd9;
+  }
+`;

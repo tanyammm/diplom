@@ -4,10 +4,10 @@ import { FrownTwoTone } from "@ant-design/icons";
 
 const openNotification = () => {
   notification.open({
-    duration: 10,
+    duration: 8,
     message: "Эта функция находится в разработке",
     description: "Просим прощения за доставленные неудобства",
-    icon: <FrownTwoTone twoToneColor="#eb2f96" />,
+    icon: <FrownTwoTone twoToneColor="#f5222d" />,
   });
 };
 
