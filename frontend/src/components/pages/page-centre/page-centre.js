@@ -115,14 +115,14 @@ const PageCentre = () => {
       <Divider orientation="left" className={css.title}>
         <StyledTitle level={4}>Контакты Центра</StyledTitle>
       </Divider>
-      <StyledText className={css.text}>
-        Менеджер Центра: Елизавета Николаевна Скороходова;
-      </StyledText>
-      <StyledText className={css.text}>e-mail: sirbet@vogu35.ru;</StyledText>
-      <StyledText className={css.text}>телефон: (8172) 72-10-12;</StyledText>
-      <StyledText className={css.text}>
-        адрес: 160000, г. Вологда, ул. Галкинская, 1.
-      </StyledText>
+      <div className={css.indent}>
+        <StyledText>
+          Менеджер Центра: Елизавета Николаевна Скороходова;
+        </StyledText>
+        <StyledText>e-mail: sirbet@vogu35.ru;</StyledText>
+        <StyledText>телефон: (8172) 72-10-12;</StyledText>
+        <StyledText>адрес: 160000, г. Вологда, ул. Галкинская, 1.</StyledText>
+      </div>
     </div>
   );
 };

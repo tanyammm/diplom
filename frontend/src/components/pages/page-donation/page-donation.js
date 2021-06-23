@@ -1,5 +1,14 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import { Form, message, Input, Upload, Button } from "antd";
+import {
+  Form,
+  message,
+  Input,
+  Upload,
+  Button,
+  Typography,
+  Timeline,
+} from "antd";
 import { PaperClipOutlined } from "@ant-design/icons";
 import {
   ModalName,
@@ -13,6 +22,8 @@ import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-donation.module.css";
 
+const { Link } = Typography;
+
 const PageDonation = () => {
   const { getDataBuyer, botModal, setError } = useRootData((store) => ({
     getDataBuyer: store.mainStore.getDataBuyer,
@@ -22,6 +33,33 @@ const PageDonation = () => {
 
   const [form] = Form.useForm();
 
+  const uploadingFiles = {
+    name: "file",
+    action: "http://localhost:8000/feedback",
+    headers: {
+      authorization: "authorization-text",
+    },
+    onChange(info) {
+      if (info.file.status === "uploading") {
+        message.loading(`Файл ${info.file.name} загружается`);
+      } else if (info.file.status === "success") {
+        message.success(`Файл ${info.file.name} успешно загружен`);
+      } else if (info.file.status === "error") {
+        message.error(`Не удалось загрузить файл ${info.file.name}`);
+      } else if (info.file.status === "removed") {
+        message.info(`Файл ${info.file.name} удалён`);
+      }
+    },
+    progress: {
+      strokeColor: {
+        "0%": "#108ee9",
+        "100%": "#87d068",
+      },
+      strokeWidth: 3,
+      format: (percent) => `${parseFloat(percent.toFixed(2))}%`,
+    },
+  };
+
   const onSubmit = () => {
     if (botModal === "") {
       form
@@ -29,7 +67,7 @@ const PageDonation = () => {
         .then((value) => {
           form.resetFields();
           getDataBuyer(value);
-          message.info("Заявка отправлена!");
+          message.success("Заявка отправлена!");
         })
         .catch((error) => {
           setError(error);
@@ -43,26 +81,56 @@ const PageDonation = () => {
       <div className={css.group}>
         <div className={css.block}>
           <StyledText className={css.text}>
-            Чтобы передать книгу в дар Информационно-библиотечному комплексу
-            ВоГУ, ознакомтесь с Положением О комплектовании фондов ИБК ВоГУ.
+            <span>
+              Чтобы передать книгу в дар Информационно-библиотечному комплексу
+              ВоГУ, ознакомтесь с Положением{" "}
+              <Link href="/#">О комплектовании фондов ИБК ВоГУ.</Link>
+            </span>
           </StyledText>
           <StyledText className={css.text}>
-            Просим заранее, ещё до вашего приезда в библиотеку или до высылки
-            изданий почтой, передать нам по телефону или по электронной почте
-            информацию о будущих дарах. Мы дорожим вашим временем и не хотим,
-            чтобы предпринятые вами действия оказались напрасными. После вашего
-            обращения мы проверим наличие предлагаемых вами книг и документов в
-            наших фондах. Если вы присылаете издания по почте без
-            предварительной договорённости, просим обратить внимание на то, что
-            Российская государственная библиотека не несёт ответственность за
-            дары, не принятые в фонды. Факт поступления издания в фонды РГБ мы
-            подтвердим официальным документом. Сведения о принятых дарах
-            заносятся в Книги даров Российской государственной библиотеки.
-            Сообщения о наиболее ценных экземплярах размещаются на официальном
-            сайте библиотеки.
+            Мы дорожим Вашим временем и не хотим, чтобы предпринятые Вами
+            действия оказались напрасными. Поэтому просим заранее, ещё до Вашего
+            приезда в библиотеку или до высылки изданий почтой, передать нам
+            информацию о будущих дарах. Для этого Вы можете оставить заявку на
+            сайте или связаться с нами по телефону или электронной почте. После
+            Вашего обращения мы проверим наличие предлагаемых Вами книг и
+            документов в наших фондах.
           </StyledText>
+          <StyledText className={css.text}>
+            Порядок принятия книг в дар ИБК ВоГУ:
+          </StyledText>
+          <Timeline>
+            <StyledText className={css.timeline}>
+              <Timeline.Item>
+                Сообщите о своём намерении передать книгу в дар: оставьте заявку
+                на сайте или свяжитесь с нами по телефону или электронной почте
+              </Timeline.Item>
+              <Timeline.Item>
+                После получения Вашей заявки мы свяжемся с вами. Если вы
+                присылаете издания по почте без предварительной договорённости,
+                просим обратить внимание на то, что Российская государственная
+                библиотека не несёт ответственность за дары, не принятые в
+                фонды.
+              </Timeline.Item>
+              <Timeline.Item>
+                После одобрения заявки Вы можете передать книгу в дар ИБК ВоГУ
+              </Timeline.Item>
+              <Timeline.Item>
+                Факт поступления издания в фонды РГБ мы подтвердим официальным
+                документом
+              </Timeline.Item>
+              <Timeline.Item>
+                Сведения о принятых дарах заносятся в Книги даров Российской
+                государственной библиотеки
+              </Timeline.Item>
+              <Timeline.Item>
+                Сообщения о наиболее ценных экземплярах размещаются на
+                официальном сайте библиотеки
+              </Timeline.Item>
+            </StyledText>
+          </Timeline>
         </div>
-        <div className={css.block}>
+        <div className={css.request}>
           <div className={css.card}>
             <StyledTitle level={5}>Оставить заявку</StyledTitle>
             <Form name="nest-messages" layout="vertical" form={form}>
@@ -82,7 +150,7 @@ const PageDonation = () => {
               <ModalEmail />
               <ModalPhone />
               <ModalBot />
-              <Upload className={css.upload}>
+              <Upload className={css.upload} {...uploadingFiles}>
                 <Button icon={<PaperClipOutlined />}>Прикрепить файлы</Button>
               </Upload>
               <ModalCheckbox />
@@ -97,7 +165,7 @@ const PageDonation = () => {
           </div>
           <StyledText className={css.text}>
             <div className={css.name}>
-              Контакты:
+              <div className={css.contacts}>Контакты:</div>
               <div>E-mail: library@vogu35.ru, lib@vogu35.ru</div>
               <div>Телефон: 8 (8172) 72-10-12</div>
               <div>Адрес: Вологда, ул. Галкинская, 1, корп. 2</div>

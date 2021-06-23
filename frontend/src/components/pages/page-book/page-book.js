@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import { Typography, Image, Divider, Carousel, List } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -22,6 +22,10 @@ import css from "./page-book.module.css";
 const carouselOne = card.slice(0, 4);
 const carouselTwo = card.slice(4, 8);
 const carouselThree = card.slice(8, 12);
+
+const carousel = createRef();
+const handleNext = () => carousel.current.next();
+const handlePrev = () => carousel.current.prev();
 
 const PageBook = () => {
   const { numberPage, setNumberPage, addShopping } = useRootData((store) => ({
@@ -85,27 +89,27 @@ const PageBook = () => {
         <div className={css.group}>
           <div className={css.description}>
             <Text className={css.label}>Автор</Text>
-            <Divider />
+            <Divider className={css.list} />
             <Text className={css.data}>{card[0].author}</Text>
           </div>
           <div className={css.description}>
             <Text className={css.label}>Год выпуска</Text>
-            <Divider />
+            <Divider className={css.list} />
             <Text className={css.data}>{card[0].year}</Text>
           </div>
           <div className={css.description}>
             <Text className={css.label}>Город</Text>
-            <Divider />
+            <Divider className={css.list} />
             <Text className={css.data}>{card[0].city}</Text>
           </div>
           <div className={css.description}>
             <Text className={css.label}>Издательство</Text>
-            <Divider />
+            <Divider className={css.list} />
             <Text className={css.data}>{card[0].publisher}</Text>
           </div>
           <div className={css.description}>
             <Text className={css.label}>Количество страниц</Text>
-            <Divider />
+            <Divider className={css.list} />
             <Text className={css.data}>{card[0].number} стр.</Text>
           </div>
           <div>
@@ -190,11 +194,29 @@ const PageBook = () => {
       <Divider orientation="left" className={css.title}>
         <StyledTitle level={4}>Рекомендации</StyledTitle>
       </Divider>
-      <Carousel autoplay className={css.carousel}>
+      <StyledButtonLeaf
+        shape="circle"
+        type="primary"
+        size="large"
+        onClick={handlePrev}
+        className={css.left}
+      >
+        <LeftOutlined />
+      </StyledButtonLeaf>
+      <Carousel autoplay ref={carousel} dots={false}>
         <div>{moveList(carouselOne)}</div>
         <div>{moveList(carouselTwo)}</div>
         <div>{moveList(carouselThree)}</div>
       </Carousel>
+      <StyledButtonLeaf
+        shape="circle"
+        type="primary"
+        size="large"
+        onClick={handleNext}
+        className={css.right}
+      >
+        <RightOutlined />
+      </StyledButtonLeaf>
     </div>
   );
 };

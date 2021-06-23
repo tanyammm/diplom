@@ -31,7 +31,7 @@
 
 .description {
     display: flex;
-    min-width: 600px;
+    min-width: 950px;
 }
 
 .label {
@@ -40,12 +40,17 @@
     min-width: max-content;
 }
 
+.list {
+    min-width: 0%;
+    margin: 24px !important;
+}
+
 .data {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     display: flex;
-    justify-content: flex-start;
-    min-width: 200px;
+    justify-content: flex-end;
+    min-width: max-content;
 }
 
 .price {
@@ -99,6 +104,16 @@
     height: 46px;
 }
 
-.carousel {
-    background-color:#1b418cb2;
+.left {    
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 226px;
+    z-index: 990999999999;
+}
+
+.right {
+    position: absolute;
+    margin-left: 1310px;
+    margin-top: -340px;
+    z-index: 990999999999;
 }

@@ -83,9 +83,9 @@ export const createStore = () => {
       this.orderStatus = value;
     },
 
-    /* данные заказчика */
+    /* данные заказчика в Книге в дар */
     getDataBuyer(value) {
-      console.log(value.name, value.surname, value.email, value.phone);
+      console.log(value.name, value.book, value.email, value.phone);
     },
 
     /* номер заказа */

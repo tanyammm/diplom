@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import styled from "@emotion/styled";
 
-const StyledButtonOrange = styled(Button)`
+export const StyledButtonOrange = styled(Button)`
   background: #fa8c16;
   border-color: #fa8c16;
   border-radius: 3px;
@@ -18,4 +18,23 @@ const StyledButtonOrange = styled(Button)`
   }
 `;
 
-export default StyledButtonOrange;
+export const StyledButtonShopping = styled(Button)`
+  background: #ffffff;
+  border-color: #fa8c16;
+  color: #fa8c16;
+  border-radius: 3px;
+  border: 2px solid;
+
+  &:hover,
+  &:focus {
+    background: #ffffff;
+    color: #ffa940;
+    border-color: #ffa940;
+  }
+
+  &:active {
+    background: #ffffff;
+    color: #d46b08;
+    border-color: #d46b08;
+  }
+`;
