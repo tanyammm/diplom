@@ -2,20 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, message } from "antd";
 import {
-  ModalName,
-  ModalEmail,
-  ModalPhone,
-  ModalCheckbox,
-  ModalBot,
-} from "../../modal";
-import {
-  StyledTitle,
-  StyledAlert,
-  StyledDiv,
-  Result,
-  Product,
-  StyledButton,
-} from "../style";
+  FormName,
+  FormEmail,
+  FormPhone,
+  FormCheckbox,
+  FormlBot,
+} from "../../form";
+import { StyledTitle, StyledAlert } from "../../style";
+import { StyledDiv, Result, Product, StyledButton } from "../../components";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-buy.module.css";
@@ -69,11 +63,11 @@ const PageBuy = () => {
         form={form}
         className={css.form}
       >
-        <ModalName />
-        <ModalPhone />
-        <ModalEmail />
-        <ModalBot />
-        <ModalCheckbox />
+        <FormName />
+        <FormPhone />
+        <FormEmail />
+        <FormlBot />
+        <FormCheckbox />
       </Form>
     );
   };

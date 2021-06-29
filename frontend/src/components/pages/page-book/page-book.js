@@ -1,17 +1,16 @@
 import React, { createRef } from "react";
-import { Typography, Image, Divider, Carousel, List } from "antd";
+import { Typography, Image, Divider, Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Document, Page, pdfjs } from "react-pdf";
 import ErrorHandling from "./error-handling";
 import {
   StyledTitle,
   StyledText,
-  StyledSpin,
   StyledButtonOrange,
   StyledButtonLeaf,
-  StyledCard,
-  StyledMeta,
-} from "../style";
+} from "../../style";
+import { StyledSpin } from "../../components";
+import Books from "../../books";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";
@@ -36,41 +35,6 @@ const PageBook = () => {
     addShopping: store.mainStore.addShopping,
   }));
 
-  const moveList = (value) => {
-    return (
-      <List
-        grid={{
-          gutter: 86,
-          xs: 1,
-          sm: 1,
-          md: 2,
-          lg: 2,
-          xl: 3,
-          xxl: 4,
-        }}
-        className={css.list}
-        dataSource={value}
-        renderItem={(item) => (
-          <List.Item key={item.id}>
-            <StyledCard key={item.id} hoverable>
-              <Image src={img} alt="Обложка книги" preview={false} />
-              <StyledMeta title={item.title} description={item.author} />
-              <StyledTitle level={5}>{item.price} ₽</StyledTitle>
-              <StyledButtonOrange
-                type="primary"
-                className={css.buy}
-                onClick={() => {
-                  addShopping(item);
-                }}
-              >
-                Добавить
-              </StyledButtonOrange>
-            </StyledCard>
-          </List.Item>
-        )}
-      />
-    );
-  };
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
   return (
@@ -204,9 +168,9 @@ const PageBook = () => {
         <LeftOutlined />
       </StyledButtonLeaf>
       <Carousel autoplay ref={carousel} dots={false}>
-        <div>{moveList(carouselOne)}</div>
-        <div>{moveList(carouselTwo)}</div>
-        <div>{moveList(carouselThree)}</div>
+        <div>{Books(carouselOne)}</div>
+        <div>{Books(carouselTwo)}</div>
+        <div>{Books(carouselThree)}</div>
       </Carousel>
       <StyledButtonLeaf
         shape="circle"

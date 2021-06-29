@@ -12,13 +12,13 @@ import {
 } from "antd";
 import { PaperClipOutlined, SmileTwoTone } from "@ant-design/icons";
 import {
-  ModalName,
-  ModalEmail,
-  ModalCheckbox,
-  ModalBot,
-  ModalPhone,
-} from "../../modal";
-import { StyledTitle, StyledButtonOrange, StyledText } from "../style";
+  FormName,
+  FormEmail,
+  FormCheckbox,
+  FormlBot,
+  FormPhone,
+} from "../../form";
+import { StyledTitle, StyledButtonOrange, StyledText } from "../../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-donation.module.css";
@@ -144,7 +144,7 @@ const PageDonation = () => {
           <div className={css.card}>
             <StyledTitle level={5}>Оставить заявку</StyledTitle>
             <Form name="nest-messages" layout="vertical" form={form}>
-              <ModalName />
+              <FormName />
               <Form.Item
                 name="book"
                 label="Название книги"
@@ -157,13 +157,13 @@ const PageDonation = () => {
               >
                 <Input placeholder="Интеллектуально-информационные технологии" />
               </Form.Item>
-              <ModalEmail />
-              <ModalPhone />
-              <ModalBot />
+              <FormEmail />
+              <FormPhone />
+              <FormlBot />
               <Upload className={css.upload} {...uploadingFiles}>
                 <Button icon={<PaperClipOutlined />}>Прикрепить файлы</Button>
               </Upload>
-              <ModalCheckbox />
+              <FormCheckbox />
             </Form>
             <StyledButtonOrange
               type="primary"

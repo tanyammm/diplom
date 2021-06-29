@@ -3,11 +3,11 @@ import { Form, Input, Checkbox, Typography } from "antd";
 import MaskedInput from "antd-mask-input";
 import "antd/dist/antd.css";
 import { useRootData } from "../../hooks/use-root-data";
-import css from "./modal.module.css";
+import css from "./form.module.css";
 
 const { Text, Link } = Typography;
 
-export const ModalName = () => {
+export const FormName = () => {
   return (
     <Form.Item
       name="name"
@@ -24,7 +24,7 @@ export const ModalName = () => {
   );
 };
 
-export const ModalMessage = () => {
+export const FormMessage = () => {
   return (
     <Form.Item
       name="message"
@@ -41,7 +41,7 @@ export const ModalMessage = () => {
   );
 };
 
-export const ModalEmail = () => {
+export const FormEmail = () => {
   return (
     <Form.Item
       name="email"
@@ -62,7 +62,7 @@ export const ModalEmail = () => {
   );
 };
 
-export const ModalPhone = () => {
+export const FormPhone = () => {
   return (
     <Form.Item name="phone" label="Телефон">
       <MaskedInput
@@ -74,7 +74,7 @@ export const ModalPhone = () => {
   );
 };
 
-export const ModalPassword = () => {
+export const FormPassword = () => {
   return (
     <Form.Item
       label="Пароль"
@@ -91,7 +91,7 @@ export const ModalPassword = () => {
   );
 };
 
-export const ModalCheckbox = () => {
+export const FormCheckbox = () => {
   return (
     <div className={css.checkbox}>
       <Form.Item
@@ -121,7 +121,7 @@ export const ModalCheckbox = () => {
   );
 };
 
-export const ModalBot = () => {
+export const FormlBot = () => {
   const { botModal, searchBotModal } = useRootData((store) => ({
     botModal: store.mainStore.botModal,
     searchBotModal: store.mainStore.searchBotModal,

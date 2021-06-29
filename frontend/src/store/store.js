@@ -82,6 +82,12 @@ export const createStore = () => {
       this.basket = card.filter((item) => item.id === value.id);
     },
 
+    /* массив книг */
+    dataSource: card,
+    setDataSource(value) {
+      this.dataSource = value;
+    },
+
     /* статус заказа */
     orderStatus: true,
     setOrderStatus(value) {

@@ -3,12 +3,12 @@ import React from "react";
 import { Upload, Button, Form, Input, message, Radio } from "antd";
 import { PaperClipOutlined } from "@ant-design/icons";
 import {
-  ModalName,
-  ModalEmail,
-  ModalMessage,
-  ModalBot,
-  ModalCheckbox,
-} from "../../modal";
+  FormName,
+  FormEmail,
+  FormMessage,
+  FormlBot,
+  FormCheckbox,
+} from "../../form";
 import { useRootData } from "../../../hooks/use-root-data";
 import StyledModal from "./styled";
 import "antd/dist/antd.css";
@@ -104,8 +104,8 @@ const Modal = () => {
       ]}
     >
       <Form name="nest-messages" form={form} layout="vertical">
-        <ModalName />
-        <ModalEmail />
+        <FormName />
+        <FormEmail />
         <Form.Item
           name="theme"
           label="Тема сообщения"
@@ -139,12 +139,12 @@ const Modal = () => {
             </Radio>
           </Radio.Group>
         </Form.Item>
-        <ModalMessage />
-        <ModalBot />
+        <FormMessage />
+        <FormlBot />
         <Upload className={css.upload} {...uploadingFiles}>
           <Button icon={<PaperClipOutlined />}>Прикрепить файлы</Button>
         </Upload>
-        <ModalCheckbox />
+        <FormCheckbox />
       </Form>
     </StyledModal>
   );

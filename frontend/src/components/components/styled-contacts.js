@@ -1,8 +1,8 @@
 import React from "react";
 import { Divider, Typography } from "antd";
 import styled from "@emotion/styled";
-import StyledText from "./styled-text";
-import StyledTitle from "./styled-title";
+import StyledText from "../style/styled-text";
+import StyledTitle from "../style/styled-title";
 import "antd/dist/antd.css";
 
 const { Text } = Typography;

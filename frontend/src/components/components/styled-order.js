@@ -1,8 +1,8 @@
 import React from "react";
 import { Typography } from "antd";
 import styled from "@emotion/styled";
-import { StyledButtonOrange } from "./styled-button-orange";
-import { useRootData } from "../../../hooks/use-root-data";
+import { StyledButtonOrange } from "../style/styled-button-orange";
+import { useRootData } from "../../hooks/use-root-data";
 
 const { Text } = Typography;
 

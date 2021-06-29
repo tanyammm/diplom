@@ -2,12 +2,8 @@ import React from "react";
 import { Divider, Space, Button, Typography } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 import PageCentreForm from "./form";
-import {
-  StyledTitle,
-  StyledText,
-  openNotification,
-  StyledAlert,
-} from "../style";
+import { StyledTitle, StyledText, StyledAlert } from "../../style";
+import { openNotification } from "../../components";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-centre.module.css";

@@ -2,7 +2,7 @@ import React from "react";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
-import StyledText from "./styled-text";
+import StyledText from "../style/styled-text";
 
 const SpinStyled = styled("div")`
   display: flex;

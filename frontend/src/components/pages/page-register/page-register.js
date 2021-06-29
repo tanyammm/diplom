@@ -4,20 +4,20 @@ import { SmileTwoTone } from "@ant-design/icons";
 import { Link, useHistory } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
 import {
-  ModalPhone,
-  ModalEmail,
-  ModalBot,
-  ModalCheckbox,
-  ModalPassword,
-} from "../../modal";
+  FormPhone,
+  FormEmail,
+  FormlBot,
+  FormCheckbox,
+  FormPassword,
+} from "../../form";
 import {
   StyledTitle,
   StyledText,
   StyledForm,
   StyledButtonBlue,
-} from "../style";
+} from "../../style";
 import "antd/dist/antd.css";
-import css from "../style/page-form.module.css";
+import css from "../../style/page-form.module.css";
 
 const PageRegister = () => {
   const { sendRegister, botModal, setError } = useRootData((store) => ({
@@ -94,9 +94,9 @@ const PageRegister = () => {
         <Form.Item label="Отчество" name="patronymic">
           <Input placeholder="Иванович" />
         </Form.Item>
-        <ModalPhone />
-        <ModalEmail />
-        <ModalPassword />
+        <FormPhone />
+        <FormEmail />
+        <FormPassword />
         <Form.Item
           label="Пароль повторно"
           name="passwordAgain"
@@ -109,8 +109,8 @@ const PageRegister = () => {
         >
           <Input.Password placeholder="********" />
         </Form.Item>
-        <ModalBot />
-        <ModalCheckbox />
+        <FormlBot />
+        <FormCheckbox />
       </Form>
       <StyledText>
         У вас есть аккаунт? -

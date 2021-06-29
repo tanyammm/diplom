@@ -12,7 +12,7 @@ import PageShopping from "../pages/page-shopping";
 import PageBook from "../pages/page-book";
 import PageAuthorization from "../pages/page-authorization";
 import PageRegister from "../pages/page-register";
-import PageError from "../page-error";
+import PageError from "../pages/page-error";
 import PageSearch from "../pages/page-search";
 import PageDonation from "../pages/page-donation";
 import PageDevelopment from "../pages/page-development";

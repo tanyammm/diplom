@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "antd";
-import { StyledTitle, StyledText, StyledContacts } from "../style";
+import { StyledTitle, StyledText } from "../../style";
+import { StyledContacts } from "../../components";
 import Carousel from "../../carousel";
 import "antd/dist/antd.css";
 import css from "./page-documents.module.css";

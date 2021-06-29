@@ -1,9 +1,9 @@
 import { Form, Input, message } from "antd";
 import React from "react";
 import MaskedInput from "antd-mask-input";
-import { ModalEmail, ModalCheckbox, ModalBot, ModalMessage } from "../../modal";
+import { FormEmail, FormCheckbox, FormlBot, FormMessage } from "../../form";
 import { useRootData } from "../../../hooks/use-root-data";
-import { StyledForm, StyledButtonOrange } from "../style";
+import { StyledForm, StyledButtonOrange } from "../../style";
 import css from "./page-centre.module.css";
 import "antd/dist/antd.css";
 
@@ -82,10 +82,10 @@ const PageCentreForm = () => {
             name="card"
           />
         </Form.Item>
-        <ModalEmail />
-        <ModalMessage />
-        <ModalBot />
-        <ModalCheckbox />
+        <FormEmail />
+        <FormMessage />
+        <FormlBot />
+        <FormCheckbox />
       </Form>
       <StyledButtonOrange
         type="primary"

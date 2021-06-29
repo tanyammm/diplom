@@ -1,7 +1,8 @@
 import React from "react";
 import { Divider } from "antd";
 import { Link } from "react-router-dom";
-import { StyledTitle, StyledText, StyledContacts } from "../style";
+import { StyledTitle, StyledText } from "../../style";
+import { StyledContacts } from "../../components";
 import Carousel from "../../carousel";
 import "antd/dist/antd.css";
 import css from "./page-services.module.css";

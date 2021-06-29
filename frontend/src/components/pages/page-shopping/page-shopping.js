@@ -5,14 +5,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Typography, Checkbox, List, Button } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
+import { StyledTitle } from "../../style";
 import {
-  StyledTitle,
   StyledDiv,
   Result,
   Product,
   StyledButton,
   StyledSpin,
-} from "../style";
+} from "../../components";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import "antd/dist/antd.css";

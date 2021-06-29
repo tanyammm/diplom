@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledTitle } from "../style";
+import { StyledTitle } from "../../style";
 import PageDevelopment from "../page-development";
 import "antd/dist/antd.css";
 import css from "./page-educational.module.css";

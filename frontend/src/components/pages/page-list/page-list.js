@@ -6,15 +6,15 @@ import {
   StyledButtonOrange,
   StyledForm,
   StyledAlert,
-} from "../style";
+} from "../../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import {
-  ModalName,
-  ModalEmail,
-  ModalCheckbox,
-  ModalBot,
-  ModalPhone,
-} from "../../modal";
+  FormName,
+  FormEmail,
+  FormCheckbox,
+  FormlBot,
+  FormPhone,
+} from "../../form";
 import "antd/dist/antd.css";
 import css from "./page-list.module.css";
 
@@ -65,9 +65,9 @@ const PageList = () => {
             form={form}
             className={css.form}
           >
-            <ModalName />
-            <ModalPhone />
-            <ModalEmail />
+            <FormName />
+            <FormPhone />
+            <FormEmail />
             <Form.Item
               name="group"
               label="Группа"
@@ -149,8 +149,8 @@ const PageList = () => {
                 <Option value="договор">договор</Option>
               </Select>
             </Form.Item>
-            <ModalBot />
-            <ModalCheckbox />
+            <FormlBot />
+            <FormCheckbox />
           </Form>
           <StyledButtonOrange
             type="primary"

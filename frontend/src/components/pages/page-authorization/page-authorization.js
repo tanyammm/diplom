@@ -2,15 +2,15 @@ import React from "react";
 import { Form, Input, message } from "antd";
 import { Link } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
-import { ModalBot, ModalCheckbox, ModalPassword } from "../../modal";
+import { FormlBot, FormCheckbox, FormPassword } from "../../form";
 import {
   StyledText,
   StyledTitle,
   StyledForm,
   StyledButtonBlue,
-} from "../style";
+} from "../../style";
 import "antd/dist/antd.css";
-import css from "../style/page-form.module.css";
+import css from "../../style/page-form.module.css";
 
 const PageAuthorization = () => {
   const { sendAuthorization, botModal, setError } = useRootData((store) => ({
@@ -59,9 +59,9 @@ const PageAuthorization = () => {
         >
           <Input placeholder="логин" />
         </Form.Item>
-        <ModalPassword />
-        <ModalBot />
-        <ModalCheckbox />
+        <FormPassword />
+        <FormlBot />
+        <FormCheckbox />
       </Form>
       <StyledText>
         У вас нет аккаунта? -
