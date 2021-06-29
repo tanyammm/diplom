@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Input, message } from "antd";
-import { Link } from "react-router-dom";
+import { Form, Input, message, notification } from "antd";
+import { SmileTwoTone } from "@ant-design/icons";
+import { Link, useHistory } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
 import {
   ModalPhone,
@@ -25,6 +26,18 @@ const PageRegister = () => {
     setError: store.mainStore.setError,
   }));
 
+  const history = useHistory();
+  const goLogin = () => history.push("/library/authorization");
+
+  const openNotification = () => {
+    notification.open({
+      duration: 10,
+      message: "Вы успешно зарегистрировались!",
+      description: "Войдите в свой личный кабинет",
+      icon: <SmileTwoTone twoToneColor="#52c41a" />,
+    });
+  };
+
   const [form] = Form.useForm();
 
   const onSubmit = () => {
@@ -35,7 +48,8 @@ const PageRegister = () => {
           form.resetFields();
           sendRegister(value);
           if (value.password === value.passwordAgain) {
-            message.success("Вы успешно зарегистрировались!");
+            openNotification();
+            goLogin();
           } else message.error("Пароли не совпадают!");
         })
         .catch((error) => {
@@ -99,7 +113,7 @@ const PageRegister = () => {
         <ModalCheckbox />
       </Form>
       <StyledText>
-        У вас есть аккаунт? -{" "}
+        У вас есть аккаунт? -
         <Link to="/library/authorization">авторизуйтесь!</Link>
       </StyledText>
       <StyledButtonBlue onClick={onSubmit} type="submit">

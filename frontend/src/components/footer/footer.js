@@ -7,14 +7,14 @@ import Maps from "./map";
 import "antd/dist/antd.css";
 import css from "./footer.module.css";
 
-const text = (
-  <span className={css.tooltip}>Официальная страница в ВКонтакте</span>
-);
-
 const Footer = () => {
   const { openShowModal } = useRootData((store) => ({
     openShowModal: store.mainStore.openShowModal,
   }));
+
+  const text = (
+    <span className={css.tooltip}>Официальная страница в ВКонтакте</span>
+  );
 
   return (
     <footer className={css.footer} data-testid="footer">

@@ -4,9 +4,9 @@ import { StyledTitle, StyledText } from "../style";
 import "antd/dist/antd.css";
 import css from "./page-contacts.module.css";
 
-const { Text } = Typography;
-
 const PageContacts = () => {
+  const { Text } = Typography;
+
   return (
     <div className={css.contacts}>
       <StyledTitle level={2}>Контакты и режим работы</StyledTitle>

@@ -23,7 +23,7 @@ export const StyledButtonShopping = styled(Button)`
   border-color: #fa8c16;
   color: #fa8c16;
   border-radius: 3px;
-  border: 2px solid;
+  border: 3px solid;
 
   &:hover,
   &:focus {

@@ -1,4 +1,4 @@
-import { Input, Menu, Badge } from "antd";
+import { Input, Menu, Badge, Affix } from "antd";
 import styled from "@emotion/styled";
 
 const { Search } = Input;
@@ -26,6 +26,7 @@ export const StyledMenu = styled(Menu)`
     .ant-dropdown-menu-submenu-arrow-icon {
     color: #ffffff;
   }
+
   .ant-dropdown-menu {
     background-color: darkred !important;
   }
@@ -56,5 +57,11 @@ export const StyledBadge = styled(Badge)`
     background: #f27d16;
     box-shadow: none;
     font-weight: 600;
+  }
+`;
+
+export const StyledAffix = styled(Affix)`
+  .ant-affix {
+    z-index: 16;
   }
 `;

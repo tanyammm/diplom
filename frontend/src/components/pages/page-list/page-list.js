@@ -18,8 +18,6 @@ import {
 import "antd/dist/antd.css";
 import css from "./page-list.module.css";
 
-const { Option } = Select;
-
 const PageList = () => {
   const { getDataStudent, botModal, setError, listStatus, setListStatus } =
     useRootData((store) => ({
@@ -29,6 +27,8 @@ const PageList = () => {
       listStatus: store.mainStore.listStatus,
       setListStatus: store.mainStore.setListStatus,
     }));
+
+  const { Option } = Select;
 
   const [form] = Form.useForm();
 

@@ -1,22 +1,16 @@
-.PageSearch {
+.search {
     display: flex;
-    flex-direction: column;
-    justify-content: center;    
-    padding-top: 2%;
-    text-align: center;
+    flex-direction: column;    
+    margin-left: 15%;
+    margin-right: 15%;    
 }
 
 .list {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-left: 1%;
-    padding-right: 1%;    
-    padding-bottom: 2%;
+    font-family: "Montserrat", sans-serif;
 }
 
-.card {
-    margin: 14%;
+.button {
+    width: 100%;
+    height: 46px;
 }
 

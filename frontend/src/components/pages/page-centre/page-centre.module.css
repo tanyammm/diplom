@@ -16,6 +16,10 @@
     margin-bottom: 20px !important;
 }
 
+.primary {
+    border-radius: 3px;
+}
+
 .space {
     margin-bottom: 20px;
     display: flex;

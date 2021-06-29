@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Space, Dropdown, Affix } from "antd";
-
+import { Button, Space, Dropdown } from "antd";
 import {
   SearchOutlined,
   ShoppingCartOutlined,
@@ -15,6 +14,7 @@ import {
   StyledMenuItem,
   StyledSearchInput,
   StyledBadge,
+  StyledAffix,
 } from "./styled";
 import "antd/dist/antd.css";
 import css from "./header.module.css";
@@ -124,7 +124,7 @@ const Header = () => {
   );
 
   return (
-    <Affix className={css.header} data-testid="header">
+    <StyledAffix className={css.header} data-testid="header">
       <div className={css.block}>
         <div className={css.logo}>
           <div className={css.voguLogo} />
@@ -169,7 +169,7 @@ const Header = () => {
             <UserOutlined />
           </Button>
         </Link>
-        <Link to="/library/buy">
+        <Link to="/library/shopping">
           <StyledBadge count={numberPurchases} offset={[-5, 1]}>
             <Button className={css.shoppin} type="link">
               <ShoppingCartOutlined />
@@ -177,7 +177,7 @@ const Header = () => {
           </StyledBadge>
         </Link>
       </div>
-    </Affix>
+    </StyledAffix>
   );
 };
 

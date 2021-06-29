@@ -22,23 +22,25 @@ const StyledContacts = () => {
         <StyledTitle level={4}>Контакты</StyledTitle>
       </StyledDivider>
       <StyledTextContacts>
-        <Text strong>Адрес</Text> {": "} 160000, г. Вологда, ул. Галкинская, 1;
+        <Text strong>Адрес</Text> {": "} 160000, г. Вологда, ул. Галкинская, 1
       </StyledTextContacts>
       <StyledTextContacts>
-        <Text strong>телефон</Text> {": "} 8 (8172) 72-10-12,
-        <Text strong>факс</Text> {": "} 8 (8172) 72-54-48,
-        <Text strong>e-mail</Text> {": "} lib@vogu35.ru;
+        <Text strong>Телефон</Text> {": "} 8 (8172) 72-10-12
       </StyledTextContacts>
       <StyledTextContacts>
-        <Text strong>Интернет-сайт</Text> {": "} www.library.vogu35.ru;
+        <Text strong>Факс</Text> {": "} 8 (8172) 72-54-48
+      </StyledTextContacts>
+      <StyledTextContacts>
+        <Text strong>E-mail</Text> {": "} lib@vogu35.ru
+      </StyledTextContacts>
+      <StyledTextContacts>
+        <Text strong>Интернет-сайт</Text> {": "} www.library.vogu35.ru
       </StyledTextContacts>
       <StyledTextContacts>
         <Text strong>Директор ИБК</Text> {": "} Воскресенская Оксана
-        Владимировна,
+        Владимировна, 8 (8172) 72-10-12 (2-76), voskresenskaiaov@vogu35.ru
       </StyledTextContacts>
-      <StyledTextContacts>
-        тел.: 8 (8172) 72-10-12 (2-76), e-mail: voskresenskaiaov@vogu35.ru.
-      </StyledTextContacts>
+      <StyledTextContacts />
     </>
   );
 };

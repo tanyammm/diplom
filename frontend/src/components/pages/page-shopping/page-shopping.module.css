@@ -1,0 +1,29 @@
+.shopping {
+    margin-left: 15%;
+    margin-right: 15%;  
+}
+
+.block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list {
+    width: 300%;
+}
+
+.button {
+    width: 267px;
+}
+
+.img {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 90px;
+}
+
+.price {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+}

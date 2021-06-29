@@ -26,6 +26,7 @@ const PageCatalog = () => {
         pagination={{
           pageSize: 20,
           showSizeChanger: false,
+          hideOnSinglePage: true,
         }}
         grid={{
           gutter: 86,
@@ -39,8 +40,8 @@ const PageCatalog = () => {
         className={css.list}
         dataSource={card}
         renderItem={(item) => (
-          <List.Item key={item.title}>
-            <StyledCard key={item.title} hoverable>
+          <List.Item key={item.id}>
+            <StyledCard key={item.id} hoverable>
               <Link to="/library/book">
                 <Image src={img} alt="Обложка книги" preview={false} />
                 <StyledMeta title={item.title} description={item.author} />
@@ -50,7 +51,7 @@ const PageCatalog = () => {
                 type="primary"
                 className={css.button}
                 onClick={() => {
-                  addShopping(item.price);
+                  addShopping(item);
                 }}
               >
                 Добавить

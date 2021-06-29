@@ -64,7 +64,7 @@ const PageAuthorization = () => {
         <ModalCheckbox />
       </Form>
       <StyledText>
-        У вас нет аккаунта? -{" "}
+        У вас нет аккаунта? -
         <Link to="/library/register">зарегистрируйтесь!</Link>
       </StyledText>
       <StyledButtonBlue onClick={onSubmit} type="submit">

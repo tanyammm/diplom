@@ -8,8 +8,9 @@ import {
   Button,
   Typography,
   Timeline,
+  notification,
 } from "antd";
-import { PaperClipOutlined } from "@ant-design/icons";
+import { PaperClipOutlined, SmileTwoTone } from "@ant-design/icons";
 import {
   ModalName,
   ModalEmail,
@@ -22,14 +23,14 @@ import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-donation.module.css";
 
-const { Link } = Typography;
-
 const PageDonation = () => {
   const { getDataBuyer, botModal, setError } = useRootData((store) => ({
     getDataBuyer: store.mainStore.getDataBuyer,
     botModal: store.mainStore.botModal,
     setError: store.mainStore.setError,
   }));
+
+  const { Link } = Typography;
 
   const [form] = Form.useForm();
 
@@ -60,6 +61,15 @@ const PageDonation = () => {
     },
   };
 
+  const openNotification = () => {
+    notification.open({
+      duration: 10,
+      message: "Заявка отправлена!",
+      description: "Мы свяжемся с Вами в ближайшее время",
+      icon: <SmileTwoTone twoToneColor="#52c41a" />,
+    });
+  };
+
   const onSubmit = () => {
     if (botModal === "") {
       form
@@ -67,7 +77,7 @@ const PageDonation = () => {
         .then((value) => {
           form.resetFields();
           getDataBuyer(value);
-          message.success("Заявка отправлена!");
+          openNotification();
         })
         .catch((error) => {
           setError(error);
@@ -166,9 +176,9 @@ const PageDonation = () => {
           <StyledText className={css.text}>
             <div className={css.name}>
               <div className={css.contacts}>Контакты:</div>
-              <div>E-mail: library@vogu35.ru, lib@vogu35.ru</div>
-              <div>Телефон: 8 (8172) 72-10-12</div>
               <div>Адрес: Вологда, ул. Галкинская, 1, корп. 2</div>
+              <div>Телефон: 8 (8172) 72-10-12</div>
+              <div>E-mail: library@vogu35.ru, lib@vogu35.ru</div>
             </div>
           </StyledText>
         </div>

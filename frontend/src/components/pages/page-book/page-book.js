@@ -19,22 +19,22 @@ import pdf from "./infos.pdf";
 import "antd/dist/antd.css";
 import css from "./page-book.module.css";
 
-const carouselOne = card.slice(0, 4);
-const carouselTwo = card.slice(4, 8);
-const carouselThree = card.slice(8, 12);
-
-const carousel = createRef();
-const handleNext = () => carousel.current.next();
-const handlePrev = () => carousel.current.prev();
-
 const PageBook = () => {
+  const carouselOne = card.slice(0, 4);
+  const carouselTwo = card.slice(4, 8);
+  const carouselThree = card.slice(8, 12);
+
+  const carousel = createRef();
+  const handleNext = () => carousel.current.next();
+  const handlePrev = () => carousel.current.prev();
+
+  const { Text } = Typography;
+
   const { numberPage, setNumberPage, addShopping } = useRootData((store) => ({
     numberPage: store.mainStore.numberPage,
     setNumberPage: store.mainStore.setNumberPage,
     addShopping: store.mainStore.addShopping,
   }));
-
-  const { Text } = Typography;
 
   const moveList = (value) => {
     return (
@@ -51,8 +51,8 @@ const PageBook = () => {
         className={css.list}
         dataSource={value}
         renderItem={(item) => (
-          <List.Item key={item.title}>
-            <StyledCard key={item.title} hoverable>
+          <List.Item key={item.id}>
+            <StyledCard key={item.id} hoverable>
               <Image src={img} alt="Обложка книги" preview={false} />
               <StyledMeta title={item.title} description={item.author} />
               <StyledTitle level={5}>{item.price} ₽</StyledTitle>
@@ -60,7 +60,7 @@ const PageBook = () => {
                 type="primary"
                 className={css.buy}
                 onClick={() => {
-                  addShopping(item.price);
+                  addShopping(item);
                 }}
               >
                 Добавить
@@ -124,7 +124,7 @@ const PageBook = () => {
             type="primary"
             className={css.button}
             onClick={() => {
-              addShopping(card[0].price);
+              addShopping(card[0]);
             }}
           >
             Добавить
@@ -177,7 +177,7 @@ const PageBook = () => {
           error={ErrorHandling}
           noData={ErrorHandling}
           onRenderError={ErrorHandling}
-          loading="Загрузка"
+          loading={<StyledSpin />}
         />
         <StyledButtonLeaf
           shape="circle"

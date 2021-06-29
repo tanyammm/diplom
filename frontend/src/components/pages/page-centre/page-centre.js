@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Space, Button } from "antd";
+import { Divider, Space, Button, Typography } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 import PageCentreForm from "./form";
 import {
@@ -17,6 +17,8 @@ const PageCentre = () => {
     centerStatus: store.mainStore.centerStatus,
     setCenterStatus: store.mainStore.setCenterStatus,
   }));
+
+  const { Text } = Typography;
 
   const onClose = () => {
     setCenterStatus(true);
@@ -68,28 +70,28 @@ const PageCentre = () => {
       <Space size="large" className={css.space}>
         <Button
           type="primary"
-          shape="round"
           icon={<DownloadOutlined />}
           size="large"
           onClick={openNotification}
+          className={css.primary}
         >
           Биржа проектов
         </Button>
         <Button
           type="primary"
-          shape="round"
           icon={<DownloadOutlined />}
           size="large"
           onClick={openNotification}
+          className={css.primary}
         >
           Отзывы партнеров
         </Button>
         <Button
           type="primary"
-          shape="round"
           icon={<DownloadOutlined />}
           size="large"
           onClick={openNotification}
+          className={css.primary}
         >
           База партнёров ВоГУ
         </Button>
@@ -117,11 +119,19 @@ const PageCentre = () => {
       </Divider>
       <div className={css.indent}>
         <StyledText>
-          Менеджер Центра: Елизавета Николаевна Скороходова;
+          <Text strong>Адрес</Text> {": "} 160000, г. Вологда, ул. Галкинская 1,
+          корп. 2
         </StyledText>
-        <StyledText>e-mail: sirbet@vogu35.ru;</StyledText>
-        <StyledText>телефон: (8172) 72-10-12;</StyledText>
-        <StyledText>адрес: 160000, г. Вологда, ул. Галкинская, 1.</StyledText>
+        <StyledText>
+          <Text strong>Менеджер Центра</Text> {": "} Елизавета Николаевна
+          Скороходова
+        </StyledText>
+        <StyledText>
+          <Text strong>Телефон</Text> {": "} (8172) 72-10-12
+        </StyledText>
+        <StyledText>
+          <Text strong>E-mail</Text> {": "} sirbet@vogu35.ru
+        </StyledText>
       </div>
     </div>
   );

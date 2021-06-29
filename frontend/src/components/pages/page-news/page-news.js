@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
 import { StyledTitle } from "../style";
-import Imgs from "./imgs";
+import Carousel from "../../carousel";
 import news from "../../../api/news.json";
 import css from "./page-news.module.css";
 
 const PageNews = () => {
   return (
-    <div>
-      {Imgs}
+    <>
+      {Carousel}
       <StyledTitle level={2}>Новости</StyledTitle>
       <StyledList
         itemLayout="vertical"
@@ -18,6 +18,7 @@ const PageNews = () => {
         pagination={{
           pageSize: 10,
           showSizeChanger: false,
+          hideOnSinglePage: true,
         }}
         dataSource={news}
         renderItem={(item) => (
@@ -40,7 +41,7 @@ const PageNews = () => {
           </StyledListItem>
         )}
       />
-    </div>
+    </>
   );
 };
 

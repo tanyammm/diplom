@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography, Form, message } from "antd";
+import { Form, message } from "antd";
 import {
   ModalName,
   ModalEmail,
@@ -8,17 +8,20 @@ import {
   ModalCheckbox,
   ModalBot,
 } from "../../modal";
-import { StyledTitle, StyledButtonOrange, StyledAlert } from "../style";
+import {
+  StyledTitle,
+  StyledAlert,
+  StyledDiv,
+  Result,
+  Product,
+  StyledButton,
+} from "../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-buy.module.css";
 
-const { Text } = Typography;
-
 const PageBuy = () => {
   const {
-    quantityProducts,
-    numberPurchases,
     getDataBuyer,
     botModal,
     orderStatus,
@@ -27,8 +30,6 @@ const PageBuy = () => {
     numberOrder,
     clearCount,
   } = useRootData((store) => ({
-    quantityProducts: store.mainStore.quantityProducts,
-    numberPurchases: store.mainStore.numberPurchases,
     getDataBuyer: store.mainStore.getDataBuyer,
     botModal: store.mainStore.botModal,
     orderStatus: store.mainStore.orderStatus,
@@ -97,17 +98,13 @@ const PageBuy = () => {
       {orderStatus ? (
         <div className={css.block}>
           <ComponentForm />
-          <div className={css.card}>
-            <Text className={css.result}>Итог {quantityProducts} ₽</Text>
-            <Text className={css.product}>Товаров {numberPurchases} шт.</Text>
-            <StyledButtonOrange
-              type="primary"
-              className={css.buttun}
-              onClick={onSubmit}
-            >
+          <StyledDiv>
+            <Result />
+            <Product />
+            <StyledButton type="primary" onClick={onSubmit}>
               Оформить заказ
-            </StyledButtonOrange>
-          </div>
+            </StyledButton>
+          </StyledDiv>
         </div>
       ) : (
         <StyledAlert

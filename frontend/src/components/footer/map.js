@@ -1,13 +1,13 @@
 import React from "react";
 import { YMaps, Map, Placemark, GeoObject } from "react-yandex-maps";
 
-const mapData = {
-  center: [59.217125, 39.850039],
-  zoom: 12.49,
-  controls: ["zoomControl", "fullscreenControl"],
-};
-
 const Maps = () => {
+  const mapData = {
+    center: [59.217125, 39.850039],
+    zoom: 12.49,
+    controls: ["zoomControl", "fullscreenControl"],
+  };
+
   return (
     <YMaps>
       <Map

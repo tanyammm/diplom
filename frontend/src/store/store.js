@@ -67,14 +67,19 @@ export const createStore = () => {
     /* количество покупок в корзине */
     numberPurchases: 0,
 
+    /* массив элементов в корзине */
+    basket: [],
+
     clearCount() {
       this.numberPurchases = 0;
       this.quantityProducts = 0;
+      this.basket = [];
     },
 
     addShopping(value) {
       this.numberPurchases += 1;
-      this.quantityProducts += value;
+      this.quantityProducts += value.price;
+      this.basket = card.filter((item) => item.id === value.id);
     },
 
     /* статус заказа */

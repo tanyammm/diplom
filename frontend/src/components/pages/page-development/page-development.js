@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 
 const PageDevelopment = () => {
   return (
-    <div>
+    <>
       <Result
         status="500"
         title="Страница находится в разработке"
@@ -16,7 +16,7 @@ const PageDevelopment = () => {
           </Link>
         }
       />
-    </div>
+    </>
   );
 };
 
