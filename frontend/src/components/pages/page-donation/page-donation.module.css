@@ -38,6 +38,10 @@
     align-items: center;
 }
 
+.form {
+    width: 423px;
+}
+
 .upload {
     display: flex;
     flex-direction: column;

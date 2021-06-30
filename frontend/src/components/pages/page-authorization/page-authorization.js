@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, Input, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
-import { FormlBot, FormCheckbox, FormPassword } from "../../form";
+import { FormlBot, FormPassword } from "../../form";
 import {
   StyledText,
   StyledTitle,
@@ -13,13 +13,22 @@ import "antd/dist/antd.css";
 import css from "../../style/page-form.module.css";
 
 const PageAuthorization = () => {
-  const { sendAuthorization, botModal, setError } = useRootData((store) => ({
+  const {
+    setAdministrator,
+    sendAuthorization,
+    botModal,
+    setErrorAuthorization,
+  } = useRootData((store) => ({
     sendAuthorization: store.mainStore.sendAuthorization,
     botModal: store.mainStore.botModal,
-    setError: store.mainStore.setError,
+    setErrorAuthorization: store.mainStore.setErrorAuthorization,
+    setAdministrator: store.mainStore.setAdministrator,
   }));
 
   const [form] = Form.useForm();
+
+  const history = useHistory();
+  const goLogin = () => history.push("/library/administrator");
 
   const onSubmit = () => {
     if (botModal === "") {
@@ -29,11 +38,12 @@ const PageAuthorization = () => {
           form.resetFields();
           sendAuthorization(value);
           if (value.login === "admin" && value.password === "admin") {
-            message.success("Вы вошли как Администратор!");
+            goLogin();
+            setAdministrator(true);
           } else message.error("Такого пользователя нет!");
         })
         .catch((error) => {
-          setError(error);
+          setErrorAuthorization(error);
         });
     } else message.error("Оставьте поле пустым");
   };
@@ -61,7 +71,6 @@ const PageAuthorization = () => {
         </Form.Item>
         <FormPassword />
         <FormlBot />
-        <FormCheckbox />
       </Form>
       <StyledText>
         У вас нет аккаунта? -

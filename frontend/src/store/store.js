@@ -43,10 +43,46 @@ export const createStore = () => {
       this.botModal = value;
     },
 
-    /* сохранение информации об ошибках */
+    /* сохранение информации об ошибках в форме обратной связи */
     errorModal: "",
-    setError(value) {
-      this.errorModal = value;
+    setErrorModal(value) {
+      this.errorModal += JSON.stringify(value);
+    },
+
+    /* сохранение информации об ошибках в форме авторизации */
+    errorAuthorization: "",
+    setErrorAuthorization(value) {
+      this.errorAuthorization += JSON.stringify(value);
+    },
+
+    /* сохранение информации об ошибках в форме регистрации */
+    errorRegister: "",
+    setErrorRegister(value) {
+      this.errorRegister += JSON.stringify(value);
+    },
+
+    /* сохранение информации об ошибках при заполнении заявки ЦСИиРБТ */
+    errorCentre: "",
+    setErrorCentre(value) {
+      this.errorCentre += JSON.stringify(value);
+    },
+
+    /* сохранение информации об ошибках при заполнении заявки на книгу в дар */
+    errorDonation: "",
+    setErrorDonation(value) {
+      this.errorDonation += JSON.stringify(value);
+    },
+
+    /* сохранение информации об ошибках при заполнении заявки на обходной лист */
+    errorList: "",
+    setErrorList(value) {
+      this.errorList += JSON.stringify(value);
+    },
+
+    /* сохранение информации об ошибках при покупке книг */
+    errorBuy: "",
+    setErrorBuy(value) {
+      this.errorBuy += JSON.stringify(value);
     },
 
     /* название категории каталога книг */
@@ -68,18 +104,21 @@ export const createStore = () => {
     numberPurchases: 0,
 
     /* массив элементов в корзине */
-    basket: [],
+    basket: 0,
+    index: 0,
 
     clearCount() {
       this.numberPurchases = 0;
       this.quantityProducts = 0;
-      this.basket = [];
+      this.basket = 0;
+      this.index = 0;
     },
 
     addShopping(value) {
       this.numberPurchases += 1;
       this.quantityProducts += value.price;
-      this.basket = card.filter((item) => item.id === value.id);
+      this.index = card.findIndex((item) => value.id === item.id);
+      this.basket = card.slice(this.index, this.index + 1);
     },
 
     /* массив книг */
@@ -155,6 +194,12 @@ export const createStore = () => {
     centerStatus: true,
     setCenterStatus(value) {
       this.centerStatus = value;
+    },
+
+    /* администратор */
+    administrator: false,
+    setAdministrator(value) {
+      this.administrator = value;
     },
   };
 

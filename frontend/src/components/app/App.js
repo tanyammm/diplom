@@ -5,6 +5,8 @@ import ruRU from "antd/lib/locale/ru_RU";
 import Header from "../header";
 import Feedback from "../feedback";
 import Footer from "../footer";
+import PageAbout from "../pages/page-about";
+import PageAdministrator from "../pages/page-administrator";
 import PageNews from "../pages/page-news";
 import PageCatalog from "../pages/page-catalog";
 import PageBuy from "../pages/page-buy";
@@ -16,7 +18,6 @@ import PageError from "../pages/page-error";
 import PageSearch from "../pages/page-search";
 import PageDonation from "../pages/page-donation";
 import PageDevelopment from "../pages/page-development";
-import PageAbout from "../pages/page-about";
 import PageCentre from "../pages/page-centre";
 import PageEducational from "../pages/page-educational";
 import PageDocuments from "../pages/page-documents";
@@ -36,6 +37,11 @@ const App = () => {
           <Switch>
             <Route exact path="/library/" component={PageNews} />
             <Route exact path="/library/catalog" component={PageCatalog} />
+            <Route
+              exact
+              path="/library/administrator"
+              component={PageAdministrator}
+            />
             <Route exact path="/library/buy" component={PageBuy} />
             <Route exact path="/library/shopping" component={PageShopping} />
             <Route

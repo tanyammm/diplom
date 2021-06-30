@@ -9,7 +9,7 @@ import {
   StyledButtonOrange,
   StyledButtonLeaf,
 } from "../../style";
-import { StyledSpin } from "../../components";
+import { StyledSpin } from "../../reusable-components";
 import Books from "../../books";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";

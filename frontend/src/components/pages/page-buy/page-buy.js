@@ -9,7 +9,12 @@ import {
   FormlBot,
 } from "../../form";
 import { StyledTitle, StyledAlert } from "../../style";
-import { StyledDiv, Result, Product, StyledButton } from "../../components";
+import {
+  StyledDiv,
+  Result,
+  Product,
+  StyledButton,
+} from "../../reusable-components";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";
 import css from "./page-buy.module.css";
@@ -20,7 +25,7 @@ const PageBuy = () => {
     botModal,
     orderStatus,
     setOrderStatus,
-    setError,
+    setErrorBuy,
     numberOrder,
     clearCount,
   } = useRootData((store) => ({
@@ -28,7 +33,7 @@ const PageBuy = () => {
     botModal: store.mainStore.botModal,
     orderStatus: store.mainStore.orderStatus,
     setOrderStatus: store.mainStore.setOrderStatus,
-    setError: store.mainStore.setError,
+    setErrorBuy: store.mainStore.setErrorBuy,
     numberOrder: store.mainStore.numberOrder,
     clearCount: store.mainStore.clearCount,
   }));
@@ -46,7 +51,7 @@ const PageBuy = () => {
           clearCount();
         })
         .catch((error) => {
-          setError(error);
+          setErrorBuy(error);
         });
     } else message.error("Оставьте поле пустым");
   };

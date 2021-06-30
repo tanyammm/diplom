@@ -20,7 +20,7 @@ const Modal = () => {
     handleOk,
     handleCancel,
     botModal,
-    setError,
+    setErrorModal,
     themeModal,
     setTheme,
     setThemeInput,
@@ -29,7 +29,7 @@ const Modal = () => {
     handleOk: store.mainStore.handleOk,
     handleCancel: store.mainStore.handleCancel,
     botModal: store.mainStore.botModal,
-    setError: store.mainStore.setError,
+    setErrorModal: store.mainStore.setErrorModal,
     themeModal: store.mainStore.themeModal,
     setTheme: store.mainStore.setTheme,
     setThemeInput: store.mainStore.setThemeInput,
@@ -47,7 +47,7 @@ const Modal = () => {
           message.success("Благодарим Вас за обратную связь!");
         })
         .catch((error) => {
-          setError(error);
+          setErrorModal(error);
         });
     } else message.error("Оставьте поле пустым");
   };

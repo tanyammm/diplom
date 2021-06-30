@@ -1,11 +1,17 @@
 import React from "react";
 import { Divider, Image, Typography } from "antd";
 import { StyledTitle, StyledText } from "../../style";
+import { useRootData } from "../../../hooks/use-root-data";
+import { Administrator, ButtonAdd } from "../../administrator/administrator";
 import "antd/dist/antd.css";
 import css from "./page-contacts.module.css";
 
 const PageContacts = () => {
   const { Text } = Typography;
+
+  const { administrator } = useRootData((store) => ({
+    administrator: store.mainStore.administrator,
+  }));
 
   return (
     <div className={css.contacts}>
@@ -167,6 +173,14 @@ const PageContacts = () => {
         <StyledText>пятница - 08.00 – 15.00</StyledText>
         <StyledText>выходные дни: сб., вс.</StyledText>
       </div>
+      {!administrator ? (
+        <p>вы не админ</p>
+      ) : (
+        <div>
+          <Administrator />
+          <ButtonAdd />
+        </div>
+      )}
     </div>
   );
 };

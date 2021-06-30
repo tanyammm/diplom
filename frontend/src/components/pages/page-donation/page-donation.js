@@ -24,10 +24,10 @@ import "antd/dist/antd.css";
 import css from "./page-donation.module.css";
 
 const PageDonation = () => {
-  const { getDataBuyer, botModal, setError } = useRootData((store) => ({
+  const { getDataBuyer, botModal, setErrorDonation } = useRootData((store) => ({
     getDataBuyer: store.mainStore.getDataBuyer,
     botModal: store.mainStore.botModal,
-    setError: store.mainStore.setError,
+    setErrorDonation: store.mainStore.setErrorDonation,
   }));
 
   const { Link } = Typography;
@@ -80,7 +80,7 @@ const PageDonation = () => {
           openNotification();
         })
         .catch((error) => {
-          setError(error);
+          setErrorDonation(error);
         });
     } else message.error("Оставьте поле пустым");
   };
@@ -143,7 +143,12 @@ const PageDonation = () => {
         <div className={css.request}>
           <div className={css.card}>
             <StyledTitle level={5}>Оставить заявку</StyledTitle>
-            <Form name="nest-messages" layout="vertical" form={form}>
+            <Form
+              name="nest-messages"
+              layout="vertical"
+              form={form}
+              className={css.form}
+            >
               <FormName />
               <Form.Item
                 name="book"

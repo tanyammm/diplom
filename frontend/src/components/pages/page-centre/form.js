@@ -8,14 +8,13 @@ import css from "./page-centre.module.css";
 import "antd/dist/antd.css";
 
 const PageCentreForm = () => {
-  const { getDataCenter, botModal, setError, setCenterStatus } = useRootData(
-    (store) => ({
+  const { getDataCenter, botModal, setErrorCentre, setCenterStatus } =
+    useRootData((store) => ({
       getDataCenter: store.mainStore.getDataCenter,
       botModal: store.mainStore.botModal,
-      setError: store.mainStore.setError,
+      setErrorCentre: store.mainStore.setErrorCentre,
       setCenterStatus: store.mainStore.setCenterStatus,
-    })
-  );
+    }));
 
   const [form] = Form.useForm();
 
@@ -29,7 +28,7 @@ const PageCentreForm = () => {
           setCenterStatus(false);
         })
         .catch((error) => {
-          setError(error);
+          setErrorCentre(error);
         });
     } else message.error("Оставьте поле пустым");
   };

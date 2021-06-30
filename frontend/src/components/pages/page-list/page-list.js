@@ -19,11 +19,11 @@ import "antd/dist/antd.css";
 import css from "./page-list.module.css";
 
 const PageList = () => {
-  const { getDataStudent, botModal, setError, listStatus, setListStatus } =
+  const { getDataStudent, botModal, setErrorList, listStatus, setListStatus } =
     useRootData((store) => ({
       getDataStudent: store.mainStore.getDataStudent,
       botModal: store.mainStore.botModal,
-      setError: store.mainStore.setError,
+      setErrorList: store.mainStore.setErrorList,
       listStatus: store.mainStore.listStatus,
       setListStatus: store.mainStore.setListStatus,
     }));
@@ -46,7 +46,7 @@ const PageList = () => {
           setListStatus(false);
         })
         .catch((error) => {
-          setError(error);
+          setErrorList(error);
         });
     } else message.error("Оставьте поле пустым");
   };

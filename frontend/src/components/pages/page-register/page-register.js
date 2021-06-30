@@ -20,10 +20,10 @@ import "antd/dist/antd.css";
 import css from "../../style/page-form.module.css";
 
 const PageRegister = () => {
-  const { sendRegister, botModal, setError } = useRootData((store) => ({
+  const { sendRegister, botModal, setErrorRegister } = useRootData((store) => ({
     sendRegister: store.mainStore.sendRegister,
     botModal: store.mainStore.botModal,
-    setError: store.mainStore.setError,
+    setErrorRegister: store.mainStore.setErrorRegister,
   }));
 
   const history = useHistory();
@@ -53,7 +53,7 @@ const PageRegister = () => {
           } else message.error("Пароли не совпадают!");
         })
         .catch((error) => {
-          setError(error);
+          setErrorRegister(error);
         });
     } else message.error("Оставьте поле пустым");
   };
