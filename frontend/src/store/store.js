@@ -104,13 +104,13 @@ export const createStore = () => {
     numberPurchases: 0,
 
     /* массив элементов в корзине */
-    basket: 0,
+    basket: [],
     index: 0,
 
     clearCount() {
       this.numberPurchases = 0;
       this.quantityProducts = 0;
-      this.basket = 0;
+      this.basket = [];
       this.index = 0;
     },
 
@@ -118,7 +118,7 @@ export const createStore = () => {
       this.numberPurchases += 1;
       this.quantityProducts += value.price;
       this.index = card.findIndex((item) => value.id === item.id);
-      this.basket = card.slice(this.index, this.index + 1);
+      this.basket.push(card[this.index]);
     },
 
     /* массив книг */
@@ -201,6 +201,11 @@ export const createStore = () => {
     setAdministrator(value) {
       this.administrator = value;
     },
+
+    /* статистика */
+    quantityVisitors: 7,
+    quantityBuy: 1,
+    quantityDownloading: 63,
   };
 
   return store;

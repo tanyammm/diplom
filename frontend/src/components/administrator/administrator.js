@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Comment, Form, Button, Input } from "antd";
-import { PlusCircleOutlined } from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 // import css from "./administrator.module.css";
 
@@ -44,5 +44,5 @@ export const Administrator = () => {
 };
 
 export const ButtonAdd = () => {
-  return <Button type="primary" icon={<PlusCircleOutlined />} />;
+  return <Button type="primary" shape="circle" icon={<PlusOutlined />} />;
 };

@@ -3,11 +3,14 @@ import styled from "@emotion/styled";
 
 const { Text } = Typography;
 
-const StyledText = styled(Text)`
+export const StyledText = styled(Text)`
   font-family: "Montserrat", sans-serif;
   color: #000000;
   display: flex;
   font-size: 15px;
 `;
 
-export default StyledText;
+export const StyledTextCenter = styled(StyledText)`
+  display: flex;
+  justify-content: center;
+`;

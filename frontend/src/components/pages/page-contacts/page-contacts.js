@@ -173,13 +173,13 @@ const PageContacts = () => {
         <StyledText>пятница - 08.00 – 15.00</StyledText>
         <StyledText>выходные дни: сб., вс.</StyledText>
       </div>
-      {!administrator ? (
-        <p>вы не админ</p>
-      ) : (
-        <div>
-          <Administrator />
+      {administrator ? (
+        <>
           <ButtonAdd />
-        </div>
+          <Administrator />
+        </>
+      ) : (
+        <></>
       )}
     </div>
   );

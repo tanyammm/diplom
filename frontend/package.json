@@ -5,6 +5,7 @@
   "private": true,
   "homepage": "https://tanyammm.github.io/library/",
   "dependencies": {
+    "@ant-design/charts": "^1.1.20",
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.3.0",
     "@emotion/react": "^11.4.0",

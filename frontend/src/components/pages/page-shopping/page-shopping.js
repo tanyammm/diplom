@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Typography, Checkbox, List, Button, Empty } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 
-import { StyledTitle } from "../../style";
+import { StyledTitle, StyledTextCenter } from "../../style";
 import {
   StyledDiv,
   Result,
@@ -41,13 +41,18 @@ const PageShopping = () => {
       <StyledTitle level={2}>Корзина</StyledTitle>
       {!loading ? (
         <>
-          {basket === 0 ? (
+          {basket.length === 0 ? (
             <Empty
               className={css.empty}
               imageStyle={{
                 height: 60,
               }}
-              description="Ваша корзина пока пуста. Для добавления книг перейдите в каталог"
+              description={
+                <StyledTextCenter>
+                  Ваша корзина пока пуста. Для добавления книг перейдите в
+                  каталог.
+                </StyledTextCenter>
+              }
             >
               <Link to="/library/catalog">
                 <Button type="primary">Каталог</Button>
