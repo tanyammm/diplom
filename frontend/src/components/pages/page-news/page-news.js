@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, generatePath } from "react-router-dom";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
 import { StyledTitle } from "../../style";
@@ -23,11 +23,11 @@ const PageNews = () => {
         dataSource={news}
         renderItem={(item) => (
           <StyledListItem
-            key={item.index}
+            key={item.id}
             actions={[
               <Link
                 key="list-loadmore-edit"
-                to="/library/development"
+                to={generatePath("/library/news/:id", { id: item.id })}
                 className={css.farther}
                 data-testid="farther"
               >

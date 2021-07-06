@@ -11,6 +11,13 @@
 
 .list {
     width: 300%;
+    margin-top: 5%;
+    border: 1px solid #DEDEDE;
+
+}
+
+.checkbox {
+    padding-left: 1%;
 }
 
 .button {

@@ -94,7 +94,9 @@ export const createStore = () => {
     /* поиск книг по каталогу */
     elements: [],
     searchBookGeneral(value) {
-      this.elements = card.filter((item) => item.title === value);
+      this.elements = card.filter(
+        (item) => item.title.toLowerCase() === value.toLowerCase()
+      );
     },
 
     /* сумма покупок */
@@ -106,6 +108,7 @@ export const createStore = () => {
     /* массив элементов в корзине */
     basket: [],
     index: 0,
+    arrayIndex: [],
 
     clearCount() {
       this.numberPurchases = 0;
@@ -114,11 +117,26 @@ export const createStore = () => {
       this.index = 0;
     },
 
-    addShopping(value) {
-      this.numberPurchases += 1;
-      this.quantityProducts += value.price;
-      this.index = card.findIndex((item) => value.id === item.id);
-      this.basket.push(card[this.index]);
+    addShopping({ id, price }) {
+      if (this.arrayIndex.includes(id)) {
+        console.log("Товар уже в корзине");
+      } else {
+        this.numberPurchases += 1;
+        this.quantityProducts += price;
+        this.index = card.findIndex((item) => id === item.id);
+        this.arrayIndex.push(this.index);
+        this.basket.push(card[this.index]);
+      }
+    },
+
+    deleteShopping({ id, price }) {
+      if (this.numberPurchases > 0) {
+        this.numberPurchases -= 1;
+        this.quantityProducts -= price;
+        this.index = this.basket.findIndex((item) => id === item.id);
+        this.arrayIndex.splice(this.index, 1);
+        this.basket.splice(this.index, 1);
+      }
     },
 
     /* массив книг */

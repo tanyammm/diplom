@@ -24,8 +24,9 @@ import PageDocuments from "../pages/page-documents";
 import PageContacts from "../pages/page-contacts";
 import PageServices from "../pages/page-services";
 import PageList from "../pages/page-list";
+import PageMessage from "../pages/page-message";
 import BackTopButton from "./back-top";
-import "antd/dist/antd.css";
+import ScrollToTop from "./scroll";
 
 const App = () => {
   return (
@@ -34,8 +35,10 @@ const App = () => {
         <div style={{ minHeight: "85vh" }}>
           <Header />
           <Feedback />
+          <ScrollToTop />
           <Switch>
             <Route exact path="/library/" component={PageNews} />
+            <Route exact path="/library/news/:id" component={PageMessage} />
             <Route exact path="/library/catalog" component={PageCatalog} />
             <Route
               exact
@@ -58,7 +61,7 @@ const App = () => {
               component={PageEducational}
             />
             <Route exact path="/library/about" component={PageAbout} />
-            <Route exact path="/library/book" component={PageBook} />
+            <Route exact path="/library/book/:id" component={PageBook} />
             <Route
               exact
               path="/library/authorization"

@@ -1,11 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 /* eslint-disable promise/param-names */
 /* eslint-disable promise/avoid-new */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Typography, Checkbox, List, Button, Empty } from "antd";
-import { CloseOutlined } from "@ant-design/icons";
-
+import { Link, generatePath } from "react-router-dom";
+import { Typography, Checkbox, List, Button, Empty, Popconfirm } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 import { StyledTitle, StyledTextCenter } from "../../style";
 import {
   StyledDiv,
@@ -22,11 +22,22 @@ import css from "./page-shopping.module.css";
 const PageShopping = () => {
   const { Text } = Typography;
 
-  const { basket } = useRootData((store) => ({
+  const { basket, deleteShopping } = useRootData((store) => ({
     basket: store.mainStore.basket,
+    deleteShopping: store.mainStore.deleteShopping,
   }));
 
   const [loading, setLoading] = useState(true);
+  const [array, setArray] = useState();
+
+  const onClick = (item) => {
+    deleteShopping(item);
+    setArray(item);
+  };
+
+  useEffect(() => {
+    setArray();
+  }, []);
 
   useEffect(() => {
     const loadData = async () => {
@@ -63,7 +74,6 @@ const PageShopping = () => {
               <div>
                 <Checkbox>Выбрать все</Checkbox>
                 <List
-                  className={css.list}
                   dataSource={basket}
                   pagination={{
                     pageSize: 10,
@@ -72,17 +82,33 @@ const PageShopping = () => {
                   }}
                   renderItem={(item) => (
                     <List.Item
+                      className={css.list}
                       key={item.id}
                       actions={[
-                        <Button key={item.id} type="text">
-                          <CloseOutlined />
-                        </Button>,
+                        <Popconfirm
+                          key={item.id}
+                          title="Вы уверены, что хотите удалить этот товар из корзины?"
+                          onConfirm={() => onClick(item)}
+                          okText="Да"
+                          cancelText="Нет"
+                        >
+                          <Button
+                            shape="circle"
+                            type="primary"
+                            danger
+                            icon={<DeleteOutlined />}
+                          />
+                        </Popconfirm>,
                       ]}
                     >
-                      <Checkbox />
+                      <Checkbox className={css.checkbox} />
                       <List.Item.Meta
                         avatar={
-                          <Link to="/library/book">
+                          <Link
+                            to={generatePath("/library/book/:id", {
+                              id: item.id,
+                            })}
+                          >
                             <img
                               width={90}
                               src={img}
@@ -91,7 +117,15 @@ const PageShopping = () => {
                             />
                           </Link>
                         }
-                        title={<Link to="/library/book">{item.title}</Link>}
+                        title={
+                          <Link
+                            to={generatePath("/library/book/:id", {
+                              id: item.id,
+                            })}
+                          >
+                            {item.title}
+                          </Link>
+                        }
                         description={item.author}
                       />
                       <Text strong className={css.price}>

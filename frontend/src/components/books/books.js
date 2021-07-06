@@ -1,7 +1,12 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import { List, Image } from "antd";
-import { Link } from "react-router-dom";
-import { StyledButtonOrange, StyledTitle } from "../style";
+import { Link, generatePath } from "react-router-dom";
+import {
+  StyledButtonOrange,
+  StyledTitle,
+  StyledButtonShopping,
+} from "../style";
 import { StyledCard, StyledMeta } from "./styled";
 import { useRootData } from "../../hooks/use-root-data";
 import img from "../../img/обложка.jpg";
@@ -9,9 +14,21 @@ import "antd/dist/antd.css";
 import css from "./books.module.css";
 
 const Books = (value) => {
-  const { addShopping } = useRootData((store) => ({
+  const { addShopping, arrayIndex } = useRootData((store) => ({
     addShopping: store.mainStore.addShopping,
+    arrayIndex: store.mainStore.arrayIndex,
   }));
+
+  const [array, setArray] = useState();
+
+  const onClick = (item) => {
+    addShopping(item);
+    setArray(item);
+  };
+
+  useEffect(() => {
+    setArray();
+  }, []);
 
   return (
     <List
@@ -34,20 +51,28 @@ const Books = (value) => {
       renderItem={(item) => (
         <List.Item key={item.id}>
           <StyledCard key={item.id} hoverable>
-            <Link to="/library/book">
+            <Link to={generatePath("/library/book/:id", { id: item.id })}>
               <Image src={img} alt="Обложка книги" preview={false} />
               <StyledMeta title={item.title} description={item.author} />
               <StyledTitle level={5}>{item.price} ₽</StyledTitle>
             </Link>
-            <StyledButtonOrange
-              type="primary"
-              className={css.button}
-              onClick={() => {
-                addShopping(item);
-              }}
-            >
-              Добавить
-            </StyledButtonOrange>
+            {arrayIndex.includes(item.id) ? (
+              <Link to="/library/shopping">
+                <StyledButtonShopping type="primary" className={css.button}>
+                  В корзине
+                </StyledButtonShopping>
+              </Link>
+            ) : (
+              <StyledButtonOrange
+                type="primary"
+                className={css.button}
+                onClick={() => {
+                  onClick(item);
+                }}
+              >
+                Добавить
+              </StyledButtonOrange>
+            )}
           </StyledCard>
         </List.Item>
       )}
