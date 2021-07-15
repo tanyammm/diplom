@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledTitle } from "../../style";
-import Books from "../../books";
+import Books from "../../reusable-components/books";
 import { useRootData } from "../../../hooks/use-root-data";
 import card from "../../../api/books.json";
 import "antd/dist/antd.css";

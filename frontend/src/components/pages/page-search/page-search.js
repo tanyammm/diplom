@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledTitle } from "../../style";
 import { useRootData } from "../../../hooks/use-root-data";
-import Books from "../../books";
+import Books from "../../reusable-components/books";
 import "antd/dist/antd.css";
 import css from "./page-search.module.css";
 

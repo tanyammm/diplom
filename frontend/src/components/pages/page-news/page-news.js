@@ -3,15 +3,28 @@ import { Link, generatePath } from "react-router-dom";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
 import { StyledTitle } from "../../style";
-import Carousel from "../../carousel";
+import { ButtonAdd } from "../../reusable-components/administrator";
+import { useRootData } from "../../../hooks/use-root-data";
+import Carousel from "../../reusable-components/carousel";
 import news from "../../../api/news.json";
 import css from "./page-news.module.css";
 
 const PageNews = () => {
+  const { administrator } = useRootData((store) => ({
+    administrator: store.mainStore.administrator,
+  }));
+
   return (
     <>
       {Carousel}
       <StyledTitle level={2}>Новости</StyledTitle>
+      {administrator ? (
+        <div className={css.administrator}>
+          <ButtonAdd />
+        </div>
+      ) : (
+        <></>
+      )}
       <StyledList
         itemLayout="vertical"
         size="large"

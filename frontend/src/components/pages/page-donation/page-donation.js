@@ -17,7 +17,7 @@ import {
   FormCheckbox,
   FormlBot,
   FormPhone,
-} from "../../form";
+} from "../../reusable-components/form";
 import { StyledTitle, StyledButtonOrange, StyledText } from "../../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import "antd/dist/antd.css";

@@ -8,7 +8,7 @@ import {
   FormMessage,
   FormlBot,
   FormCheckbox,
-} from "../../form";
+} from "../../reusable-components/form";
 import { useRootData } from "../../../hooks/use-root-data";
 import StyledModal from "./styled";
 import "antd/dist/antd.css";

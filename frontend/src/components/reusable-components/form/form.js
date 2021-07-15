@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input, Checkbox, Typography } from "antd";
 import MaskedInput from "antd-mask-input";
 import "antd/dist/antd.css";
-import { useRootData } from "../../hooks/use-root-data";
+import { useRootData } from "../../../hooks/use-root-data";
 import css from "./form.module.css";
 
 const { Text, Link } = Typography;

@@ -3,6 +3,26 @@
     margin-top: -4px;
 }
 
+:global(.ant-dropdown-menu)  {
+    padding: 0px 0px;
+}
+
+:global(.ant-dropdown-menu-submenu-popup ul)  {
+    margin-left: -3.6px;
+}
+
+:global(.ant-dropdown-menu-submenu-popup)  {
+    z-index: 1000;
+}
+
+.ant-dropdown-menu-submenu-popup {
+    position: absolute;
+    z-index: 1050;
+    background: transparent;
+    box-shadow: none;
+    transform-origin: 0 0;
+  }
+
 .subMenu {
     background: #4278C0;
     font-size: 16px !important;

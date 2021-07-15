@@ -16,7 +16,7 @@ import {
 } from "../../style";
 import PageError from "../page-error";
 import { StyledSpin } from "../../reusable-components";
-import Books from "../../books";
+import Books from "../../reusable-components/books";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/обложка.jpg";
 import card from "../../../api/books.json";

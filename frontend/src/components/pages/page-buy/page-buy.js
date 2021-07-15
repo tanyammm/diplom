@@ -7,7 +7,7 @@ import {
   FormPhone,
   FormCheckbox,
   FormlBot,
-} from "../../form";
+} from "../../reusable-components/form";
 import { StyledTitle, StyledAlert } from "../../style";
 import {
   StyledDiv,

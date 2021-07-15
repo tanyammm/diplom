@@ -9,7 +9,7 @@ import {
   FormlBot,
   FormCheckbox,
   FormPassword,
-} from "../../form";
+} from "../../reusable-components/form";
 import {
   StyledTitle,
   StyledText,

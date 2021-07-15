@@ -14,7 +14,7 @@ import {
   FormCheckbox,
   FormlBot,
   FormPhone,
-} from "../../form";
+} from "../../reusable-components/form";
 import "antd/dist/antd.css";
 import css from "./page-list.module.css";
 

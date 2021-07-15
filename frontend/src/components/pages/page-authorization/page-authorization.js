@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input, message } from "antd";
 import { Link, useHistory } from "react-router-dom";
 import { useRootData } from "../../../hooks/use-root-data";
-import { FormlBot, FormPassword } from "../../form";
+import { FormlBot, FormPassword } from "../../reusable-components/form";
 import {
   StyledText,
   StyledTitle,

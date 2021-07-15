@@ -1,7 +1,12 @@
 import { Form, Input, message } from "antd";
 import React from "react";
 import MaskedInput from "antd-mask-input";
-import { FormEmail, FormCheckbox, FormlBot, FormMessage } from "../../form";
+import {
+  FormEmail,
+  FormCheckbox,
+  FormlBot,
+  FormMessage,
+} from "../../reusable-components/form";
 import { useRootData } from "../../../hooks/use-root-data";
 import { StyledForm, StyledButtonOrange } from "../../style";
 import css from "./page-centre.module.css";
