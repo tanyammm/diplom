@@ -3,18 +3,6 @@
     margin-top: -4px;
 }
 
-:global(.ant-dropdown-menu)  {
-    padding: 0px 0px;
-}
-
-:global(.ant-dropdown-menu-submenu-popup ul)  {
-    margin-left: -3.6px;
-}
-
-:global(.ant-dropdown-menu-submenu-popup)  {
-    z-index: 1000;
-}
-
 .ant-dropdown-menu-submenu-popup {
     position: absolute;
     z-index: 1050;
@@ -27,7 +15,6 @@
     background: #4278C0;
     font-size: 16px !important;
     color: #ffffff !important;
-    font-family: "Montserrat", sans-serif !important;
     padding-right: 40px !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
@@ -37,13 +24,8 @@
     background-color: #7faeda !important;
 }
 
-:global(.ant-dropdown-menu.ant-dropdown-menu-sub.ant-dropdown-menu-vertical) {
-    background: #4278C0;
-}
-
 .header {
     background: #ffffff; 
-    font-family: 'Montserrat', sans-serif;
 }
 
 .block {

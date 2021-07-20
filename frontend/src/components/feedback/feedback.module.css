@@ -5,7 +5,6 @@
     width: 200.72px;
     height: 57.1px;
     left: -80px;
-    font-family: 'Montserrat', sans-serif;
     transform: rotate(-90deg);
     z-index: 2;
     border-color: #d46b08;
@@ -16,4 +15,21 @@
 .feedback:focus {
     background: #d46b08;
     border-color: #ad4e00;
+}
+
+.feedbackMobile {
+    color: #fa8c16;
+    z-index: 2;
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+.feedbackMobile:hover,
+.feedbackMobile:active,
+.feedbackMobile:focus {
+    color: #d46b08;
+}
+
+.affix {
+    width: 30px;
 }

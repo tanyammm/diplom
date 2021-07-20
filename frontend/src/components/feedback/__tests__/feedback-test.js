@@ -18,7 +18,7 @@ describe("Фидбек", () => {
 
     const feedback = getByTestId("feedback");
     expect(feedback).toHaveStyle(
-      "background: #fa8c16;position: absolute;width: 200.72px;height: 57.1px;left: -80px;font-family: 'Montserrat', sans-serif;transform: rotate(-90deg);z-index: 2;border-color: #d46b08;"
+      "background: #fa8c16;position: absolute;width: 200.72px;height: 57.1px;left: -80px;transform: rotate(-90deg);z-index: 2;border-color: #d46b08;"
     );
     expect(feedback).toHaveStyleRule(
       "background: #d46b08;border-color: #ad4e00;"

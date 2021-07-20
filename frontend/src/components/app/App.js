@@ -27,10 +27,11 @@ import PageList from "../pages/page-list";
 import PageMessage from "../pages/page-message";
 import BackTopButton from "./back-top";
 import ScrollToTop from "./scroll";
+import css from "./style.module.css";
 
 const App = () => {
   return (
-    <ConfigProvider locale={ruRU}>
+    <ConfigProvider locale={ruRU} className={css}>
       <BrowserRouter>
         <div style={{ minHeight: "85vh" }}>
           <Header />

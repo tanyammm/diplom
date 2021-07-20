@@ -10,7 +10,6 @@ export const StyledMenu = styled(Menu)`
   .ant-dropdown-menu-item > a:hover {
     font-size: 16px;
     color: #ffffff;
-    font-family: "Montserrat", sans-serif;
     padding-right: 40px;
     padding-top: 10px;
     padding-bottom: 10px;

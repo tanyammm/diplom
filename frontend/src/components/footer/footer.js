@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon28LogoVkColor } from "@vkontakte/icons";
-import { Tooltip } from "antd";
+import { Row, Col, Tooltip } from "antd";
 import { useRootData } from "../../hooks/use-root-data";
 import { StyledTitle, StyledLink, StyledText } from "./styled";
 import Maps from "./map";
@@ -12,50 +12,89 @@ const Footer = () => {
     openShowModal: store.mainStore.openShowModal,
   }));
 
+  const [visibility, setVisibility] = useState(false);
+  const [title, setTitle] = useState("Открыть");
+
   const text = (
     <span className={css.tooltip}>Официальная страница в ВКонтакте</span>
   );
 
   return (
-    <footer className={css.footer} data-testid="footer">
-      <div className={css.blok}>
-        <StyledTitle>ИБК ВоГУ</StyledTitle>
-        <StyledLink to="/library/about">О нас</StyledLink>
-        <StyledLink to="/library/">Новости</StyledLink>
-        <StyledLink to="/library/donation/">Книга в дар</StyledLink>
-        <StyledLink to="/library/centre/">
-          Центр содействия инновациям и развитию бережливых технологий ВоГУ
-        </StyledLink>
-      </div>
-      <div className={css.blok}>
-        <StyledTitle>Интернет-ресурсы</StyledTitle>
-        <StyledLink to="/library/educational/">
-          Система электронных образовательных ресурсов ВоГУ
-        </StyledLink>
-        <StyledLink to="/library/catalog/">Каталог книг</StyledLink>
-        <StyledLink to="/library/register/">Личный кабинет</StyledLink>
-      </div>
-      <div className={css.blok}>
-        <StyledTitle>Контакты</StyledTitle>
-        <StyledText onClick={openShowModal}>Обратная связь</StyledText>
-        <StyledLink to="/library/documents/">Документы</StyledLink>
-        <StyledLink to="/library/contacts/">Контакты и режим работы</StyledLink>
-      </div>
-      <div className={css.blok}>
-        <StyledTitle>Телефон</StyledTitle>
-        <div className={css.phone} data-testid="phone">
-          8 (8172) 72-10-12
+    <Row gutter={[24, 24]} className={css.footer}>
+      <Col span={4.8}>
+        <div className={css.blok}>
+          <StyledTitle>ИБК ВоГУ</StyledTitle>
+          <StyledLink to="/library/about">О нас</StyledLink>
+          <StyledLink to="/library/">Новости</StyledLink>
+          <StyledLink to="/library/donation/">Книга в дар</StyledLink>
+          <StyledLink to="/library/centre/">
+            Центр содействия инновациям и развитию бережливых технологий ВоГУ
+          </StyledLink>
         </div>
-        <div className={css.icons} data-testid="icons">
-          <Tooltip placement="bottom" title={text} color="#ffffff">
-            <a href="https://vk.com/slibvsu">
-              <Icon28LogoVkColor width={48} height={48} />
-            </a>
-          </Tooltip>
+      </Col>
+      <Col span={4.8}>
+        <div className={css.blok}>
+          <StyledTitle>Интернет-ресурсы</StyledTitle>
+          <StyledLink to="/library/educational/">
+            Система электронных образовательных ресурсов ВоГУ
+          </StyledLink>
+          <StyledLink to="/library/catalog/">Каталог книг</StyledLink>
+          <StyledLink to="/library/register/">Личный кабинет</StyledLink>
         </div>
-      </div>
-      <Maps />
-    </footer>
+      </Col>
+      <Col span={4.8}>
+        <div className={css.blok}>
+          <StyledTitle>Контакты</StyledTitle>
+          <StyledText onClick={openShowModal}>Обратная связь</StyledText>
+          <StyledLink to="/library/documents/">Документы</StyledLink>
+          <StyledLink to="/library/contacts/">
+            Контакты и режим работы
+          </StyledLink>
+        </div>
+      </Col>
+      <Col span={4.8}>
+        <div className={css.blok}>
+          <StyledTitle>Телефон</StyledTitle>
+          <div className={css.phone} data-testid="phone">
+            8 (8172) 72-10-12
+          </div>
+          <div className={css.icons} data-testid="icons">
+            {window.innerWidth > 768 ? (
+              <Tooltip placement="bottom" title={text} color="#ffffff">
+                <a href="https://vk.com/slibvsu">
+                  <Icon28LogoVkColor width={48} height={48} />
+                </a>
+              </Tooltip>
+            ) : (
+              <a href="https://vk.com/slibvsu">
+                <Icon28LogoVkColor width={48} height={48} />
+              </a>
+            )}
+          </div>
+        </div>
+      </Col>
+      <Col span={4.8}>
+        {window.innerWidth > 768 ? (
+          <>{Maps(530, 200)}</>
+        ) : (
+          <div className={css.blok}>
+            <StyledText
+              onClick={() => {
+                setVisibility(!visibility);
+                if (title === "Открыть") {
+                  setTitle("Скрыть");
+                } else {
+                  setTitle("Открыть");
+                }
+              }}
+            >
+              {title} карту
+            </StyledText>
+            {visibility ? <>{Maps(240, 400)}</> : <></>}
+          </div>
+        )}
+      </Col>
+    </Row>
   );
 };
 

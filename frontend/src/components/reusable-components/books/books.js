@@ -61,7 +61,6 @@ const Books = (value) => {
             xl: 3,
             xxl: 4,
           }}
-          className={css.list}
           dataSource={value}
           renderItem={(item) => (
             <List.Item key={item.id}>

@@ -12,7 +12,7 @@
 
 .input {
     border-bottom: 2px solid #e0e0e0; 
-    width: 200px !important; /*длина*/
+    width: 200px;
 }
 
 .input:focus,

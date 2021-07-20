@@ -6,7 +6,6 @@ import "antd/dist/antd.css";
 
 const StyledResult = styled(Result)`
   .ant-result-title {
-    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     font-weight: 600;
   }

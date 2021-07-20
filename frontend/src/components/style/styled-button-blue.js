@@ -16,7 +16,6 @@ const StyledButtonBlue = styled("button")`
   background: -moz-linear-gradient(to left, #0a1c40, #40a9ff);
   background-image: -webkit-linear-gradient(120deg, #0a1c40, #40a9ff);
   cursor: pointer;
-  font-family: "Montserrat", sans-serif;
   width: 250px;
   height: 45px;
   box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);

@@ -5,7 +5,6 @@ export const StyledList = styled(List)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: "Montserrat", sans-serif;
   margin-left: 15%;
   margin-right: 15%;
 

@@ -9,9 +9,9 @@ export const StyledTitle = styled.div`
 
 export const StyledLink = styled(Link)`
   font-size: 14px;
-  width: fit-content;
   padding-bottom: 10px;
   color: #ffffff;
+  width: fit-content;
 
   &:hover,
   &:focus {
@@ -29,9 +29,9 @@ export const StyledLink = styled(Link)`
 
 export const StyledText = styled("div")`
   font-size: 14px;
-  width: fit-content;
   padding-bottom: 10px;
   color: #ffffff;
+  width: fit-content;
 
   &:hover,
   &:focus {

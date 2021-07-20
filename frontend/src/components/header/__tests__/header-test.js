@@ -17,8 +17,6 @@ describe("Шапка", () => {
     );
 
     const header = getByTestId("header");
-    expect(header).toHaveStyle(
-      "background: #ffffff;font-family: 'Montserrat', sans-serif;"
-    );
+    expect(header).toHaveStyle("background: #ffffff;");
   });
 });

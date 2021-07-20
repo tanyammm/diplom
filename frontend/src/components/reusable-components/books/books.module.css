@@ -1,11 +1,3 @@
-.list {
-    font-family: "Montserrat", sans-serif;
-}
-
-:global(.ant-pagination ) {
-    text-align: center;
-}
-
 .button {
     width: 100%;
     height: 46px;

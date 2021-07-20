@@ -5,6 +5,7 @@ const StyledModal = styled(Modal)`
   .ant-modal-title {
     display: flex;
     justify-content: center;
+    font-weight: 600;
   }
 `;
 

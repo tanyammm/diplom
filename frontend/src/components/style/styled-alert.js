@@ -13,12 +13,10 @@ const StyledAlert = styled(Alert)`
   }
 
   .ant-alert-message {
-    font-family: "Montserrat", sans-serif;
     font-size: 18px;
   }
 
   .ant-alert-description {
-    font-family: "Montserrat", sans-serif;
     font-size: 14px;
   }
 `;

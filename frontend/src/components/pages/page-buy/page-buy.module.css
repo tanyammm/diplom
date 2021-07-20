@@ -11,4 +11,5 @@
 
 .form {
     width: 33%;
+    min-width: 484px;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { YMaps, Map, Placemark, GeoObject } from "react-yandex-maps";
 
-const Maps = () => {
+const Maps = (width, height) => {
   const mapData = {
     center: [59.217125, 39.850039],
     zoom: 12.49,
@@ -13,8 +13,8 @@ const Maps = () => {
       <Map
         defaultState={mapData}
         modules={["control.ZoomControl", "control.FullscreenControl"]}
-        width="580px"
-        height="200px"
+        width={width}
+        height={height}
       >
         <GeoObject
           geometry={{
