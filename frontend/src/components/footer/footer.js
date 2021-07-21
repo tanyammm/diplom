@@ -26,8 +26,8 @@ const Footer = () => {
           <StyledTitle>ИБК ВоГУ</StyledTitle>
           <StyledLink to="/library/about">О нас</StyledLink>
           <StyledLink to="/library/">Новости</StyledLink>
-          <StyledLink to="/library/donation/">Книга в дар</StyledLink>
-          <StyledLink to="/library/centre/">
+          <StyledLink to="/library/donation">Книга в дар</StyledLink>
+          <StyledLink to="/library/centre">
             Центр содействия инновациям и развитию бережливых технологий ВоГУ
           </StyledLink>
         </div>
@@ -35,11 +35,10 @@ const Footer = () => {
       <Col span={4.8}>
         <div className={css.blok}>
           <StyledTitle>Интернет-ресурсы</StyledTitle>
-          <StyledLink to="/library/educational/">
-            Система электронных образовательных ресурсов ВоГУ
-          </StyledLink>
-          <StyledLink to="/library/catalog/">Каталог книг</StyledLink>
-          <StyledLink to="/library/register/">Личный кабинет</StyledLink>
+          <StyledLink to="/library/educational">Студентам</StyledLink>
+          <StyledLink to="/library/list">Обходной лист</StyledLink>
+          <StyledLink to="/library/catalog">Каталог книг</StyledLink>
+          <StyledLink to="/library/register">Личный кабинет</StyledLink>
         </div>
       </Col>
       <Col span={4.8}>
@@ -47,7 +46,7 @@ const Footer = () => {
           <StyledTitle>Контакты</StyledTitle>
           <StyledText onClick={openShowModal}>Обратная связь</StyledText>
           <StyledLink to="/library/documents/">Документы</StyledLink>
-          <StyledLink to="/library/contacts/">
+          <StyledLink to="/library/contacts">
             Контакты и режим работы
           </StyledLink>
         </div>
