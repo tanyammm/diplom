@@ -89,16 +89,7 @@
     margin-top: 5%;
 }
 
-.left {    
-    position: absolute;
-    margin-left: -20px;
-    margin-top: 226px;
-    z-index: 990999999999;
-}
-
-.right {
-    position: absolute;
-    margin-left: 1310px;
-    margin-top: -340px;
-    z-index: 990999999999;
+.recommendations {
+    display: flex;
+    align-items: center;
 }

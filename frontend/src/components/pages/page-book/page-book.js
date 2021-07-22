@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-plusplus */
 /* eslint-disable react/destructuring-assignment */
-import React, { createRef } from "react";
-import { Typography, Image, Divider, Carousel } from "antd";
+import React, { createRef, useEffect, useState } from "react";
+import { Typography, Image, Divider, Carousel, Row, Col } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -43,6 +44,16 @@ const PageBook = (value) => {
       arrayIndex: store.mainStore.arrayIndex,
     })
   );
+
+  const [add, setAdd] = useState();
+  const onClick = (item) => {
+    addShopping(item);
+    setAdd(item);
+  };
+
+  useEffect(() => {
+    setAdd();
+  }, []);
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -120,7 +131,7 @@ const PageBook = (value) => {
                   type="primary"
                   className={css.button}
                   onClick={() => {
-                    addShopping(card[id]);
+                    onClick(card[id]);
                   }}
                 >
                   Добавить
@@ -131,17 +142,7 @@ const PageBook = (value) => {
           <Divider orientation="left" className={css.title}>
             <StyledTitle level={4}>Описание</StyledTitle>
           </Divider>
-          <StyledText className={css.text}>
-            В сборнике представлены материалы по информатизации процессов
-            управления в различных отраслях промышленного производства,
-            компьютерному моделированию в теоретической и экспериментальной
-            физике. Группа докладов посвящена автоматизированным системам
-            дистанционного обучения и подготовке специалистов, внимание уделено
-            системам компьютерных коммуникаций на основе ЛВС, корпоративных
-            сетей, Internet и общесистемному программному обеспечению. Материалы
-            конференции предназначены для научно-технических работников,
-            преподавателей, студентов, аспирантов вузов и других учреждений.
-          </StyledText>
+          <StyledText className={css.text}>{card[id].description}</StyledText>
           <Divider orientation="left" className={css.title}>
             <StyledTitle level={4}>Ключевые слова</StyledTitle>
           </Divider>
@@ -191,29 +192,35 @@ const PageBook = (value) => {
           <Divider orientation="left" className={css.title}>
             <StyledTitle level={4}>Рекомендации</StyledTitle>
           </Divider>
-          <StyledButtonLeaf
-            shape="circle"
-            type="primary"
-            size="large"
-            onClick={handlePrev}
-            className={css.left}
-          >
-            <LeftOutlined />
-          </StyledButtonLeaf>
-          <Carousel autoplay ref={carousel} dots={false}>
-            <div>{Books(carouselOne)}</div>
-            <div>{Books(carouselTwo)}</div>
-            <div>{Books(carouselThree)}</div>
-          </Carousel>
-          <StyledButtonLeaf
-            shape="circle"
-            type="primary"
-            size="large"
-            onClick={handleNext}
-            className={css.right}
-          >
-            <RightOutlined />
-          </StyledButtonLeaf>
+          <Row gutter={16} className={css.recommendations}>
+            <Col span={1}>
+              <StyledButtonLeaf
+                shape="circle"
+                type="primary"
+                size="large"
+                onClick={handlePrev}
+              >
+                <LeftOutlined />
+              </StyledButtonLeaf>
+            </Col>
+            <Col span={22}>
+              <Carousel autoplay ref={carousel} dots={false}>
+                <div>{Books(carouselOne)}</div>
+                <div>{Books(carouselTwo)}</div>
+                <div>{Books(carouselThree)}</div>
+              </Carousel>
+            </Col>
+            <Col span={1}>
+              <StyledButtonLeaf
+                shape="circle"
+                type="primary"
+                size="large"
+                onClick={handleNext}
+              >
+                <RightOutlined />
+              </StyledButtonLeaf>
+            </Col>
+          </Row>
         </>
       ) : (
         <PageError />

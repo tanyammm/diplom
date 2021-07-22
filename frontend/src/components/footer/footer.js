@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Icon28LogoVkColor } from "@vkontakte/icons";
 import { Row, Col, Tooltip } from "antd";
+import { Icon28LogoVkColor } from "@vkontakte/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import { StyledTitle, StyledLink, StyledText } from "./styled";
 import Maps from "./map";
@@ -36,8 +36,8 @@ const Footer = () => {
         <div className={css.blok}>
           <StyledTitle>Интернет-ресурсы</StyledTitle>
           <StyledLink to="/library/educational">Студентам</StyledLink>
-          <StyledLink to="/library/list">Обходной лист</StyledLink>
           <StyledLink to="/library/catalog">Каталог книг</StyledLink>
+          <StyledLink to="/library/list">Обходной лист</StyledLink>
           <StyledLink to="/library/register">Личный кабинет</StyledLink>
         </div>
       </Col>
