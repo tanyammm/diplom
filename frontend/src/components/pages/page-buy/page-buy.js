@@ -87,7 +87,7 @@ const PageBuy = () => {
   const label = (
     <>
       Поздравляем! Вы успешно оформили заказ №{" "}
-      <Link to="/library/development">{numberOrder}</Link>
+      <Link to="/library/authorization">{numberOrder}</Link>
     </>
   );
 

@@ -63,7 +63,7 @@ export const ButtonAdd = () => {
           }}
         />
       </div>
-      {box ? <AddNews /> : <></>}
+      {box ? <AddNews /> : null}
     </>
   );
 };

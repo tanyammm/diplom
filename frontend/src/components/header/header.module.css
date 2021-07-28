@@ -3,14 +3,6 @@
     margin-top: -4px;
 }
 
-.ant-dropdown-menu-submenu-popup {
-    position: absolute;
-    z-index: 1050;
-    background: transparent;
-    box-shadow: none;
-    transform-origin: 0 0;
-  }
-
 .subMenu {
     background: #4278C0;
     font-size: 16px !important;
@@ -24,52 +16,47 @@
     background-color: #7faeda !important;
 }
 
-.header {
-    background: #ffffff; 
+.header { 
+    display: flex;
+    align-items: center;
+    color: #ffffff;   
+    background: #1B418C;    
+    padding: 1%;
 }
 
-.block {
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 1%;
-    background: #1B418C;
+.blok {
+    min-width: fit-content;
 }
 
 .logo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 1%;
+    min-width: fit-content;
 }
 
 .voguLogo {
-    width: 89.16px;
+    width: 61px;
     height: 59.81px;
     background: url(icons/vogy_logo.svg) no-repeat;
     transform: rotate(-0.48deg); 
 }
 
 .text {
-    display: flex; 
     font-size: 24px;
-    color: #ffffff;   
+    color: #ffffff; 
 }
 
 .rowButtons {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
+    min-width: fit-content;
 }
 
 .catalog {
     font-size: 20px;
     color: #ffffff;
-    font-style: normal;
 }
 
 .buttonCatalog {    
@@ -89,20 +76,123 @@
     color: #ffffff;
 }
 
-.search {
-    width: 23%;
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    min-width: fit-content;
 }
 
-.user {
+.link {
     font-size: 30px;
     color: #ffffff;
     display: flex;
     align-items: center;
 }
 
-.shoppin {
-    font-size: 30px;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-} 
+@media screen and (min-width: 1667px) and (max-width: 1803px) {
+    .text {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 1625px) and (max-width: 1666px) {
+    .text {
+        font-size: 22px;
+    }
+    .icons {
+        max-width: 40px;
+    }
+    .link {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1517px) and (max-width: 1624px) {
+    .text {
+        font-size: 20px;
+    }
+    .icons {
+        max-width: 40px;
+    }
+    .link {
+        font-size: 24px;
+    }
+    .voguLogo {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1240px) and (max-width: 1517px) {
+    .header {
+        justify-content: center;
+    }
+    .logo {
+        max-width: 250px;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .icons {
+        max-width: 40px;
+    }
+    .link {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1240px) {
+    .header {
+        justify-content: center;
+    }
+    .logo {
+        max-width: fit-content;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .icons {
+        max-width: 40px;
+    }
+    .link {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 328px) and (max-width: 768px) {
+    .header {
+        padding: 0%;
+        justify-content: space-between;
+    }
+    .text {
+        padding-top: 2%;
+        padding-left: 10%;
+        font-size: 20px;
+    }
+    .icons {
+        padding-right: 2%;
+        padding-top: 2%;
+    }
+    .link {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 327px) {
+    .header {
+        padding: 0%;
+        justify-content: space-between;
+    }
+    .text {
+        padding-top: 2%;
+        padding-left: 4%;
+        font-size: 16px;
+    }
+    .icons {
+        padding-right: 2%;
+        padding-top: 2%;
+    }
+    .link {
+        font-size: 18px;
+    }
+}

@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Divider } from "antd";
 import { StyledTitle, StyledText } from "../../style";
 import "antd/dist/antd.css";
-import css from "./page-educational.module.css";
+import css from "./page-student.module.css";
 
-const PageEducational = () => {
+const PageStudent = () => {
   return (
-    <div className={css.educational}>
+    <div className={css.student}>
       <StyledTitle level={2}>Студентам</StyledTitle>
       <Divider orientation="left" className={css.title}>
-        <StyledTitle level={4}>Инструкция</StyledTitle>
+        <StyledTitle level={4}>Возможности сайта</StyledTitle>
       </Divider>
       <StyledText className={css.text}>
         Уважаемые студенты, на нашем сайте вы можете:
@@ -91,4 +91,4 @@ const PageEducational = () => {
   );
 };
 
-export default PageEducational;
+export default PageStudent;

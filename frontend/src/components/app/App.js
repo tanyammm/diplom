@@ -17,9 +17,8 @@ import PageRegister from "../pages/page-register";
 import PageError from "../pages/page-error";
 import PageSearch from "../pages/page-search";
 import PageDonation from "../pages/page-donation";
-import PageDevelopment from "../pages/page-development";
 import PageCentre from "../pages/page-centre";
-import PageEducational from "../pages/page-educational";
+import PageStudent from "../pages/page-student";
 import PageDocuments from "../pages/page-documents";
 import PageContacts from "../pages/page-contacts";
 import PageServices from "../pages/page-services";
@@ -48,19 +47,10 @@ const App = () => {
             />
             <Route exact path="/library/buy" component={PageBuy} />
             <Route exact path="/library/shopping" component={PageShopping} />
-            <Route
-              exact
-              path="/library/development"
-              component={PageDevelopment}
-            />
             <Route exact path="/library/donation" component={PageDonation} />
             <Route exact path="/library/centre" component={PageCentre} />
             <Route exact path="/library/services" component={PageServices} />
-            <Route
-              exact
-              path="/library/educational"
-              component={PageEducational}
-            />
+            <Route exact path="/library/student" component={PageStudent} />
             <Route exact path="/library/about" component={PageAbout} />
             <Route exact path="/library/book/:id" component={PageBook} />
             <Route

@@ -22,9 +22,7 @@ const PageNews = () => {
         <div className={css.administrator}>
           <ButtonAdd />
         </div>
-      ) : (
-        <></>
-      )}
+      ) : null}
       <StyledList
         itemLayout="vertical"
         size="large"

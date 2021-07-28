@@ -29,6 +29,19 @@
     font-size: 12px;
 }
 
+.map {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .footer {
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 10%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .phone {
         font-size: 20px;

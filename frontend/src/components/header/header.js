@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Space, Dropdown } from "antd";
+import { Button, Dropdown, Row, Col, Menu } from "antd";
 import {
   SearchOutlined,
   ShoppingCartOutlined,
   UserOutlined,
   DownOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import {
@@ -20,14 +21,6 @@ import "antd/dist/antd.css";
 import css from "./header.module.css";
 
 const Header = () => {
-  const category1 = "Издания";
-  const category2 = "Монографии";
-  const category3 = "Пособия";
-  const category4 = "Методические указания";
-  const category5 = "Справочная литература";
-  const category6 = "Художественная литература";
-  const category7 = "Периодические издания";
-
   const { searchBookGeneral, setBookCategory, numberPurchases } = useRootData(
     (store) => ({
       searchBookGeneral: store.mainStore.searchBookGeneral,
@@ -36,9 +29,24 @@ const Header = () => {
     })
   );
 
+  const [menu, setMenu] = useState(true);
+
+  const { SubMenu } = Menu;
+
+  const category1 = "Издания";
+  const category2 = "Монографии";
+  const category3 = "Пособия";
+  const category4 = "Методические указания";
+  const category5 = "Справочная литература";
+  const category6 = "Художественная литература";
+  const category7 = "Периодические издания";
+
   const Catalog = (
     <StyledMenu className={css.menu}>
-      <StyledSubMenu key="1" title="Учебно-научная литература">
+      <StyledSubMenu
+        key="Учебно-научная литература"
+        title="Учебно-научная литература"
+      >
         <StyledMenuItem key={category1}>
           <Link
             to="/library/catalog"
@@ -94,7 +102,7 @@ const Header = () => {
     </StyledMenu>
   );
 
-  const Menu = (
+  const MenuButton = (
     <StyledMenu className={css.menu}>
       <StyledMenuItem key="О нас">
         <Link to="/library/about">О нас</Link>
@@ -124,59 +132,206 @@ const Header = () => {
   );
 
   return (
-    <StyledAffix className={css.header} data-testid="header">
-      <div className={css.block}>
-        <div className={css.logo}>
-          <div className={css.voguLogo} />
-          <div className={css.text}>
-            Информационно-библиотечный комплекс ВоГУ
-          </div>
-        </div>
-        <Space className={css.rowButtons}>
-          <Link to="/library/">
-            <Button type="link" className={css.button}>
-              Новости
-            </Button>
-          </Link>
-          <Dropdown overlay={Catalog} className={css.catalog}>
-            <Button type="link" className={css.buttonCatalog}>
-              Книги <DownOutlined />
-            </Button>
-          </Dropdown>
-          <Link to="/library/educational">
-            <Button type="link" className={css.button}>
-              Студентам
-            </Button>
-          </Link>
-          <Dropdown overlay={Menu} className={css.catalog}>
-            <Button type="link" className={css.buttonCatalog}>
-              Об ИБК <DownOutlined />
-            </Button>
-          </Dropdown>
-        </Space>
-        <StyledSearchInput
-          className={css.search}
-          placeholder="введите текст для поиска"
-          onSearch={searchBookGeneral}
-          enterButton={
-            <Link to="/library/search">
-              <SearchOutlined />
-            </Link>
-          }
-        />
-        <Link to="/library/authorization">
-          <Button className={css.user} type="link">
-            <UserOutlined />
-          </Button>
-        </Link>
-        <Link to="/library/shopping">
-          <StyledBadge count={numberPurchases} offset={[-5, 1]}>
-            <Button className={css.shoppin} type="link">
-              <ShoppingCartOutlined />
-            </Button>
-          </StyledBadge>
-        </Link>
-      </div>
+    <StyledAffix data-testid="header">
+      <Row className={css.header}>
+        {window.innerWidth > 768 ? (
+          <>
+            <Col span={9} className={css.logo}>
+              {window.innerWidth > 1517 ? (
+                <>
+                  <div className={css.voguLogo} />
+                  <div className={css.text}>
+                    Информационно-библиотечный комплекс ВоГУ
+                  </div>
+                </>
+              ) : (
+                <div className={css.text}>ИБК ВоГУ</div>
+              )}
+            </Col>
+            <Col span={8} className={css.rowButtons}>
+              <Link to="/library/">
+                <Button type="link" className={css.button}>
+                  Новости
+                </Button>
+              </Link>
+              <Dropdown overlay={Catalog} className={css.catalog}>
+                <Button type="link" className={css.buttonCatalog}>
+                  Книги <DownOutlined />
+                </Button>
+              </Dropdown>
+              <Link to="/library/student">
+                <Button type="link" className={css.button}>
+                  Студентам
+                </Button>
+              </Link>
+              <Dropdown overlay={MenuButton} className={css.catalog}>
+                <Button type="link" className={css.buttonCatalog}>
+                  Об ИБК <DownOutlined />
+                </Button>
+              </Dropdown>
+            </Col>
+            <Col span={5} className={css.blok}>
+              <StyledSearchInput
+                className={css.search}
+                placeholder="введите текст для поиска"
+                onSearch={searchBookGeneral}
+                enterButton={
+                  <Link to="/library/search">
+                    <SearchOutlined />
+                  </Link>
+                }
+              />
+            </Col>
+            <Col span={2} className={css.icons}>
+              <Link to="/library/authorization">
+                <Button className={css.link} type="link">
+                  <UserOutlined />
+                </Button>
+              </Link>
+              <Link to="/library/shopping">
+                <StyledBadge count={numberPurchases} offset={[-5, 1]}>
+                  <Button className={css.link} type="link">
+                    <ShoppingCartOutlined />
+                  </Button>
+                </StyledBadge>
+              </Link>
+            </Col>
+          </>
+        ) : (
+          <>
+            <div className={css.text}>ИБК ВоГУ</div>
+            <div className={css.icons}>
+              <Link to="/library/authorization">
+                <Button className={css.link} type="link">
+                  <UserOutlined />
+                </Button>
+              </Link>
+              <Link to="/library/shopping">
+                <StyledBadge count={numberPurchases} offset={[-5, 1]}>
+                  <Button className={css.link} type="link">
+                    <ShoppingCartOutlined />
+                  </Button>
+                </StyledBadge>
+              </Link>
+            </div>
+            <Menu
+              inlineCollapsed={menu}
+              onSelect={() => {
+                setMenu(true);
+              }}
+              theme="dark"
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              mode="inline"
+            >
+              <SubMenu
+                key="Меню"
+                icon={<MenuOutlined />}
+                title="Меню"
+                onTitleClick={() => {
+                  setMenu(false);
+                }}
+              >
+                <Menu.Item key="Новости">
+                  <Link to="/library/">Новости</Link>
+                </Menu.Item>
+                <Menu.Item key="Поиск книг">
+                  <Link to="/library/search">Поиск книг</Link>
+                </Menu.Item>
+                <SubMenu key="Книги" title="Книги">
+                  <SubMenu
+                    key="Учебно-научная литература"
+                    title="Учебно-научная литература"
+                  >
+                    <Menu.Item key={category1}>
+                      <Link
+                        to="/library/catalog"
+                        onClick={() => setBookCategory(category1)}
+                      >
+                        {category1}
+                      </Link>
+                    </Menu.Item>
+                    <Menu.Item key={category2}>
+                      <Link
+                        to="/library/catalog"
+                        onClick={() => setBookCategory(category2)}
+                      >
+                        {category2}
+                      </Link>
+                    </Menu.Item>
+                    <Menu.Item key={category3}>
+                      <Link
+                        to="/library/catalog"
+                        onClick={() => setBookCategory(category3)}
+                      >
+                        {category3}
+                      </Link>
+                    </Menu.Item>
+                    <Menu.Item key={category4}>
+                      <Link
+                        to="/library/catalog"
+                        onClick={() => setBookCategory(category4)}
+                      >
+                        {category4}
+                      </Link>
+                    </Menu.Item>
+                  </SubMenu>
+                  <Menu.Item key={category5}>
+                    <Link
+                      to="/library/catalog"
+                      onClick={() => setBookCategory(category5)}
+                    >
+                      {category5}
+                    </Link>
+                  </Menu.Item>
+                  <Menu.Item key={category6}>
+                    <Link
+                      to="/library/catalog"
+                      onClick={() => setBookCategory(category6)}
+                    >
+                      {category6}
+                    </Link>
+                  </Menu.Item>
+                  <Menu.Item key={category7}>
+                    <Link
+                      to="/library/catalog"
+                      onClick={() => setBookCategory(category7)}
+                    >
+                      {category7}
+                    </Link>
+                  </Menu.Item>
+                </SubMenu>
+                <Menu.Item key="Студентам">
+                  <Link to="/library/student">Студентам</Link>
+                </Menu.Item>
+                <SubMenu key="ИБК ВоГУ" title="ИБК ВоГУ">
+                  <Menu.Item key="О нас">
+                    <Link to="/library/about">О нас</Link>
+                  </Menu.Item>
+                  <Menu.Item key="Обходной лист">
+                    <Link to="/library/list">Обходной лист</Link>
+                  </Menu.Item>
+                  <Menu.Item key="Книга в дар">
+                    <Link to="/library/donation">Книга в дар</Link>
+                  </Menu.Item>
+                  <Menu.Item key="Услуги">
+                    <Link to="/library/centre">Центр СИиРБТ ВоГУ</Link>
+                  </Menu.Item>
+                  <Menu.Item key="Документы">
+                    <Link to="/library/documents">Документы</Link>
+                  </Menu.Item>
+                  <Menu.Item key="Контакты и режим работы">
+                    <Link to="/library/contacts">Контакты и режим работы</Link>
+                  </Menu.Item>
+                  <Menu.Item key="ВоГУ">
+                    <a href="https://vogu35.ru/">ВоГУ</a>
+                  </Menu.Item>
+                </SubMenu>
+              </SubMenu>
+            </Menu>
+          </>
+        )}
+      </Row>
     </StyledAffix>
   );
 };
