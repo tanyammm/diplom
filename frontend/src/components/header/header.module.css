@@ -71,6 +71,12 @@
     border-radius: 3px 3px 0px 0px;
 }
 
+.buttonCatalogActive {
+    color: #ffffff;
+    background: #4278C0;
+    border-radius: 3px 3px 0px 0px; 
+}
+
 .button {    
     font-size: 20px;
     color: #ffffff;
@@ -90,13 +96,13 @@
     align-items: center;
 }
 
-@media screen and (min-width: 1667px) and (max-width: 1803px) {
+@media screen and (min-width: 1698px) and (max-width: 1818px) {
     .text {
         font-size: 22px;
     }
 }
 
-@media screen and (min-width: 1625px) and (max-width: 1666px) {
+@media screen and (min-width: 1641px) and (max-width: 1697px) {
     .text {
         font-size: 22px;
     }
@@ -108,7 +114,7 @@
     }
 }
 
-@media screen and (min-width: 1517px) and (max-width: 1624px) {
+@media screen and (min-width: 1566px) and (max-width: 1640px) {
     .text {
         font-size: 20px;
     }
@@ -123,7 +129,7 @@
     }
 }
 
-@media screen and (min-width: 1240px) and (max-width: 1517px) {
+@media screen and (min-width: 1240px) and (max-width: 1565px) {
     .header {
         justify-content: center;
     }

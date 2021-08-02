@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import card from "../api/books.json";
 import sendEmailFeedback from "../api/feedback-modal";
 
@@ -118,9 +117,7 @@ export const createStore = () => {
     },
 
     addShopping({ id, price }) {
-      if (this.arrayIndex.includes(id)) {
-        console.log("Товар уже в корзине");
-      } else {
+      if (this.arrayIndex.includes(id) === false) {
         this.numberPurchases += 1;
         this.quantityProducts += price;
         this.index = card.findIndex((item) => id === item.id);
@@ -153,7 +150,7 @@ export const createStore = () => {
 
     /* данные заказчика в Книге в дар */
     getDataBuyer(value) {
-      console.log(value.name, value.book, value.email, value.phone);
+      sendEmailFeedback(value.name, value.book, value.email, value.phone);
     },
 
     /* номер заказа */
@@ -167,10 +164,10 @@ export const createStore = () => {
 
     /* авторизация и регистрация */
     sendAuthorization(value) {
-      console.log(value.login, value.password);
+      sendEmailFeedback(value.login, value.password);
     },
     sendRegister(value) {
-      console.log(
+      sendEmailFeedback(
         value.surname,
         value.name,
         value.patronymic,
@@ -182,7 +179,7 @@ export const createStore = () => {
 
     /* данные студента при заказе обходного листа */
     getDataStudent(value) {
-      console.log(
+      sendEmailFeedback(
         value.name,
         value.phone,
         value.email,
@@ -200,7 +197,7 @@ export const createStore = () => {
 
     /* данные заказчика при подаче заявки в ЦСИиРБТ ВоГУ */
     getDataCenter(value) {
-      console.log(
+      sendEmailFeedback(
         value.organization,
         value.name,
         value.phone,
@@ -224,6 +221,15 @@ export const createStore = () => {
     quantityVisitors: 7,
     quantityBuy: 1,
     quantityDownloading: 63,
+
+    /* личный кабинет */
+    user: false,
+    setUser(value) {
+      this.user = value;
+    },
+
+    /* рандом книг из каталога */
+    randomBook: Math.trunc(Math.random() * (card.length - 11 - 0) + 0),
   };
 
   return store;

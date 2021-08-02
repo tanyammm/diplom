@@ -1,7 +1,7 @@
+/* eslint-disable promise/param-names */
 /* eslint-disable promise/avoid-new */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-/* eslint-disable promise/param-names */
 import React, { useEffect, useState } from "react";
 import { List, Image } from "antd";
 import { Link, generatePath } from "react-router-dom";

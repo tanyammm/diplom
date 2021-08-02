@@ -113,8 +113,10 @@ const PageRegister = () => {
         <FormCheckbox />
       </Form>
       <StyledText>
-        У вас есть аккаунт? -
-        <Link to="/library/authorization">авторизуйтесь!</Link>
+        <span>
+          У вас есть аккаунт? -{" "}
+          <Link to="/library/authorization">авторизуйтесь!</Link>
+        </span>
       </StyledText>
       <StyledButtonBlue onClick={onSubmit} type="submit">
         Зарегистрироваться

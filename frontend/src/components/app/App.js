@@ -13,6 +13,7 @@ import PageBuy from "../pages/page-buy";
 import PageShopping from "../pages/page-shopping";
 import PageBook from "../pages/page-book";
 import PageAuthorization from "../pages/page-authorization";
+import PageAccount from "../pages/page-account";
 import PageRegister from "../pages/page-register";
 import PageError from "../pages/page-error";
 import PageSearch from "../pages/page-search";
@@ -45,6 +46,7 @@ const App = () => {
               path="/library/administrator"
               component={PageAdministrator}
             />
+            <Route exact path="/library/account" component={PageAccount} />
             <Route exact path="/library/buy" component={PageBuy} />
             <Route exact path="/library/shopping" component={PageShopping} />
             <Route exact path="/library/donation" component={PageDonation} />

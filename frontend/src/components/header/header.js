@@ -5,8 +5,9 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
   UserOutlined,
-  DownOutlined,
+  CaretDownOutlined,
   MenuOutlined,
+  CaretUpOutlined,
 } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
 import {
@@ -21,13 +22,44 @@ import "antd/dist/antd.css";
 import css from "./header.module.css";
 
 const Header = () => {
-  const { searchBookGeneral, setBookCategory, numberPurchases } = useRootData(
-    (store) => ({
+  const { administrator, searchBookGeneral, setBookCategory, numberPurchases } =
+    useRootData((store) => ({
+      administrator: store.mainStore.administrator,
       searchBookGeneral: store.mainStore.searchBookGeneral,
       setBookCategory: store.mainStore.setBookCategory,
       numberPurchases: store.mainStore.numberPurchases,
-    })
-  );
+    }));
+
+  const [openBook, setОpenBook] = useState(false);
+  const [iconBook, setIconBook] = useState(<CaretDownOutlined />);
+  const [openMenu, setОpenMenu] = useState(false);
+  const [iconMenu, setIconMenu] = useState(<CaretDownOutlined />);
+
+  const setОpenMenuBook = () => {
+    if (openBook === true) {
+      setОpenBook(false);
+      setIconBook(<CaretDownOutlined />);
+      document
+        .getElementById("button")
+        .classList.remove(css.buttonCatalogActive);
+    } else {
+      setОpenBook(true);
+      setIconBook(<CaretUpOutlined />);
+      document.getElementById("button").classList.add(css.buttonCatalogActive);
+    }
+  };
+
+  const setОpenMenuIBK = () => {
+    if (openMenu === true) {
+      setОpenMenu(false);
+      setIconMenu(<CaretDownOutlined />);
+      document.getElementById("menu").classList.remove(css.buttonCatalogActive);
+    } else {
+      setОpenMenu(true);
+      setIconMenu(<CaretUpOutlined />);
+      document.getElementById("menu").classList.add(css.buttonCatalogActive);
+    }
+  };
 
   const [menu, setMenu] = useState(true);
 
@@ -154,9 +186,13 @@ const Header = () => {
                   Новости
                 </Button>
               </Link>
-              <Dropdown overlay={Catalog} className={css.catalog}>
-                <Button type="link" className={css.buttonCatalog}>
-                  Книги <DownOutlined />
+              <Dropdown
+                overlay={Catalog}
+                className={css.catalog}
+                onVisibleChange={setОpenMenuBook}
+              >
+                <Button type="link" className={css.buttonCatalog} id="button">
+                  Книги {iconBook}
                 </Button>
               </Dropdown>
               <Link to="/library/student">
@@ -164,9 +200,13 @@ const Header = () => {
                   Студентам
                 </Button>
               </Link>
-              <Dropdown overlay={MenuButton} className={css.catalog}>
-                <Button type="link" className={css.buttonCatalog}>
-                  Об ИБК <DownOutlined />
+              <Dropdown
+                overlay={MenuButton}
+                className={css.catalog}
+                onVisibleChange={setОpenMenuIBK}
+              >
+                <Button type="link" className={css.buttonCatalog} id="menu">
+                  Об ИБК {iconMenu}
                 </Button>
               </Dropdown>
             </Col>
@@ -183,11 +223,19 @@ const Header = () => {
               />
             </Col>
             <Col span={2} className={css.icons}>
-              <Link to="/library/authorization">
-                <Button className={css.link} type="link">
-                  <UserOutlined />
-                </Button>
-              </Link>
+              {administrator ? (
+                <Link to="/library/administrator">
+                  <Button className={css.link} type="link">
+                    <UserOutlined />
+                  </Button>
+                </Link>
+              ) : (
+                <Link to="/library/authorization">
+                  <Button className={css.link} type="link">
+                    <UserOutlined />
+                  </Button>
+                </Link>
+              )}
               <Link to="/library/shopping">
                 <StyledBadge count={numberPurchases} offset={[-5, 1]}>
                   <Button className={css.link} type="link">
@@ -201,11 +249,19 @@ const Header = () => {
           <>
             <div className={css.text}>ИБК ВоГУ</div>
             <div className={css.icons}>
-              <Link to="/library/authorization">
-                <Button className={css.link} type="link">
-                  <UserOutlined />
-                </Button>
-              </Link>
+              {administrator ? (
+                <Link to="/library/administrator">
+                  <Button className={css.link} type="link">
+                    <UserOutlined />
+                  </Button>
+                </Link>
+              ) : (
+                <Link to="/library/authorization">
+                  <Button className={css.link} type="link">
+                    <UserOutlined />
+                  </Button>
+                </Link>
+              )}
               <Link to="/library/shopping">
                 <StyledBadge count={numberPurchases} offset={[-5, 1]}>
                   <Button className={css.link} type="link">

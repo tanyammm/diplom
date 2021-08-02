@@ -68,12 +68,16 @@
     padding-right: 6%;
 }
 
-.document {
+.row {
    display: flex;
    justify-content: center;
-   flex-direction: row;
-   align-items: center;
-   min-height: 90vh;
+}
+
+.document {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 90vh;
 }
 
 .page {
@@ -92,4 +96,9 @@
 .recommendations {
     display: flex;
     align-items: center;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-end;
 }

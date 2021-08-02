@@ -1,6 +1,4 @@
-/* eslint-disable no-restricted-globals */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-plusplus */
 import React from "react";
 import { Image } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
@@ -13,14 +11,14 @@ import css from "./page-message.module.css";
 
 const PageMessage = (value) => {
   const array = [];
-  for (let i = 0; i < news.length; i++) {
+  for (let i = 0; i < news.length; i = +1) {
     array.push(news[i].id);
   }
 
   const { id } = value.match.params;
   let param;
 
-  if (isNaN(id)) {
+  if (Number.isNaN(id)) {
     param = id;
   } else {
     param = JSON.parse(id);

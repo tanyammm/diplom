@@ -18,17 +18,20 @@ const PageAuthorization = () => {
     sendAuthorization,
     botModal,
     setErrorAuthorization,
+    setUser,
   } = useRootData((store) => ({
     sendAuthorization: store.mainStore.sendAuthorization,
     botModal: store.mainStore.botModal,
     setErrorAuthorization: store.mainStore.setErrorAuthorization,
     setAdministrator: store.mainStore.setAdministrator,
+    setUser: store.mainStore.setUser,
   }));
 
   const [form] = Form.useForm();
 
   const history = useHistory();
   const goLogin = () => history.push("/library/administrator");
+  const goLoginUser = () => history.push("/library/account");
 
   const onSubmit = () => {
     if (botModal === "") {
@@ -40,6 +43,9 @@ const PageAuthorization = () => {
           if (value.login === "admin" && value.password === "admin") {
             goLogin();
             setAdministrator(true);
+          } else if (value.login === "user" && value.password === "user") {
+            goLoginUser();
+            setUser(true);
           } else message.error("Такого пользователя нет!");
         })
         .catch((error) => {
@@ -73,8 +79,10 @@ const PageAuthorization = () => {
         <FormlBot />
       </Form>
       <StyledText>
-        У вас нет аккаунта? -
-        <Link to="/library/register">зарегистрируйтесь!</Link>
+        <span>
+          У вас нет аккаунта? -{" "}
+          <Link to="/library/register">зарегистрируйтесь!</Link>
+        </span>
       </StyledText>
       <StyledButtonBlue onClick={onSubmit} type="submit">
         Войти

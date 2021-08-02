@@ -61,6 +61,11 @@ const PageStudent = () => {
       <StyledText>
         <ul>
           <li>
+            <Link to="/library/catalog">
+              электронный каталог с доступом к полным текстам изданий ВоГУ;
+            </Link>
+          </li>
+          <li>
             <a href="https://do.vogu35.ru/">
               портал электронных образовательных технологий (ПЭОТ);
             </a>
@@ -70,6 +75,9 @@ const PageStudent = () => {
           </li>
           <li>
             <a href="https://ump.vogu35.ru/">учебно-методический портал;</a>
+          </li>
+          <li>
+            <a href="https://vkr.vogu35.ru/">база ВКР и НКР ВоГУ;</a>
           </li>
           <li>
             <a href="http://www.biblioclub.ru/">
@@ -83,7 +91,24 @@ const PageStudent = () => {
             <a href="https://e.lanbook.com/">ЭБС Лань;</a>
           </li>
           <li>
-            <a href="https://znanium.com/">ЭБС Знаниум.</a>
+            <a href="https://znanium.com/">ЭБС Знаниум;</a>
+          </li>
+          <li>
+            <a href="https://cntd.ru/">ИСС Техэксперт;</a>
+          </li>
+          <li>
+            <a href="https://www.elibrary.ru/">e-Library;</a>
+          </li>
+          <li>
+            <a href="https://www.elibrary.ru/project_risc.asp?">
+              РИНЦ (роcсийский индекс научного цитирования);
+            </a>
+          </li>
+          <li>
+            <a href="https://uisrussia.msu.ru/">УИС Россия;</a>
+          </li>
+          <li>
+            <a href="https://neicon.ru/">НЭИКОН.</a>
           </li>
         </ul>
       </StyledText>

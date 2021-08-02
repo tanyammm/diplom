@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-plusplus */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-unused-vars */
 import React, { createRef, useEffect, useState } from "react";
 import { Typography, Image, Divider, Carousel, Row, Col } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
@@ -26,24 +24,24 @@ import "antd/dist/antd.css";
 import css from "./page-book.module.css";
 
 const PageBook = (value) => {
-  const carouselOne = card.slice(0, 4);
-  const carouselTwo = card.slice(4, 8);
-  const carouselThree = card.slice(8, 12);
-
-  const carousel = createRef();
-  const handleNext = () => carousel.current.next();
-  const handlePrev = () => carousel.current.prev();
-
-  const { Text } = Typography;
-
-  const { numberPage, setNumberPage, addShopping, arrayIndex } = useRootData(
-    (store) => ({
+  const { numberPage, setNumberPage, addShopping, arrayIndex, randomBook } =
+    useRootData((store) => ({
       numberPage: store.mainStore.numberPage,
       setNumberPage: store.mainStore.setNumberPage,
       addShopping: store.mainStore.addShopping,
       arrayIndex: store.mainStore.arrayIndex,
-    })
-  );
+      randomBook: store.mainStore.randomBook,
+    }));
+
+  const { Text } = Typography;
+
+  const carouselOne = card.slice(randomBook, randomBook + 4);
+  const carouselTwo = card.slice(randomBook + 8, randomBook + 12);
+  const carouselThree = card.slice(randomBook + 4, randomBook + 8);
+
+  const carousel = createRef();
+  const handleNext = () => carousel.current.next();
+  const handlePrev = () => carousel.current.prev();
 
   const [add, setAdd] = useState();
   const onClick = (item) => {
@@ -56,16 +54,29 @@ const PageBook = (value) => {
   }, []);
 
   pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  const file = pdfjs.getDocument(pdf);
+
+  const [pages, setPages] = useState();
+  (async () => {
+    await file.promise.then((book) => {
+      const numberPages = Math.round((book.numPages * 10) / 100);
+      if (numberPages < 10) {
+        setPages(numberPages);
+      } else {
+        setPages(10);
+      }
+    });
+  })();
 
   const array = [];
-  for (let i = 0; i < card.length; i++) {
+  for (let i = 0; i < card.length; i += 1) {
     array.push(card[i].id);
   }
   const { id } = value.match.params;
 
   let param;
 
-  if (isNaN(id)) {
+  if (Number.isNaN(id)) {
     param = id;
   } else {
     param = JSON.parse(id);
@@ -140,60 +151,64 @@ const PageBook = (value) => {
             </div>
           </div>
           <Divider orientation="left" className={css.title}>
-            <StyledTitle level={4}>Описание</StyledTitle>
-          </Divider>
-          <StyledText className={css.text}>{card[id].description}</StyledText>
-          <Divider orientation="left" className={css.title}>
             <StyledTitle level={4}>Ключевые слова</StyledTitle>
           </Divider>
           <StyledText className={css.text}>{card[id].keywords}</StyledText>
           <Divider orientation="left" className={css.title}>
             <StyledTitle level={4}>Ознакомительный фрагмент</StyledTitle>
           </Divider>
-          <Document
-            className={css.document}
-            loading={<StyledSpin />}
-            file={pdf}
-            noData={ErrorHandling}
-            error={ErrorHandling}
-            onSourceError={ErrorHandling}
-          >
-            <StyledButtonLeaf
-              shape="circle"
-              type="primary"
-              size="large"
-              disabled={numberPage <= 1}
-              onClick={() => {
-                setNumberPage(-1);
-              }}
-            >
-              <LeftOutlined />
-            </StyledButtonLeaf>
-            <Page
-              className={css.page}
-              pageNumber={numberPage}
-              error={ErrorHandling}
-              noData={ErrorHandling}
-              onRenderError={ErrorHandling}
+          <Row gutter={16} className={css.row}>
+            <Document
               loading={<StyledSpin />}
-            />
-            <StyledButtonLeaf
-              shape="circle"
-              type="primary"
-              size="large"
-              disabled={numberPage >= 10}
-              onClick={() => {
-                setNumberPage(1);
-              }}
+              file={pdf}
+              noData={ErrorHandling}
+              error={ErrorHandling}
+              onSourceError={ErrorHandling}
+              className={css.document}
             >
-              <RightOutlined />
-            </StyledButtonLeaf>
-          </Document>
+              <Col span={2} className={css.left}>
+                <StyledButtonLeaf
+                  shape="circle"
+                  type="primary"
+                  size="large"
+                  disabled={numberPage <= 1}
+                  onClick={() => {
+                    setNumberPage(-1);
+                  }}
+                >
+                  <LeftOutlined />
+                </StyledButtonLeaf>
+              </Col>
+              <Col span={20}>
+                <Page
+                  className={css.page}
+                  pageNumber={numberPage}
+                  error={ErrorHandling}
+                  noData={ErrorHandling}
+                  onRenderError={ErrorHandling}
+                  loading={<StyledSpin />}
+                />
+              </Col>
+              <Col span={2}>
+                <StyledButtonLeaf
+                  shape="circle"
+                  type="primary"
+                  size="large"
+                  disabled={numberPage >= pages}
+                  onClick={() => {
+                    setNumberPage(1);
+                  }}
+                >
+                  <RightOutlined />
+                </StyledButtonLeaf>
+              </Col>
+            </Document>
+          </Row>
           <Divider orientation="left" className={css.title}>
             <StyledTitle level={4}>Рекомендации</StyledTitle>
           </Divider>
           <Row gutter={16} className={css.recommendations}>
-            <Col span={1}>
+            <Col span={2} className={css.left}>
               <StyledButtonLeaf
                 shape="circle"
                 type="primary"
@@ -203,14 +218,14 @@ const PageBook = (value) => {
                 <LeftOutlined />
               </StyledButtonLeaf>
             </Col>
-            <Col span={22}>
+            <Col span={20}>
               <Carousel autoplay ref={carousel} dots={false}>
                 <div>{Books(carouselOne)}</div>
                 <div>{Books(carouselTwo)}</div>
                 <div>{Books(carouselThree)}</div>
               </Carousel>
             </Col>
-            <Col span={1}>
+            <Col span={2}>
               <StyledButtonLeaf
                 shape="circle"
                 type="primary"
