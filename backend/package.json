@@ -1,16 +1,17 @@
 {
   "name": "backend",
-  "version": "1.0.0",
+  "version": "1.0.0", 
   "author": "Татьяна Максимова и Екатерина Соловьева",
   "private": true,
   "scripts": {
     "dev": "nodemon server.js"
   },
   "devDependencies": {
-    "express": "^4.17.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.4"
   },
   "dependencies": {
-    "body-parser": "^1.19.0"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.9"
   }
 }

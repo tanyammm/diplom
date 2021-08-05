@@ -17,7 +17,7 @@ import {
   StyledButtonBlue,
 } from "../../style";
 import "antd/dist/antd.css";
-import css from "../../style/page-form.module.css";
+import css from "./page-register.module.css";
 
 const PageRegister = () => {
   const { sendRegister, botModal, setErrorRegister } = useRootData((store) => ({
@@ -40,7 +40,7 @@ const PageRegister = () => {
 
   const [form] = Form.useForm();
 
-  const onSubmit = () => {
+  const onFinish = () => {
     if (botModal === "") {
       form
         .validateFields()
@@ -66,6 +66,7 @@ const PageRegister = () => {
         form={form}
         layout="vertical"
         className={css.form}
+        onFinish={onFinish}
       >
         <Form.Item
           label="Фамилия"
@@ -111,16 +112,18 @@ const PageRegister = () => {
         </Form.Item>
         <FormlBot />
         <FormCheckbox />
+        <StyledText className={css.center}>
+          <span>
+            У Вас есть аккаунт? -{" "}
+            <Link to="/library/authorization">авторизуйтесь!</Link>
+          </span>
+        </StyledText>
+        <div className={css.center}>
+          <StyledButtonBlue htmlType="submit" type="submit">
+            Зарегистрироваться
+          </StyledButtonBlue>
+        </div>
       </Form>
-      <StyledText>
-        <span>
-          У вас есть аккаунт? -{" "}
-          <Link to="/library/authorization">авторизуйтесь!</Link>
-        </span>
-      </StyledText>
-      <StyledButtonBlue onClick={onSubmit} type="submit">
-        Зарегистрироваться
-      </StyledButtonBlue>
     </StyledForm>
   );
 };

@@ -49,6 +49,11 @@
     padding-bottom: 20px;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+}
+
 .buttun {    
     width: 220px;
     padding-top: 27px;

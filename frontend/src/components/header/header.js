@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Dropdown, Row, Col, Menu } from "antd";
+import { Button, Dropdown, Row, Col } from "antd";
 import {
   SearchOutlined,
   ShoppingCartOutlined,
   UserOutlined,
   CaretDownOutlined,
-  MenuOutlined,
   CaretUpOutlined,
 } from "@ant-design/icons";
 import { useRootData } from "../../hooks/use-root-data";
+import HeaderMobile from "./mobile";
 import {
   StyledMenu,
   StyledSubMenu,
@@ -60,10 +60,6 @@ const Header = () => {
       document.getElementById("menu").classList.add(css.buttonCatalogActive);
     }
   };
-
-  const [menu, setMenu] = useState(true);
-
-  const { SubMenu } = Menu;
 
   const category1 = "Издания";
   const category2 = "Монографии";
@@ -246,146 +242,7 @@ const Header = () => {
             </Col>
           </>
         ) : (
-          <>
-            <div className={css.text}>ИБК ВоГУ</div>
-            <div className={css.icons}>
-              {administrator ? (
-                <Link to="/library/administrator">
-                  <Button className={css.link} type="link">
-                    <UserOutlined />
-                  </Button>
-                </Link>
-              ) : (
-                <Link to="/library/authorization">
-                  <Button className={css.link} type="link">
-                    <UserOutlined />
-                  </Button>
-                </Link>
-              )}
-              <Link to="/library/shopping">
-                <StyledBadge count={numberPurchases} offset={[-5, 1]}>
-                  <Button className={css.link} type="link">
-                    <ShoppingCartOutlined />
-                  </Button>
-                </StyledBadge>
-              </Link>
-            </div>
-            <Menu
-              inlineCollapsed={menu}
-              onSelect={() => {
-                setMenu(true);
-              }}
-              theme="dark"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
-              mode="inline"
-            >
-              <SubMenu
-                key="Меню"
-                icon={<MenuOutlined />}
-                title="Меню"
-                onTitleClick={() => {
-                  setMenu(false);
-                }}
-              >
-                <Menu.Item key="Новости">
-                  <Link to="/library/">Новости</Link>
-                </Menu.Item>
-                <Menu.Item key="Поиск книг">
-                  <Link to="/library/search">Поиск книг</Link>
-                </Menu.Item>
-                <SubMenu key="Книги" title="Книги">
-                  <SubMenu
-                    key="Учебно-научная литература"
-                    title="Учебно-научная литература"
-                  >
-                    <Menu.Item key={category1}>
-                      <Link
-                        to="/library/catalog"
-                        onClick={() => setBookCategory(category1)}
-                      >
-                        {category1}
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item key={category2}>
-                      <Link
-                        to="/library/catalog"
-                        onClick={() => setBookCategory(category2)}
-                      >
-                        {category2}
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item key={category3}>
-                      <Link
-                        to="/library/catalog"
-                        onClick={() => setBookCategory(category3)}
-                      >
-                        {category3}
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item key={category4}>
-                      <Link
-                        to="/library/catalog"
-                        onClick={() => setBookCategory(category4)}
-                      >
-                        {category4}
-                      </Link>
-                    </Menu.Item>
-                  </SubMenu>
-                  <Menu.Item key={category5}>
-                    <Link
-                      to="/library/catalog"
-                      onClick={() => setBookCategory(category5)}
-                    >
-                      {category5}
-                    </Link>
-                  </Menu.Item>
-                  <Menu.Item key={category6}>
-                    <Link
-                      to="/library/catalog"
-                      onClick={() => setBookCategory(category6)}
-                    >
-                      {category6}
-                    </Link>
-                  </Menu.Item>
-                  <Menu.Item key={category7}>
-                    <Link
-                      to="/library/catalog"
-                      onClick={() => setBookCategory(category7)}
-                    >
-                      {category7}
-                    </Link>
-                  </Menu.Item>
-                </SubMenu>
-                <Menu.Item key="Студентам">
-                  <Link to="/library/student">Студентам</Link>
-                </Menu.Item>
-                <SubMenu key="ИБК ВоГУ" title="ИБК ВоГУ">
-                  <Menu.Item key="О нас">
-                    <Link to="/library/about">О нас</Link>
-                  </Menu.Item>
-                  <Menu.Item key="Обходной лист">
-                    <Link to="/library/list">Обходной лист</Link>
-                  </Menu.Item>
-                  <Menu.Item key="Книга в дар">
-                    <Link to="/library/donation">Книга в дар</Link>
-                  </Menu.Item>
-                  <Menu.Item key="Услуги">
-                    <Link to="/library/centre">Центр СИиРБТ ВоГУ</Link>
-                  </Menu.Item>
-                  <Menu.Item key="Документы">
-                    <Link to="/library/documents">Документы</Link>
-                  </Menu.Item>
-                  <Menu.Item key="Контакты и режим работы">
-                    <Link to="/library/contacts">Контакты и режим работы</Link>
-                  </Menu.Item>
-                  <Menu.Item key="ВоГУ">
-                    <a href="https://vogu35.ru/">ВоГУ</a>
-                  </Menu.Item>
-                </SubMenu>
-              </SubMenu>
-            </Menu>
-          </>
+          <HeaderMobile />
         )}
       </Row>
     </StyledAffix>

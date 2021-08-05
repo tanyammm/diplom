@@ -1,7 +1,7 @@
 import React from "react";
 import { Divider, Space, Button, Typography } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
-import PageCentreForm from "./form";
+import CentreForm from "./form";
 import { StyledTitle, StyledText, StyledAlert } from "../../style";
 import { openNotification } from "../../reusable-components";
 import { useRootData } from "../../../hooks/use-root-data";
@@ -99,7 +99,7 @@ const PageCentre = () => {
         Вы можете предложить проект, заполнив форму ниже.
       </StyledText>
       {centerStatus ? (
-        <PageCentreForm />
+        <CentreForm />
       ) : (
         <StyledAlert
           message="Спасибо! Ваша заявка принята"

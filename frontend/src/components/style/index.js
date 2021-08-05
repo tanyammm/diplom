@@ -1,5 +1,5 @@
 import StyledAlert from "./styled-alert";
-import StyledButtonBlue from "./styled-button-blue";
+import { StyledButtonBlue, StyledDiv } from "./styled-button-blue";
 import StyledButtonLeaf from "./styled-button-leaf";
 import {
   StyledButtonOrange,
@@ -10,7 +10,7 @@ import { StyledText, StyledTextCenter } from "./styled-text";
 import StyledTitle from "./styled-title";
 
 export { StyledAlert };
-export { StyledButtonBlue };
+export { StyledButtonBlue, StyledDiv };
 export { StyledButtonLeaf };
 export { StyledButtonOrange, StyledButtonShopping };
 export { StyledForm };

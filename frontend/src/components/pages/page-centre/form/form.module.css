@@ -1,5 +1,4 @@
 .form {
-    margin-top: 20px;
     min-width: 484px;
 }
 
@@ -13,6 +12,6 @@
     height: 46px;
 }
 
-.alert {
-    margin-top: 20px !important;
+.title {
+    padding-top: 3%;
 }

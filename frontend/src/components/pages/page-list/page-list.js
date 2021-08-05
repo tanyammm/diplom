@@ -36,7 +36,7 @@ const PageList = () => {
     setListStatus(true);
   };
 
-  const onSubmit = () => {
+  const onFinish = () => {
     if (botModal === "") {
       form
         .validateFields()
@@ -64,6 +64,7 @@ const PageList = () => {
             layout="vertical"
             form={form}
             className={css.form}
+            onFinish={onFinish}
           >
             <FormName />
             <FormPhone />
@@ -151,14 +152,16 @@ const PageList = () => {
             </Form.Item>
             <FormlBot />
             <FormCheckbox />
+            <div className={css.center}>
+              <StyledButtonOrange
+                htmlType="submit"
+                type="primary"
+                className={css.button}
+              >
+                Отправить
+              </StyledButtonOrange>
+            </div>
           </Form>
-          <StyledButtonOrange
-            type="primary"
-            onClick={onSubmit}
-            className={css.button}
-          >
-            Отправить
-          </StyledButtonOrange>
         </>
       ) : (
         <StyledAlert

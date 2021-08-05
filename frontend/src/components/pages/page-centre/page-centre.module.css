@@ -25,16 +25,3 @@
     display: flex;
     justify-content: center;
 }
-
-.form {
-    min-width: 484px;
-}
-
-.button {
-    width: 210px;
-    height: 46px;
-}
-
-.title {
-    padding-top: 3%;
-}

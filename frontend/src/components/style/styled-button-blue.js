@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledButtonBlue = styled("button")`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const StyledButtonBlue = styled("button")`
   margin-top: 40px;
   padding: 10px 20px;
   border: none;
@@ -40,4 +37,8 @@ const StyledButtonBlue = styled("button")`
   }
 `;
 
-export default StyledButtonBlue;
+export const StyledDiv = styled("div")`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

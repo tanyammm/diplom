@@ -6,13 +6,13 @@ import {
   FormCheckbox,
   FormlBot,
   FormMessage,
-} from "../../reusable-components/form";
-import { useRootData } from "../../../hooks/use-root-data";
-import { StyledForm, StyledButtonOrange } from "../../style";
-import css from "./page-centre.module.css";
+} from "../../../reusable-components/form";
+import { useRootData } from "../../../../hooks/use-root-data";
+import { StyledForm, StyledButtonOrange } from "../../../style";
 import "antd/dist/antd.css";
+import css from "./form.module.css";
 
-const PageCentreForm = () => {
+const CentreForm = () => {
   const { getDataCenter, botModal, setErrorCentre, setCenterStatus } =
     useRootData((store) => ({
       getDataCenter: store.mainStore.getDataCenter,
@@ -23,7 +23,7 @@ const PageCentreForm = () => {
 
   const [form] = Form.useForm();
 
-  const onSubmit = () => {
+  const onFinish = () => {
     if (botModal === "") {
       form
         .validateFields()
@@ -45,6 +45,7 @@ const PageCentreForm = () => {
         layout="vertical"
         form={form}
         className={css.form}
+        onFinish={onFinish}
       >
         <Form.Item
           name="organization"
@@ -90,16 +91,18 @@ const PageCentreForm = () => {
         <FormMessage />
         <FormlBot />
         <FormCheckbox />
+        <div className={css.center}>
+          <StyledButtonOrange
+            htmlType="submit"
+            type="primary"
+            className={css.button}
+          >
+            Отправить
+          </StyledButtonOrange>
+        </div>
       </Form>
-      <StyledButtonOrange
-        type="primary"
-        onClick={onSubmit}
-        className={css.button}
-      >
-        Отправить
-      </StyledButtonOrange>
     </StyledForm>
   );
 };
 
-export default PageCentreForm;
+export default CentreForm;

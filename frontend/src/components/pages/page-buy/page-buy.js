@@ -40,7 +40,7 @@ const PageBuy = () => {
 
   const [form] = Form.useForm();
 
-  const onSubmit = () => {
+  const onFinish = () => {
     if (botModal === "") {
       form
         .validateFields()
@@ -67,6 +67,7 @@ const PageBuy = () => {
         layout="vertical"
         form={form}
         className={css.form}
+        onFinish={onFinish}
       >
         <FormName />
         <FormPhone />
@@ -100,9 +101,7 @@ const PageBuy = () => {
           <StyledDiv>
             <Result />
             <Product />
-            <StyledButton type="primary" onClick={onSubmit}>
-              Оформить заказ
-            </StyledButton>
+            <StyledButton type="primary">Оформить заказ</StyledButton>
           </StyledDiv>
         </div>
       ) : (

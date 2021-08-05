@@ -98,7 +98,12 @@ const Modal = () => {
         <Button key="back" onClick={handleCancel}>
           Отмена
         </Button>,
-        <Button key="submit" type="primary" onClick={onSubmit}>
+        <Button
+          key="submit"
+          htmlType="submit"
+          type="primary"
+          onClick={onSubmit}
+        >
           Отправить
         </Button>,
       ]}

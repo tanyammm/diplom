@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import card from "../api/books.json";
 import sendEmailFeedback from "../api/feedback-modal";
+import { addNews, fetchNews, fetchNewsId, deleteNews } from "../api/news";
 
 export const createStore = () => {
   const store = {
@@ -230,6 +232,51 @@ export const createStore = () => {
 
     /* рандом книг из каталога */
     randomBook: Math.trunc(Math.random() * (card.length - 11 - 0) + 0),
+
+    /* новости */
+    /* массив новостей */
+    news: [],
+    setNews(value) {
+      this.news = value.reverse();
+    },
+
+    /* добавление новости */
+    onClickNewsAdd(value) {
+      addNews(value.title, value.text, value.img, value.date)
+        .then(() => this.getNews())
+        .catch((error) => console.log("error", error));
+    },
+
+    /* получение всех новостей */
+    getNews() {
+      fetchNews()
+        .then((res) => {
+          this.setNews(res);
+        })
+        .catch((error) => console.log("error", error));
+    },
+
+    /* одна новость */
+    newsId: [],
+    setNewsId(value) {
+      this.newsId = value;
+    },
+
+    /* получение одной новости по id */
+    getNewsId(value) {
+      fetchNewsId(value)
+        .then((res) => {
+          this.setNewsId(res);
+        })
+        .catch((error) => console.log("error", error));
+    },
+
+    /* удаление новости */
+    onClickNewsDelete(_id) {
+      deleteNews(_id)
+        .then(() => this.getNews())
+        .catch((error) => console.log("error", error));
+    },
   };
 
   return store;

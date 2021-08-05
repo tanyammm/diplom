@@ -70,7 +70,7 @@ const PageDonation = () => {
     });
   };
 
-  const onSubmit = () => {
+  const onFinish = () => {
     if (botModal === "") {
       form
         .validateFields()
@@ -148,6 +148,7 @@ const PageDonation = () => {
               layout="vertical"
               form={form}
               className={css.form}
+              onFinish={onFinish}
             >
               <FormName />
               <Form.Item
@@ -169,14 +170,16 @@ const PageDonation = () => {
                 <Button icon={<PaperClipOutlined />}>Прикрепить файлы</Button>
               </Upload>
               <FormCheckbox />
+              <div className={css.center}>
+                <StyledButtonOrange
+                  htmlType="submit"
+                  type="primary"
+                  className={css.buttun}
+                >
+                  Отправить
+                </StyledButtonOrange>
+              </div>
             </Form>
-            <StyledButtonOrange
-              type="primary"
-              onClick={onSubmit}
-              className={css.buttun}
-            >
-              Отправить
-            </StyledButtonOrange>
           </div>
           <StyledText className={css.text}>
             <div className={css.name}>

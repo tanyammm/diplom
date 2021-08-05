@@ -8,9 +8,9 @@ import {
   StyledTitle,
   StyledForm,
   StyledButtonBlue,
+  StyledDiv,
 } from "../../style";
 import "antd/dist/antd.css";
-import css from "../../style/page-form.module.css";
 
 const PageAuthorization = () => {
   const {
@@ -33,7 +33,7 @@ const PageAuthorization = () => {
   const goLogin = () => history.push("/library/administrator");
   const goLoginUser = () => history.push("/library/account");
 
-  const onSubmit = () => {
+  const onFinish = () => {
     if (botModal === "") {
       form
         .validateFields()
@@ -61,7 +61,7 @@ const PageAuthorization = () => {
         name="nest-messages"
         form={form}
         layout="vertical"
-        className={css.form}
+        onFinish={onFinish}
       >
         <Form.Item
           label="Логин"
@@ -77,16 +77,18 @@ const PageAuthorization = () => {
         </Form.Item>
         <FormPassword />
         <FormlBot />
+        <StyledText>
+          <span>
+            У Вас нет аккаунта? -{" "}
+            <Link to="/library/register">зарегистрируйтесь!</Link>
+          </span>
+        </StyledText>
+        <StyledDiv>
+          <StyledButtonBlue htmlType="submit" type="submit">
+            Войти
+          </StyledButtonBlue>
+        </StyledDiv>
       </Form>
-      <StyledText>
-        <span>
-          У вас нет аккаунта? -{" "}
-          <Link to="/library/register">зарегистрируйтесь!</Link>
-        </span>
-      </StyledText>
-      <StyledButtonBlue onClick={onSubmit} type="submit">
-        Войти
-      </StyledButtonBlue>
     </StyledForm>
   );
 };
