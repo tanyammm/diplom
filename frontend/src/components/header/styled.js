@@ -61,6 +61,6 @@ export const StyledBadge = styled(Badge)`
 
 export const StyledAffix = styled(Affix)`
   .ant-affix {
-    z-index: 16;
+    z-index: 101;
   }
 `;

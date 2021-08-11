@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Dropdown, Row, Col } from "antd";
 import {
@@ -22,13 +22,23 @@ import "antd/dist/antd.css";
 import css from "./header.module.css";
 
 const Header = () => {
-  const { administrator, searchBookGeneral, setBookCategory, numberPurchases } =
-    useRootData((store) => ({
-      administrator: store.mainStore.administrator,
-      searchBookGeneral: store.mainStore.searchBookGeneral,
-      setBookCategory: store.mainStore.setBookCategory,
-      numberPurchases: store.mainStore.numberPurchases,
-    }));
+  const {
+    administrator,
+    searchBookGeneral,
+    setBookCategory,
+    numberPurchases,
+    getBooks,
+  } = useRootData((store) => ({
+    administrator: store.mainStore.administrator,
+    searchBookGeneral: store.mainStore.searchBookGeneral,
+    setBookCategory: store.mainStore.setBookCategory,
+    numberPurchases: store.mainStore.numberPurchases,
+    getBooks: store.mainStore.getBooks,
+  }));
+
+  useEffect(() => {
+    getBooks();
+  }, []);
 
   const [openBook, setОpenBook] = useState(false);
   const [iconBook, setIconBook] = useState(<CaretDownOutlined />);

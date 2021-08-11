@@ -18,7 +18,11 @@ const Text = styled(StyledText)`
 const StyledSpin = () => {
   return (
     <SpinStyled>
-      <Spin indicator={<LoadingOutlined />} />
+      <Spin
+        size="large"
+        style={{ color: "#096DD9" }}
+        indicator={<LoadingOutlined />}
+      />
       <Text>Загрузка...</Text>
     </SpinStyled>
   );

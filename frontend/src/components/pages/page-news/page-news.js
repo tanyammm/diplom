@@ -1,9 +1,16 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, generatePath } from "react-router-dom";
-import { ArrowRightOutlined } from "@ant-design/icons";
-import { Button, Popconfirm } from "antd";
+import {
+  ArrowRightOutlined,
+  DeleteOutlined,
+  EditOutlined,
+} from "@ant-design/icons";
+import { Button, Popconfirm, Typography } from "antd";
+import ReactHtmlParser from "react-html-parser";
 import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
+import { StyledSpin } from "../../reusable-components";
 import { StyledTitle } from "../../style";
 import { ButtonAdd } from "./administrator";
 import { useRootData } from "../../../hooks/use-root-data";
@@ -11,28 +18,34 @@ import Carousel from "../../reusable-components/carousel";
 import css from "./page-news.module.css";
 
 const PageNews = () => {
-  const { administrator, getNews, news, getNewsId, onClickNewsDelete } =
-    useRootData((store) => ({
-      administrator: store.mainStore.administrator,
-      getNews: store.mainStore.getNews,
-      news: store.mainStore.news,
-      getNewsId: store.mainStore.getNewsId,
-      onClickNewsDelete: store.mainStore.onClickNewsDelete,
-    }));
+  const {
+    loadingNews,
+    setLoadingNews,
+    administrator,
+    getNews,
+    news,
+    onClickNewsDelete,
+    onClickNewsEdit,
+  } = useRootData((store) => ({
+    loadingNews: store.mainStore.loadingNews,
+    setLoadingNews: store.mainStore.setLoadingNews,
+    administrator: store.mainStore.administrator,
+    getNews: store.mainStore.getNews,
+    news: store.mainStore.news,
+    onClickNewsDelete: store.mainStore.onClickNewsDelete,
+    onClickNewsEdit: store.mainStore.onClickNewsEdit,
+  }));
+
+  const [edit, setEdit] = useState(false);
+
+  const { Paragraph } = Typography;
 
   useEffect(() => {
     getNews();
   }, []);
 
-  return (
-    <>
-      {Carousel}
-      <StyledTitle level={2}>Новости</StyledTitle>
-      {administrator ? (
-        <div className={css.administrator}>
-          <ButtonAdd />
-        </div>
-      ) : null}
+  const List = () => {
+    return (
       <StyledList
         itemLayout="vertical"
         size="large"
@@ -48,28 +61,45 @@ const PageNews = () => {
             actions={[
               <>
                 <Link
-                  key="list-loadmore-edit"
+                  key={item._id}
                   to={generatePath("/library/news/:id", { id: item._id })}
                   className={css.farther}
                   data-testid="farther"
-                  onClick={() => {
-                    getNewsId(item._id);
-                  }}
                 >
                   Читать далее <ArrowRightOutlined />
                 </Link>
                 {administrator ? (
-                  <Popconfirm
-                    key={item._id}
-                    title="Вы уверены, что хотите удалить эту новость? Это действие нельзя отменить"
-                    onConfirm={() => onClickNewsDelete(item._id)}
-                    okText="Да"
-                    cancelText="Нет"
-                  >
-                    <Button danger type="primary">
-                      Удалить
+                  <>
+                    <Popconfirm
+                      key={item._id}
+                      title="Вы уверены, что хотите удалить эту новость? Это действие нельзя отменить"
+                      onConfirm={() => {
+                        onClickNewsDelete(item._id);
+                        setLoadingNews(true);
+                      }}
+                      okText="Да"
+                      cancelText="Нет"
+                    >
+                      <Button
+                        danger
+                        type="primary"
+                        className={css.button}
+                        icon={<DeleteOutlined />}
+                      >
+                        Удалить
+                      </Button>
+                    </Popconfirm>
+                    <Button
+                      type="primary"
+                      className={css.button}
+                      icon={<EditOutlined />}
+                      onClick={() => {
+                        setEdit(true);
+                      }}
+                    >
+                      Редактировать
                     </Button>
-                  </Popconfirm>
+                  </>
                 ) : null}
               </>,
             ]}
@@ -79,11 +109,37 @@ const PageNews = () => {
               ) : null
             }
           >
-            <StyleListItemMeta title={item.title} />
-            <div className={css.text}>{item.text}</div>
+            {edit ? (
+              <p>ddddddddddddddddddddddddddddddd</p>
+            ) : (
+              <>
+                <StyleListItemMeta title={item.title} />
+                <Paragraph
+                  className={css.paragraph}
+                  ellipsis={{
+                    rows: 5,
+                  }}
+                >
+                  {item.text}
+                </Paragraph>
+              </>
+            )}
           </StyledListItem>
         )}
       />
+    );
+  };
+
+  return (
+    <>
+      {Carousel}
+      <StyledTitle level={2}>Новости</StyledTitle>
+      {administrator ? (
+        <div className={css.administrator}>
+          <ButtonAdd />
+        </div>
+      ) : null}
+      {loadingNews ? <StyledSpin /> : <List />}
     </>
   );
 };

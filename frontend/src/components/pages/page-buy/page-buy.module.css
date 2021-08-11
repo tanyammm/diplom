@@ -3,13 +3,12 @@
     margin-right: 15%;  
 }
 
-.block {
+.div {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
 }
 
 .form {
-    width: 33%;
     min-width: 484px;
 }
+

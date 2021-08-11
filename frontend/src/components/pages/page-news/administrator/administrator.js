@@ -1,19 +1,23 @@
-/* eslint-disable no-console */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Comment, Form, Button, message, Input, DatePicker } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import moment from "moment";
+import { Editor } from "react-draft-wysiwyg";
 import { useRootData } from "../../../../hooks/use-root-data";
-import "moment/locale/ru";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "antd/dist/antd.css";
 import css from "./administrator.module.css";
 
-moment.locale("ru");
-
 const AddNews = () => {
-  const { onClickNewsAdd } = useRootData((store) => ({
-    onClickNewsAdd: store.mainStore.onClickNewsAdd,
-  }));
+  const { onClickNewsAdd, setLoadingNews, loadingNewsAdd, setLoadingNewsAdd } =
+    useRootData((store) => ({
+      onClickNewsAdd: store.mainStore.onClickNewsAdd,
+      setLoadingNews: store.mainStore.setLoadingNews,
+      loadingNewsAdd: store.mainStore.loadingNewsAdd,
+      setLoadingNewsAdd: store.mainStore.setLoadingNewsAdd,
+    }));
 
   const { TextArea } = Input;
   const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
@@ -24,12 +28,13 @@ const AddNews = () => {
     form
       .validateFields()
       .then((value) => {
+        setLoadingNewsAdd(true);
+        setLoadingNews(true);
         onClickNewsAdd(value);
-        message.success("Новость опубликована!");
         form.resetFields();
       })
       .catch((error) => {
-        console.log(error);
+        message.error(`Произошла ошибка: ${error}`);
       });
   };
 
@@ -38,6 +43,12 @@ const AddNews = () => {
       <Comment
         content={
           <Form
+            fields={[
+              {
+                name: ["date"],
+                value: moment(),
+              },
+            ]}
             name="nest-messages"
             form={form}
             layout="vertical"
@@ -53,22 +64,30 @@ const AddNews = () => {
                 },
               ]}
             >
-              <Input />
+              <Input placeholder="Заголовок новости" />
             </Form.Item>
             <Form.Item
               name="text"
-              label="Текст"
+              label="Новость"
               rules={[
                 {
                   required: true,
-                  message: "Вы не ввели текст",
+                  message: "Вы не ввели текст новости",
                 },
               ]}
             >
-              <TextArea rows={4} />
+              <Editor
+                placeholder="Текст новости"
+                wrapperClassName="demo-wrapper"
+                editorClassName="demo-editor"
+                localization={{
+                  locale: "ru",
+                }}
+              />
+              {/* <TextArea rows={4} placeholder="Текст новости" /> */}
             </Form.Item>
             <Form.Item name="img" label="URL изображения">
-              <Input />
+              <Input placeholder="http://library.vogu35.ru/..." />
             </Form.Item>
             <Form.Item
               name="date"
@@ -79,13 +98,10 @@ const AddNews = () => {
                 },
               ]}
             >
-              <DatePicker
-                // defaultValue={moment()}
-                format={dateFormatList}
-              />
+              <DatePicker defaultValue={moment()} format={dateFormatList} />
             </Form.Item>
             <Form.Item>
-              <Button htmlType="submit" type="primary">
+              <Button htmlType="submit" type="primary" loading={loadingNewsAdd}>
                 Опубликовать
               </Button>
             </Form.Item>
@@ -98,6 +114,7 @@ const AddNews = () => {
 
 export const ButtonAdd = () => {
   const [box, setBox] = useState(false);
+
   return (
     <>
       <div className={css.add}>

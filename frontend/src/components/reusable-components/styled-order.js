@@ -10,7 +10,7 @@ export const StyledDiv = styled("div")`
   display: flex;
   flex-direction: column;
   background: #f6f6f6;
-  padding: 2%;
+  padding: 20px;
   width: 301px;
   max-height: 301px;
 `;

@@ -3,7 +3,6 @@ import { Button, Popconfirm } from "antd";
 import { useHistory } from "react-router-dom";
 import { StyledTitle, StyledText } from "../../style";
 import { useRootData } from "../../../hooks/use-root-data";
-import "moment/locale/ru";
 import "antd/dist/antd.css";
 import css from "./page-account.module.css";
 

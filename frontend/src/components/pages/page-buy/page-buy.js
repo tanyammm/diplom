@@ -66,14 +66,24 @@ const PageBuy = () => {
         name="nest-messages"
         layout="vertical"
         form={form}
-        className={css.form}
         onFinish={onFinish}
       >
-        <FormName />
-        <FormPhone />
-        <FormEmail />
-        <FormlBot />
-        <FormCheckbox />
+        <div className={css.div}>
+          <div className={css.form}>
+            <FormName />
+            <FormPhone />
+            <FormEmail />
+            <FormlBot />
+            <FormCheckbox />
+          </div>
+          <StyledDiv>
+            <Result />
+            <Product />
+            <StyledButton type="primary" htmlType="submit">
+              Оформить заказ
+            </StyledButton>
+          </StyledDiv>
+        </div>
       </Form>
     );
   };
@@ -96,14 +106,7 @@ const PageBuy = () => {
     <div className={css.buy}>
       <StyledTitle level={2}>Оформление заказа</StyledTitle>
       {orderStatus ? (
-        <div className={css.block}>
-          <ComponentForm />
-          <StyledDiv>
-            <Result />
-            <Product />
-            <StyledButton type="primary">Оформить заказ</StyledButton>
-          </StyledDiv>
-        </div>
+        <ComponentForm />
       ) : (
         <StyledAlert
           message={label}

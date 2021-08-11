@@ -1,3 +1,10 @@
+.spin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
 .message {
     margin-left: 15%;
     margin-right: 15%;

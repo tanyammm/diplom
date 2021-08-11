@@ -54,7 +54,7 @@ const App = () => {
             <Route exact path="/library/services" component={PageServices} />
             <Route exact path="/library/student" component={PageStudent} />
             <Route exact path="/library/about" component={PageAbout} />
-            <Route exact path="/library/book/:id" component={PageBook} />
+            <Route exact path="/library/books/:id" component={PageBook} />
             <Route
               exact
               path="/library/authorization"
