@@ -54,7 +54,7 @@ const Books = (value) => {
         renderItem={(item) => (
           <List.Item key={item._id}>
             <StyledCard key={item._id} hoverable>
-              <Link to={generatePath("/library/books/:id", { id: item._id })}>
+              <Link to={generatePath("/diplom/books/:id", { id: item._id })}>
                 <Image src={img} alt="Обложка книги" preview={false} />
                 <StyledMeta
                   title={ReactHtmlParser(item.Title)}
@@ -65,7 +65,7 @@ const Books = (value) => {
                 <StyledTitle level={5}>{item.price} ₽</StyledTitle>
               </Link>
               {arrayIndex.includes(item._id) ? (
-                <Link to="/library/shopping">
+                <Link to="/diplom/shopping">
                   <StyledButtonShopping type="primary" className={css.button}>
                     В корзине
                   </StyledButtonShopping>

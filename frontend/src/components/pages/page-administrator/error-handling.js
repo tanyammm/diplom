@@ -17,10 +17,10 @@ const ErrorHandling = () => {
         </StyledTextCenter>
       }
       extra={[
-        <Link to="/library/" key="1">
+        <Link to="/diplom/" key="1">
           <Button type="primary">Главная страница</Button>
         </Link>,
-        <Link to="/library/authorization" key="2">
+        <Link to="/diplom/authorization" key="2">
           <Button key="buy">Личный кабинет</Button>
         </Link>,
       ]}

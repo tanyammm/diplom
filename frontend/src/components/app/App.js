@@ -38,33 +38,33 @@ const App = () => {
           <Feedback />
           <ScrollToTop />
           <Switch>
-            <Route exact path="/library/" component={PageNews} />
-            <Route exact path="/library/news/:id" component={PageMessage} />
-            <Route exact path="/library/catalog" component={PageCatalog} />
+            <Route exact path="/diplom/" component={PageNews} />
+            <Route exact path="/diplom/news/:id" component={PageMessage} />
+            <Route exact path="/diplom/catalog" component={PageCatalog} />
             <Route
               exact
-              path="/library/administrator"
+              path="/diplom/administrator"
               component={PageAdministrator}
             />
-            <Route exact path="/library/account" component={PageAccount} />
-            <Route exact path="/library/buy" component={PageBuy} />
-            <Route exact path="/library/shopping" component={PageShopping} />
-            <Route exact path="/library/donation" component={PageDonation} />
-            <Route exact path="/library/centre" component={PageCentre} />
-            <Route exact path="/library/services" component={PageServices} />
-            <Route exact path="/library/student" component={PageStudent} />
-            <Route exact path="/library/about" component={PageAbout} />
-            <Route exact path="/library/books/:id" component={PageBook} />
+            <Route exact path="/diplom/account" component={PageAccount} />
+            <Route exact path="/diplom/buy" component={PageBuy} />
+            <Route exact path="/diplom/shopping" component={PageShopping} />
+            <Route exact path="/diplom/donation" component={PageDonation} />
+            <Route exact path="/diplom/centre" component={PageCentre} />
+            <Route exact path="/diplom/services" component={PageServices} />
+            <Route exact path="/diplom/student" component={PageStudent} />
+            <Route exact path="/diplom/about" component={PageAbout} />
+            <Route exact path="/diplom/books/:id" component={PageBook} />
             <Route
               exact
-              path="/library/authorization"
+              path="/diplom/authorization"
               component={PageAuthorization}
             />
-            <Route exact path="/library/register" component={PageRegister} />
-            <Route exact path="/library/search" component={PageSearch} />
-            <Route exact path="/library/documents" component={PageDocuments} />
-            <Route exact path="/library/contacts" component={PageContacts} />
-            <Route exact path="/library/list" component={PageList} />
+            <Route exact path="/diplom/register" component={PageRegister} />
+            <Route exact path="/diplom/search" component={PageSearch} />
+            <Route exact path="/diplom/documents" component={PageDocuments} />
+            <Route exact path="/diplom/contacts" component={PageContacts} />
+            <Route exact path="/diplom/list" component={PageList} />
             <Route exact path="*" component={PageError} />
           </Switch>
         </div>

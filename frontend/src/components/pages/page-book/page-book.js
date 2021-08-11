@@ -142,7 +142,7 @@ const PageBook = (value) => {
               </Text>
             </div>
             {arrayIndex.includes(booksId._id) ? (
-              <Link to="/library/shopping">
+              <Link to="/diplom/shopping">
                 <StyledButtonShopping type="primary" className={css.button}>
                   В корзине
                 </StyledButtonShopping>

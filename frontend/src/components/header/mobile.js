@@ -36,19 +36,19 @@ const HeaderMobile = () => {
       <div className={css.text}>ИБК ВоГУ</div>
       <div className={css.icons}>
         {administrator ? (
-          <Link to="/library/administrator">
+          <Link to="/diplom/administrator">
             <Button className={css.link} type="link">
               <UserOutlined />
             </Button>
           </Link>
         ) : (
-          <Link to="/library/authorization">
+          <Link to="/diplom/authorization">
             <Button className={css.link} type="link">
               <UserOutlined />
             </Button>
           </Link>
         )}
-        <Link to="/library/shopping">
+        <Link to="/diplom/shopping">
           <StyledBadge count={numberPurchases} offset={[-5, 1]}>
             <Button className={css.link} type="link">
               <ShoppingCartOutlined />
@@ -75,10 +75,10 @@ const HeaderMobile = () => {
           }}
         >
           <Menu.Item key="Новости">
-            <Link to="/library/">Новости</Link>
+            <Link to="/diplom/">Новости</Link>
           </Menu.Item>
           <Menu.Item key="Поиск книг">
-            <Link to="/library/search">Поиск книг</Link>
+            <Link to="/diplom/search">Поиск книг</Link>
           </Menu.Item>
           <SubMenu key="Книги" title="Книги">
             <SubMenu
@@ -87,7 +87,7 @@ const HeaderMobile = () => {
             >
               <Menu.Item key={category1}>
                 <Link
-                  to="/library/catalog"
+                  to="/diplom/catalog"
                   onClick={() => setBookCategory(category1)}
                 >
                   {category1}
@@ -95,7 +95,7 @@ const HeaderMobile = () => {
               </Menu.Item>
               <Menu.Item key={category2}>
                 <Link
-                  to="/library/catalog"
+                  to="/diplom/catalog"
                   onClick={() => setBookCategory(category2)}
                 >
                   {category2}
@@ -103,7 +103,7 @@ const HeaderMobile = () => {
               </Menu.Item>
               <Menu.Item key={category3}>
                 <Link
-                  to="/library/catalog"
+                  to="/diplom/catalog"
                   onClick={() => setBookCategory(category3)}
                 >
                   {category3}
@@ -111,7 +111,7 @@ const HeaderMobile = () => {
               </Menu.Item>
               <Menu.Item key={category4}>
                 <Link
-                  to="/library/catalog"
+                  to="/diplom/catalog"
                   onClick={() => setBookCategory(category4)}
                 >
                   {category4}
@@ -120,7 +120,7 @@ const HeaderMobile = () => {
             </SubMenu>
             <Menu.Item key={category5}>
               <Link
-                to="/library/catalog"
+                to="/diplom/catalog"
                 onClick={() => setBookCategory(category5)}
               >
                 {category5}
@@ -128,7 +128,7 @@ const HeaderMobile = () => {
             </Menu.Item>
             <Menu.Item key={category6}>
               <Link
-                to="/library/catalog"
+                to="/diplom/catalog"
                 onClick={() => setBookCategory(category6)}
               >
                 {category6}
@@ -136,7 +136,7 @@ const HeaderMobile = () => {
             </Menu.Item>
             <Menu.Item key={category7}>
               <Link
-                to="/library/catalog"
+                to="/diplom/catalog"
                 onClick={() => setBookCategory(category7)}
               >
                 {category7}
@@ -144,26 +144,26 @@ const HeaderMobile = () => {
             </Menu.Item>
           </SubMenu>
           <Menu.Item key="Студентам">
-            <Link to="/library/student">Студентам</Link>
+            <Link to="/diplom/student">Студентам</Link>
           </Menu.Item>
           <SubMenu key="ИБК ВоГУ" title="ИБК ВоГУ">
             <Menu.Item key="О нас">
-              <Link to="/library/about">О нас</Link>
+              <Link to="/diplom/about">О нас</Link>
             </Menu.Item>
             <Menu.Item key="Обходной лист">
-              <Link to="/library/list">Обходной лист</Link>
+              <Link to="/diplom/list">Обходной лист</Link>
             </Menu.Item>
             <Menu.Item key="Книга в дар">
-              <Link to="/library/donation">Книга в дар</Link>
+              <Link to="/diplom/donation">Книга в дар</Link>
             </Menu.Item>
             <Menu.Item key="Услуги">
-              <Link to="/library/centre">Центр СИиРБТ ВоГУ</Link>
+              <Link to="/diplom/centre">Центр СИиРБТ ВоГУ</Link>
             </Menu.Item>
             <Menu.Item key="Документы">
-              <Link to="/library/documents">Документы</Link>
+              <Link to="/diplom/documents">Документы</Link>
             </Menu.Item>
             <Menu.Item key="Контакты и режим работы">
-              <Link to="/library/contacts">Контакты и режим работы</Link>
+              <Link to="/diplom/contacts">Контакты и режим работы</Link>
             </Menu.Item>
             <Menu.Item key="ВоГУ">
               <a href="https://vogu35.ru/">ВоГУ</a>

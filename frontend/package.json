@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Татьяна Максимова и Екатерина Соловьева",
   "private": true,
-  "homepage": "https://tanyammm.github.io/library/",
+  "homepage": "https://tanyammm.github.io/diplom/",
   "dependencies": {
     "@ant-design/charts": "^1.1.20",
     "@ant-design/icons": "^4.3.0",

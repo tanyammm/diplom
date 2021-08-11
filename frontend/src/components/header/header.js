@@ -87,7 +87,7 @@ const Header = () => {
       >
         <StyledMenuItem key={category1}>
           <Link
-            to="/library/catalog"
+            to="/diplom/catalog"
             className={css.subMenu}
             onClick={() => setBookCategory(category1)}
           >
@@ -96,7 +96,7 @@ const Header = () => {
         </StyledMenuItem>
         <StyledMenuItem key={category2}>
           <Link
-            to="/library/catalog"
+            to="/diplom/catalog"
             className={css.subMenu}
             onClick={() => setBookCategory(category2)}
           >
@@ -105,7 +105,7 @@ const Header = () => {
         </StyledMenuItem>
         <StyledMenuItem key={category3}>
           <Link
-            to="/library/catalog"
+            to="/diplom/catalog"
             className={css.subMenu}
             onClick={() => setBookCategory(category3)}
           >
@@ -114,7 +114,7 @@ const Header = () => {
         </StyledMenuItem>
         <StyledMenuItem key={category4}>
           <Link
-            to="/library/catalog"
+            to="/diplom/catalog"
             className={css.subMenu}
             onClick={() => setBookCategory(category4)}
           >
@@ -123,17 +123,17 @@ const Header = () => {
         </StyledMenuItem>
       </StyledSubMenu>
       <StyledMenuItem key={category5}>
-        <Link to="/library/catalog" onClick={() => setBookCategory(category5)}>
+        <Link to="/diplom/catalog" onClick={() => setBookCategory(category5)}>
           {category5}
         </Link>
       </StyledMenuItem>
       <StyledMenuItem key={category6}>
-        <Link to="/library/catalog" onClick={() => setBookCategory(category6)}>
+        <Link to="/diplom/catalog" onClick={() => setBookCategory(category6)}>
           {category6}
         </Link>
       </StyledMenuItem>
       <StyledMenuItem key={category7}>
-        <Link to="/library/catalog" onClick={() => setBookCategory(category7)}>
+        <Link to="/diplom/catalog" onClick={() => setBookCategory(category7)}>
           {category7}
         </Link>
       </StyledMenuItem>
@@ -143,25 +143,25 @@ const Header = () => {
   const MenuButton = (
     <StyledMenu className={css.menu}>
       <StyledMenuItem key="О нас">
-        <Link to="/library/about">О нас</Link>
+        <Link to="/diplom/about">О нас</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Обходной лист">
-        <Link to="/library/list">Обходной лист</Link>
+        <Link to="/diplom/list">Обходной лист</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Книга в дар">
-        <Link to="/library/donation">Книга в дар</Link>
+        <Link to="/diplom/donation">Книга в дар</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Центр СИиРБТ ВоГУ">
-        <Link to="/library/centre">Центр СИиРБТ ВоГУ</Link>
+        <Link to="/diplom/centre">Центр СИиРБТ ВоГУ</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Услуги">
-        <Link to="/library/services">Услуги</Link>
+        <Link to="/diplom/services">Услуги</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Документы">
-        <Link to="/library/documents">Документы</Link>
+        <Link to="/diplom/documents">Документы</Link>
       </StyledMenuItem>
       <StyledMenuItem key="Контакты и режим работы">
-        <Link to="/library/contacts">Контакты и режим работы</Link>
+        <Link to="/diplom/contacts">Контакты и режим работы</Link>
       </StyledMenuItem>
       <StyledMenuItem key="ВоГУ">
         <a href="https://vogu35.ru/">ВоГУ</a>
@@ -187,7 +187,7 @@ const Header = () => {
               )}
             </Col>
             <Col span={8} className={css.rowButtons}>
-              <Link to="/library/">
+              <Link to="/diplom/">
                 <Button type="link" className={css.button}>
                   Новости
                 </Button>
@@ -201,7 +201,7 @@ const Header = () => {
                   Книги {iconBook}
                 </Button>
               </Dropdown>
-              <Link to="/library/student">
+              <Link to="/diplom/student">
                 <Button type="link" className={css.button}>
                   Студентам
                 </Button>
@@ -222,7 +222,7 @@ const Header = () => {
                 placeholder="введите текст для поиска"
                 onSearch={searchBookGeneral}
                 enterButton={
-                  <Link to="/library/search">
+                  <Link to="/diplom/search">
                     <SearchOutlined />
                   </Link>
                 }
@@ -230,19 +230,19 @@ const Header = () => {
             </Col>
             <Col span={2} className={css.icons}>
               {administrator ? (
-                <Link to="/library/administrator">
+                <Link to="/diplom/administrator">
                   <Button className={css.link} type="link">
                     <UserOutlined />
                   </Button>
                 </Link>
               ) : (
-                <Link to="/library/authorization">
+                <Link to="/diplom/authorization">
                   <Button className={css.link} type="link">
                     <UserOutlined />
                   </Button>
                 </Link>
               )}
-              <Link to="/library/shopping">
+              <Link to="/diplom/shopping">
                 <StyledBadge count={numberPurchases} offset={[-5, 1]}>
                   <Button className={css.link} type="link">
                     <ShoppingCartOutlined />

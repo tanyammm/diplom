@@ -13,7 +13,7 @@ const PageAccount = () => {
   }));
 
   const history = useHistory();
-  const exitLogin = () => history.push("/library/authorization");
+  const exitLogin = () => history.push("/diplom/authorization");
 
   const onExit = () => {
     setUser(false);

@@ -91,14 +91,14 @@ const PageBuy = () => {
   const description = (
     <>
       Подробнее по заказу можно узнать в{" "}
-      <Link to="/library/authorization">личном кабинете</Link>
+      <Link to="/diplom/authorization">личном кабинете</Link>
     </>
   );
 
   const label = (
     <>
       Поздравляем! Вы успешно оформили заказ №{" "}
-      <Link to="/library/authorization">{numberOrder}</Link>
+      <Link to="/diplom/authorization">{numberOrder}</Link>
     </>
   );
 

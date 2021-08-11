@@ -62,7 +62,7 @@ const PageNews = () => {
               <>
                 <Link
                   key={item._id}
-                  to={generatePath("/library/news/:id", { id: item._id })}
+                  to={generatePath("/diplom/news/:id", { id: item._id })}
                   className={css.farther}
                   data-testid="farther"
                 >

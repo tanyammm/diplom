@@ -30,8 +30,8 @@ const PageAuthorization = () => {
   const [form] = Form.useForm();
 
   const history = useHistory();
-  const goLogin = () => history.push("/library/administrator");
-  const goLoginUser = () => history.push("/library/account");
+  const goLogin = () => history.push("/diplom/administrator");
+  const goLoginUser = () => history.push("/diplom/account");
 
   const onFinish = () => {
     if (botModal === "") {
@@ -80,7 +80,7 @@ const PageAuthorization = () => {
         <StyledText>
           <span>
             У Вас нет аккаунта? -{" "}
-            <Link to="/library/register">зарегистрируйтесь!</Link>
+            <Link to="/diplom/register">зарегистрируйтесь!</Link>
           </span>
         </StyledText>
         <StyledDiv>

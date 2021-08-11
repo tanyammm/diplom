@@ -17,7 +17,7 @@ const PageError = () => {
         </StyledTextCenter>
       }
       extra={
-        <Link to="/library/">
+        <Link to="/diplom/">
           <Button type="primary">Главная страница</Button>
         </Link>
       }

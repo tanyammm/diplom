@@ -23,25 +23,25 @@ const Footer = () => {
     <Row gutter={[24, 24]} className={css.footer}>
       <Col span={4.8} className={css.blok}>
         <StyledTitle>ИБК ВоГУ</StyledTitle>
-        <StyledLink to="/library/about">О нас</StyledLink>
-        <StyledLink to="/library/">Новости</StyledLink>
-        <StyledLink to="/library/donation">Книга в дар</StyledLink>
-        <StyledLink to="/library/centre">
+        <StyledLink to="/diplom/about">О нас</StyledLink>
+        <StyledLink to="/diplom/">Новости</StyledLink>
+        <StyledLink to="/diplom/donation">Книга в дар</StyledLink>
+        <StyledLink to="/diplom/centre">
           Центр содействия инновациям и развитию бережливых технологий ВоГУ
         </StyledLink>
       </Col>
       <Col span={4.8} className={css.blok}>
         <StyledTitle>Интернет-ресурсы</StyledTitle>
-        <StyledLink to="/library/student">Студентам</StyledLink>
-        <StyledLink to="/library/catalog">Каталог книг</StyledLink>
-        <StyledLink to="/library/list">Обходной лист</StyledLink>
-        <StyledLink to="/library/register">Личный кабинет</StyledLink>
+        <StyledLink to="/diplom/student">Студентам</StyledLink>
+        <StyledLink to="/diplom/catalog">Каталог книг</StyledLink>
+        <StyledLink to="/diplom/list">Обходной лист</StyledLink>
+        <StyledLink to="/diplom/register">Личный кабинет</StyledLink>
       </Col>
       <Col span={4.8} className={css.blok}>
         <StyledTitle>Контакты</StyledTitle>
         <StyledText onClick={openShowModal}>Обратная связь</StyledText>
-        <StyledLink to="/library/documents/">Документы</StyledLink>
-        <StyledLink to="/library/contacts">Контакты и режим работы</StyledLink>
+        <StyledLink to="/diplom/documents/">Документы</StyledLink>
+        <StyledLink to="/diplom/contacts">Контакты и режим работы</StyledLink>
       </Col>
       <Col span={4.8} className={css.blok}>
         <StyledTitle>Телефон</StyledTitle>

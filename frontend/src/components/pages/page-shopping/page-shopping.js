@@ -63,7 +63,7 @@ const PageShopping = () => {
           </StyledTextCenter>
         }
       >
-        <Link to="/library/catalog">
+        <Link to="/diplom/catalog">
           <Button type="primary">Каталог</Button>
         </Link>
       </Empty>
@@ -107,7 +107,7 @@ const PageShopping = () => {
                 <List.Item.Meta
                   avatar={
                     <Link
-                      to={generatePath("/library/books/:id", {
+                      to={generatePath("/diplom/books/:id", {
                         id: item._id,
                       })}
                     >
@@ -121,7 +121,7 @@ const PageShopping = () => {
                   }
                   title={
                     <Link
-                      to={generatePath("/library/books/:id", {
+                      to={generatePath("/diplom/books/:id", {
                         id: item._id,
                       })}
                     >
@@ -141,7 +141,7 @@ const PageShopping = () => {
           <StyledDiv>
             <Result />
             <Product />
-            <Link to="/library/buy" className={css.link}>
+            <Link to="/diplom/buy" className={css.link}>
               <StyledButton className={css.button} type="primary">
                 Оформить заказ
               </StyledButton>

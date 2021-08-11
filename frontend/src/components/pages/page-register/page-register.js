@@ -27,7 +27,7 @@ const PageRegister = () => {
   }));
 
   const history = useHistory();
-  const goLogin = () => history.push("/library/authorization");
+  const goLogin = () => history.push("/diplom/authorization");
 
   const openNotification = () => {
     notification.open({
@@ -115,7 +115,7 @@ const PageRegister = () => {
         <StyledText className={css.center}>
           <span>
             У Вас есть аккаунт? -{" "}
-            <Link to="/library/authorization">авторизуйтесь!</Link>
+            <Link to="/diplom/authorization">авторизуйтесь!</Link>
           </span>
         </StyledText>
         <div className={css.center}>

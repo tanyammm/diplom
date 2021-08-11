@@ -24,7 +24,7 @@ const PageServices = () => {
           </ul>
         </StyledText>
         <StyledText className={css.indent}>
-          <Link to="/library/centre">
+          <Link to="/diplom/centre">
             Центр содействия инновациям и развитию бережливых технологий ВоГУ:
           </Link>
         </StyledText>

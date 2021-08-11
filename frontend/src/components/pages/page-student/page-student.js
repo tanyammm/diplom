@@ -18,19 +18,19 @@ const PageStudent = () => {
       <StyledText>
         <ul>
           <li>
-            <Link to="/library/list">заказать обходной лист;</Link>
+            <Link to="/diplom/list">заказать обходной лист;</Link>
           </li>
           <li>
-            <Link to="/library/catalog">скачать книги;</Link>
+            <Link to="/diplom/catalog">скачать книги;</Link>
           </li>
           <li>
-            <Link to="/library/donation">передать книгу в дар;</Link>
+            <Link to="/diplom/donation">передать книгу в дар;</Link>
           </li>
           <li>
-            <Link to="/library/contacts">узнать режим работы;</Link>
+            <Link to="/diplom/contacts">узнать режим работы;</Link>
           </li>
           <li>
-            <Link to="/library/">посмотреть новости ИБК ВоГУ.</Link>
+            <Link to="/diplom/">посмотреть новости ИБК ВоГУ.</Link>
           </li>
         </ul>
       </StyledText>
@@ -61,7 +61,7 @@ const PageStudent = () => {
       <StyledText>
         <ul>
           <li>
-            <Link to="/library/catalog">
+            <Link to="/diplom/catalog">
               электронный каталог с доступом к полным текстам изданий ВоГУ;
             </Link>
           </li>

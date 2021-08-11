@@ -55,7 +55,7 @@ const PageMessage = (value) => {
               <StyledText className={css.text}>
                 Дата публикации: {moment(newsId.date).format("Do MMMM YYYY")}
               </StyledText>
-              <Link to="/library/" className={css.farther}>
+              <Link to="/diplom/" className={css.farther}>
                 <ArrowLeftOutlined /> Перейти ко всем новостям
               </Link>
             </div>
