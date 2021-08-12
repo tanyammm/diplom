@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Comment, Form, Button, message, Input, DatePicker } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import moment from "moment";
-import { Editor } from "react-draft-wysiwyg";
+// import { Editor } from "react-draft-wysiwyg";
 import { useRootData } from "../../../../hooks/use-root-data";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "antd/dist/antd.css";
@@ -76,15 +76,15 @@ const AddNews = () => {
                 },
               ]}
             >
-              <Editor
+              {/* <Editor
                 placeholder="Текст новости"
                 wrapperClassName="demo-wrapper"
                 editorClassName="demo-editor"
                 localization={{
                   locale: "ru",
                 }}
-              />
-              {/* <TextArea rows={4} placeholder="Текст новости" /> */}
+              /> */}
+              <TextArea rows={4} placeholder="Текст новости" />
             </Form.Item>
             <Form.Item name="img" label="URL изображения">
               <Input placeholder="http://library.vogu35.ru/..." />

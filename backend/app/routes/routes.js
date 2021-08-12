@@ -147,4 +147,95 @@ module.exports = function (app, db) {
             }
         });
     });
-} 
+
+    
+// Пользователи
+    app.post('/users/add', (req, res) => { //Добавление нового пользователя
+        const users = {                
+            surname: req.body.surname,
+            name: req.body.name,
+            patronymic: req.body.patronymic,
+            telephone: req.body.telephone, 
+            email: req.body.email,   
+            password: req.body.password,                   
+        };
+        db.collection('users').insertOne(users, (err, result) => {
+            console.log('users', users)
+            if (err) {
+                console.log('ERROR',err)
+                res.send({
+                    'error': 'An error has occurred'
+                });
+            } else {                       
+                res.send(result.ops);                   
+            }
+        });
+    });
+
+    app.get('/users/red', (req, res) => { //Чтение всех пользователей
+        db.collection('users').find({}).toArray(function(err, result) { //нахождение всех элементов массива
+            if (err) { //если ошибка
+                console.log('WTFERR',err)
+                res.send({
+                    'error': 'An error has occurred'
+                });
+            } else {  
+                db.collection('users').countDocuments().then((count) => {                            
+                res.send(result); //вывод всего  
+                });
+            }
+        });
+    }); 
+
+    app.post('/users/redid', (req, res) => {//Чтение конкретного пользователя по id
+        const id = req.body.id;
+        const details = {
+            '_id': new ObjectID(id)
+        };
+        db.collection('users').findOne(details, (err, item) => {
+            if (err) {
+                res.send({
+                    'error': 'An error has occurred'
+                });
+            } else {                   
+                res.send(item);               
+            }
+        });
+    });
+
+    app.post('/users/delete', (req, res) => { //Удаление пользователя
+        const id = req.body.id;
+        const details = {'_id': new ObjectID(id)};
+        db.collection('users').remove(details, (err, item) => {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {                    
+                res.send('Users '+id+' deleted!');        
+            }
+        });
+    });
+
+    app.post('/users/update', (req, res) => { //Редактирование пользователя
+        const id = req.body.id;
+        const details = {
+            '_id': new ObjectID(id)
+        };
+        const users = {
+            surname: req.body.surname,
+            name: req.body.name,
+            patronymic: req.body.patronymic,
+            telephone: req.body.telephone, 
+            email: req.body.email,   
+            password: req.body.password,    
+        };
+        db.collection('users').updateOne(details, { $set: users },(err, result) => {
+            if (err) {
+                res.send({
+                    'error': 'An error has occurred'
+                });
+            } else {
+                res.send(users);
+            }
+        });
+    });
+    } 

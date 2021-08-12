@@ -10,6 +10,7 @@ import {
   editNews,
 } from "../api/news";
 import { fetchBooks, fetchBooksId } from "../api/books";
+import { fetchUsers, deleteUsers } from "../api/users";
 
 export const createStore = () => {
   const store = {
@@ -436,6 +437,41 @@ export const createStore = () => {
         this.basket.splice(index, 1);
         this.setLoadingShopping(false);
       }
+    },
+
+    /* пользователи */
+    /* массив пользоватлей */
+    users: [],
+    setUsers(value) {
+      this.users = value.reverse();
+    },
+
+    /* получение всех пользователей */
+    getUsers() {
+      fetchUsers()
+        .then((res) => {
+          this.setUsers(res);
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    },
+
+    /* удаление пользователя */
+    onClickUsersDelete(_id) {
+      deleteUsers(_id)
+        .then(() => this.getUsers())
+        .catch((error) => console.log("error", error));
+    },
+
+    /* модальное окно пользователей */
+    showModalUser: false,
+    openShowModalUser() {
+      this.showModalUser = true;
+    },
+
+    handleCancelUser() {
+      this.showModalUser = false;
     },
   };
 

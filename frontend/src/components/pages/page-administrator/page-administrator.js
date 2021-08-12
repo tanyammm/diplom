@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Calendar,
   Tabs,
@@ -9,11 +11,15 @@ import {
   Row,
   Col,
   Popconfirm,
+  List,
+  Avatar,
 } from "antd";
 import {
   TeamOutlined,
   ShoppingCartOutlined,
   DownloadOutlined,
+  DeleteOutlined,
+  EditOutlined,
 } from "@ant-design/icons";
 import { Column } from "@ant-design/charts";
 import { useHistory } from "react-router-dom";
@@ -23,6 +29,7 @@ import { StyledTitle, StyledText } from "../../style";
 import { useRootData } from "../../../hooks/use-root-data";
 import configUser from "./config-user";
 import configBuy from "./config-buy";
+import Modal from "./modal";
 import "moment/locale/ru";
 import "antd/dist/antd.css";
 import css from "./page-administrator.module.css";
@@ -45,6 +52,10 @@ const PageAdministrator = () => {
     quantityVisitors,
     quantityBuy,
     quantityDownloading,
+    getUsers,
+    users,
+    onClickUsersDelete,
+    openShowModalUser,
   } = useRootData((store) => ({
     setAdministrator: store.mainStore.setAdministrator,
     administrator: store.mainStore.administrator,
@@ -58,7 +69,15 @@ const PageAdministrator = () => {
     quantityVisitors: store.mainStore.quantityVisitors,
     quantityBuy: store.mainStore.quantityBuy,
     quantityDownloading: store.mainStore.quantityDownloading,
+    getUsers: store.mainStore.getUsers,
+    users: store.mainStore.users,
+    onClickUsersDelete: store.mainStore.onClickUsersDelete,
+    openShowModalUser: store.mainStore.openShowModalUser,
   }));
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   const history = useHistory();
   const exitLogin = () => history.push("/diplom/authorization");
@@ -183,6 +202,56 @@ const PageAdministrator = () => {
     exitLogin();
   };
 
+  const onClick = (item) => {
+    onClickUsersDelete(item._id);
+  };
+
+  const ListUser = () => {
+    return (
+      <List
+        itemLayout="horizontal"
+        dataSource={users}
+        renderItem={(item) => (
+          <List.Item
+            actions={[
+              <>
+                {/* <Button
+                  shape="circle"
+                  type="primary"
+                  icon={<EditOutlined />}
+                  className={css.edit}
+                  onClick={openShowModalUser}
+                /> */}
+                <Popconfirm
+                  key={item._id}
+                  title="Вы уверены, что хотите удалить этого пользователя?"
+                  onConfirm={() => onClick(item)}
+                  okText="Да"
+                  cancelText="Нет"
+                >
+                  <Button
+                    shape="circle"
+                    type="primary"
+                    danger
+                    icon={<DeleteOutlined />}
+                  />
+                </Popconfirm>
+              </>,
+            ]}
+          >
+            <List.Item.Meta
+              avatar={
+                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              }
+              title={`${item.surname} ${item.name} ${item.patronymic}`}
+              description={item.email}
+            />
+          </List.Item>
+        )}
+      />
+    );
+  };
+
   return (
     <div className={css.administrator}>
       {administrator ? (
@@ -217,10 +286,14 @@ const PageAdministrator = () => {
               </StyledText>
               {TabReport}
             </TabPane>
-            <TabPane tab="Инструкция" key="4">
+            <TabPane tab="Пользователи" key="4">
+              <ListUser />
+            </TabPane>
+            <TabPane tab="Инструкция" key="5">
               Инструкция
             </TabPane>
           </Tabs>
+          <Modal />
         </>
       ) : (
         <ErrorHandling />

@@ -36,8 +36,6 @@ const PageNews = () => {
     onClickNewsEdit: store.mainStore.onClickNewsEdit,
   }));
 
-  const [edit, setEdit] = useState(false);
-
   const { Paragraph } = Typography;
 
   useEffect(() => {
@@ -89,7 +87,7 @@ const PageNews = () => {
                         Удалить
                       </Button>
                     </Popconfirm>
-                    <Button
+                    {/* <Button
                       type="primary"
                       className={css.button}
                       icon={<EditOutlined />}
@@ -98,7 +96,7 @@ const PageNews = () => {
                       }}
                     >
                       Редактировать
-                    </Button>
+                    </Button> */}
                   </>
                 ) : null}
               </>,
@@ -109,21 +107,17 @@ const PageNews = () => {
               ) : null
             }
           >
-            {edit ? (
-              <p>ddddddddddddddddddddddddddddddd</p>
-            ) : (
-              <>
-                <StyleListItemMeta title={item.title} />
-                <Paragraph
-                  className={css.paragraph}
-                  ellipsis={{
-                    rows: 5,
-                  }}
-                >
-                  {item.text}
-                </Paragraph>
-              </>
-            )}
+            <>
+              <StyleListItemMeta title={item.title} />
+              <Paragraph
+                className={css.paragraph}
+                ellipsis={{
+                  rows: 5,
+                }}
+              >
+                {item.text}
+              </Paragraph>
+            </>
           </StyledListItem>
         )}
       />
