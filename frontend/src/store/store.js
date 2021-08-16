@@ -217,6 +217,16 @@ export const createStore = () => {
       this.news = value.reverse();
     },
 
+    /* ошибка */
+    error: false,
+
+    setError() {
+      this.error = true;
+    },
+    clearError() {
+      this.error = false;
+    },
+
     /* загрузка во время добавления новости */
     loadingNewsAdd: false,
     setLoadingNewsAdd(value) {
@@ -227,10 +237,14 @@ export const createStore = () => {
     onClickNewsAdd(value) {
       addNews(value.title, value.text, value.img, value.date)
         .then(() => {
+          this.clearError();
           this.getNews();
           this.setLoadingNewsAdd(false);
         })
-        .catch((error) => console.log("error", error));
+        .catch(() => {
+          this.setLoadingNewsAdd(false);
+          this.setError();
+        });
     },
 
     /* загрузка новостей */
@@ -243,13 +257,11 @@ export const createStore = () => {
     getNews() {
       fetchNews()
         .then((res) => {
+          this.clearError();
           this.setNews(res);
           this.setLoadingNews(false);
         })
-        .catch((error) => {
-          console.log("error", error);
-          this.setLoadingNews(true);
-        });
+        .catch(() => this.setError());
     },
 
     /* одна новость */
@@ -269,6 +281,7 @@ export const createStore = () => {
     getNewsId(value) {
       fetchNewsId(value)
         .then((res) => {
+          this.clearError();
           this.getErrorNewsId = false;
           this.setNewsId(res);
           this.setLoadingNewsId(false);
@@ -276,24 +289,27 @@ export const createStore = () => {
             this.getErrorNewsId = true;
           }
         })
-        .catch((error) => {
-          this.getErrorNewsId = true;
-          console.log("error", error);
-        });
+        .catch(() => this.setError());
     },
 
     /* удаление новости */
     onClickNewsDelete(_id) {
       deleteNews(_id)
-        .then(() => this.getNews())
-        .catch((error) => console.log("error", error));
+        .then(() => {
+          this.clearError();
+          this.getNews();
+        })
+        .catch(() => this.setError());
     },
 
     /* редактирование новости */
     onClickNewsEdit(value) {
       editNews(value.id, value.title, value.text, value.img, value.date)
-        .then(() => this.getNews())
-        .catch((error) => console.log("error", error));
+        .then(() => {
+          this.clearError();
+          this.getNews();
+        })
+        .catch(() => this.setError());
     },
 
     /* книги */
@@ -313,13 +329,11 @@ export const createStore = () => {
     getBooks() {
       fetchBooks()
         .then((res) => {
+          this.clearError();
           this.setBooks(res);
           this.setLoadingBooks(false);
         })
-        .catch((error) => {
-          console.log("error", error);
-          this.setLoadingBooks(true);
-        });
+        .catch(() => this.setError());
     },
 
     /* одна книга */
@@ -339,6 +353,7 @@ export const createStore = () => {
     getBooksId(value) {
       fetchBooksId(value)
         .then((res) => {
+          this.clearError();
           this.getErrorBooksId = false;
           this.setBooksId(res);
           this.setLoadingBooksId(false);
@@ -346,10 +361,7 @@ export const createStore = () => {
             this.getErrorBooksId = true;
           }
         })
-        .catch((error) => {
-          this.getErrorBooksId = true;
-          console.log("error", error);
-        });
+        .catch(() => this.setError());
     },
 
     /* рандом книг из каталога */
@@ -418,12 +430,11 @@ export const createStore = () => {
         this.arrayIndex.push(_id);
         fetchBooksId(_id)
           .then((res) => {
+            this.clearError();
             this.basket.push(res);
             this.setLoadingShopping(false);
           })
-          .catch((error) => {
-            console.log("error", error);
-          });
+          .catch(() => this.setError());
       }
     },
 
@@ -450,18 +461,20 @@ export const createStore = () => {
     getUsers() {
       fetchUsers()
         .then((res) => {
+          this.clearError();
           this.setUsers(res);
         })
-        .catch((error) => {
-          console.log("error", error);
-        });
+        .catch(() => this.setError());
     },
 
     /* удаление пользователя */
     onClickUsersDelete(_id) {
       deleteUsers(_id)
-        .then(() => this.getUsers())
-        .catch((error) => console.log("error", error));
+        .then(() => {
+          this.clearError();
+          this.getUsers();
+        })
+        .catch(() => this.setError());
     },
 
     /* модальное окно пользователей */

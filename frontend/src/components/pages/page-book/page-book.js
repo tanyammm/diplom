@@ -7,7 +7,7 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Document, Page, pdfjs } from "react-pdf";
 import ReactHtmlParser from "react-html-parser";
-import ErrorHandling from "./error-handling";
+import ErrorHandlingFragment from "./error-handling";
 import {
   StyledTitle,
   StyledText,
@@ -16,7 +16,7 @@ import {
   StyledButtonShopping,
 } from "../../style";
 import PageError from "../page-error";
-import { StyledSpin } from "../../reusable-components";
+import { StyledSpin, ErrorHandling } from "../../reusable-components";
 import Books from "../../reusable-components/books";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/cover.png";
@@ -38,6 +38,7 @@ const PageBook = (value) => {
     booksId,
     getErrorBooksId,
     setLoadingShopping,
+    error,
   } = useRootData((store) => ({
     numberPage: store.mainStore.numberPage,
     setNumberPage: store.mainStore.setNumberPage,
@@ -51,6 +52,7 @@ const PageBook = (value) => {
     booksId: store.mainStore.booksId,
     getErrorBooksId: store.mainStore.getErrorBooksId,
     setLoadingShopping: store.mainStore.setLoadingShopping,
+    error: store.mainStore.error,
   }));
 
   const { Text } = Typography;
@@ -171,9 +173,9 @@ const PageBook = (value) => {
           <Document
             loading={<StyledSpin />}
             file={pdf}
-            noData={ErrorHandling}
-            error={ErrorHandling}
-            onSourceError={ErrorHandling}
+            noData={ErrorHandlingFragment}
+            error={ErrorHandlingFragment}
+            onSourceError={ErrorHandlingFragment}
             className={css.document}
           >
             <Col span={2} className={css.left}>
@@ -193,9 +195,9 @@ const PageBook = (value) => {
               <Page
                 className={css.page}
                 pageNumber={numberPage}
-                error={ErrorHandling}
-                noData={ErrorHandling}
-                onRenderError={ErrorHandling}
+                error={ErrorHandlingFragment}
+                noData={ErrorHandlingFragment}
+                onRenderError={ErrorHandlingFragment}
                 loading={<StyledSpin />}
               />
             </Col>
@@ -251,21 +253,27 @@ const PageBook = (value) => {
   };
 
   return (
-    <div className={css.book}>
-      {getErrorBooksId ? (
-        <PageError />
+    <>
+      {error ? (
+        <ErrorHandling />
       ) : (
-        <>
-          {loadingBooksId ? (
-            <div className={css.spin}>
-              <StyledSpin />
-            </div>
+        <div className={css.book}>
+          {getErrorBooksId ? (
+            <PageError />
           ) : (
-            <Book />
+            <>
+              {loadingBooksId ? (
+                <div className={css.spin}>
+                  <StyledSpin />
+                </div>
+              ) : (
+                <Book />
+              )}
+            </>
           )}
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

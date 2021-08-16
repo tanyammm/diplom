@@ -21,6 +21,7 @@ import {
   Product,
   StyledButton,
   StyledSpin,
+  ErrorHandling,
 } from "../../reusable-components";
 import { useRootData } from "../../../hooks/use-root-data";
 import img from "../../../img/cover.png";
@@ -30,12 +31,13 @@ import css from "./page-shopping.module.css";
 const PageShopping = () => {
   const { Text } = Typography;
 
-  const { basket, deleteShopping, loadingShopping, setLoadingShopping } =
+  const { basket, deleteShopping, loadingShopping, setLoadingShopping, error } =
     useRootData((store) => ({
       basket: store.mainStore.basket,
       deleteShopping: store.mainStore.deleteShopping,
       loadingShopping: store.mainStore.loadingShopping,
       setLoadingShopping: store.mainStore.setLoadingShopping,
+      error: store.mainStore.error,
     }));
 
   const [array, setArray] = useState();
@@ -155,11 +157,19 @@ const PageShopping = () => {
   return (
     <div className={css.shopping}>
       <StyledTitle level={2}>Корзина</StyledTitle>
-      {loadingShopping ? (
-        <StyledSpin />
-      ) : (
-        <>{basket.length === 0 ? <BasketZero /> : <Basket />}</>
-      )}
+      <>
+        {error ? (
+          <ErrorHandling />
+        ) : (
+          <>
+            {loadingShopping ? (
+              <StyledSpin />
+            ) : (
+              <>{basket.length === 0 ? <BasketZero /> : <Basket />}</>
+            )}
+          </>
+        )}
+      </>
     </div>
   );
 };

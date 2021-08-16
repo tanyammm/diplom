@@ -11,18 +11,19 @@ import {
 } from "../../style";
 import { StyledCard, StyledMeta } from "./styled";
 import { useRootData } from "../../../hooks/use-root-data";
-import { StyledSpin } from "..";
+import { StyledSpin, ErrorHandling } from "..";
 import img from "../../../img/cover.png";
 import "antd/dist/antd.css";
 import css from "./books.module.css";
 
 const Books = (value) => {
-  const { addShopping, arrayIndex, loadingBooks, setLoadingShopping } =
+  const { addShopping, arrayIndex, loadingBooks, setLoadingShopping, error } =
     useRootData((store) => ({
       addShopping: store.mainStore.addShopping,
       arrayIndex: store.mainStore.arrayIndex,
       loadingBooks: store.mainStore.loadingBooks,
       setLoadingShopping: store.mainStore.setLoadingShopping,
+      error: store.mainStore.error,
     }));
 
   const [array, setArray] = useState();
@@ -88,7 +89,15 @@ const Books = (value) => {
     );
   };
 
-  return <>{loadingBooks ? <StyledSpin /> : <ListBook />}</>;
+  return (
+    <>
+      {error ? (
+        <ErrorHandling />
+      ) : (
+        <>{loadingBooks ? <StyledSpin /> : <ListBook />}</>
+      )}
+    </>
+  );
 };
 
 export default Books;

@@ -7,19 +7,26 @@ import moment from "moment";
 import PageError from "../page-error";
 import { useRootData } from "../../../hooks/use-root-data";
 import { StyledTitle, StyledText } from "../../style";
-import { StyledSpin } from "../../reusable-components";
+import { StyledSpin, ErrorHandling } from "../../reusable-components";
 import "antd/dist/antd.css";
 import css from "./page-message.module.css";
 
 const PageMessage = (value) => {
-  const { loadingNewsId, getNewsId, setLoadingNewsId, newsId, getErrorNewsId } =
-    useRootData((store) => ({
-      loadingNewsId: store.mainStore.loadingNewsId,
-      getNewsId: store.mainStore.getNewsId,
-      setLoadingNewsId: store.mainStore.setLoadingNewsId,
-      newsId: store.mainStore.newsId,
-      getErrorNewsId: store.mainStore.getErrorNewsId,
-    }));
+  const {
+    loadingNewsId,
+    getNewsId,
+    setLoadingNewsId,
+    newsId,
+    getErrorNewsId,
+    error,
+  } = useRootData((store) => ({
+    loadingNewsId: store.mainStore.loadingNewsId,
+    getNewsId: store.mainStore.getNewsId,
+    setLoadingNewsId: store.mainStore.setLoadingNewsId,
+    newsId: store.mainStore.newsId,
+    getErrorNewsId: store.mainStore.getErrorNewsId,
+    error: store.mainStore.error,
+  }));
 
   const { id } = value.match.params;
 
@@ -34,31 +41,38 @@ const PageMessage = (value) => {
         <PageError />
       ) : (
         <>
-          {loadingNewsId ? (
-            <div className={css.spin}>
-              <StyledSpin />
-            </div>
+          {error ? (
+            <ErrorHandling />
           ) : (
-            <div className={css.message}>
-              <newsIdowLeftOutlined />
-              <StyledTitle level={2}>{newsId.title}</StyledTitle>
-              <StyledText className={css.text}>{newsId.text}</StyledText>
-              {newsId.img ? (
-                <div className={css.img}>
-                  <Image
-                    src={newsId.img}
-                    title="Увеличить фото"
-                    alt="Фото новости"
-                  />
+            <>
+              {loadingNewsId ? (
+                <div className={css.spin}>
+                  <StyledSpin />
                 </div>
-              ) : null}
-              <StyledText className={css.text}>
-                Дата публикации: {moment(newsId.date).format("Do MMMM YYYY")}
-              </StyledText>
-              <Link to="/diplom/" className={css.farther}>
-                <ArrowLeftOutlined /> Перейти ко всем новостям
-              </Link>
-            </div>
+              ) : (
+                <div className={css.message}>
+                  <newsIdowLeftOutlined />
+                  <StyledTitle level={2}>{newsId.title}</StyledTitle>
+                  <StyledText className={css.text}>{newsId.text}</StyledText>
+                  {newsId.img ? (
+                    <div className={css.img}>
+                      <Image
+                        src={newsId.img}
+                        title="Увеличить фото"
+                        alt="Фото новости"
+                      />
+                    </div>
+                  ) : null}
+                  <StyledText className={css.text}>
+                    Дата публикации:{" "}
+                    {moment(newsId.date).format("Do MMMM YYYY")}
+                  </StyledText>
+                  <Link to="/diplom/" className={css.farther}>
+                    <ArrowLeftOutlined /> Перейти ко всем новостям
+                  </Link>
+                </div>
+              )}
+            </>
           )}
         </>
       )}

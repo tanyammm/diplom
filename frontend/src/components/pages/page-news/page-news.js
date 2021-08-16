@@ -10,7 +10,7 @@ import {
 import { Button, Popconfirm, Typography } from "antd";
 import ReactHtmlParser from "react-html-parser";
 import { StyledList, StyledListItem, StyleListItemMeta } from "./styled";
-import { StyledSpin } from "../../reusable-components";
+import { StyledSpin, ErrorHandling } from "../../reusable-components";
 import { StyledTitle } from "../../style";
 import { ButtonAdd } from "./administrator";
 import { useRootData } from "../../../hooks/use-root-data";
@@ -26,6 +26,7 @@ const PageNews = () => {
     news,
     onClickNewsDelete,
     onClickNewsEdit,
+    error,
   } = useRootData((store) => ({
     loadingNews: store.mainStore.loadingNews,
     setLoadingNews: store.mainStore.setLoadingNews,
@@ -34,6 +35,7 @@ const PageNews = () => {
     news: store.mainStore.news,
     onClickNewsDelete: store.mainStore.onClickNewsDelete,
     onClickNewsEdit: store.mainStore.onClickNewsEdit,
+    error: store.mainStore.error,
   }));
 
   const { Paragraph } = Typography;
@@ -133,7 +135,11 @@ const PageNews = () => {
           <ButtonAdd />
         </div>
       ) : null}
-      {loadingNews ? <StyledSpin /> : <List />}
+      {error ? (
+        <ErrorHandling />
+      ) : (
+        <>{loadingNews ? <StyledSpin /> : <List />} </>
+      )}
     </>
   );
 };

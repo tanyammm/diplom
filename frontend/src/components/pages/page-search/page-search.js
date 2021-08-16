@@ -33,7 +33,6 @@ const PageSearch = () => {
     form
       .validateFields()
       .then((value) => {
-        form.resetFields();
         searchBookSelect(value);
       })
       .catch((error) => {
@@ -78,12 +77,7 @@ const PageSearch = () => {
             </Select>
           </Form.Item>
           <div className={css.center}>
-            <Button
-              htmlType="submit"
-              type="primary"
-              size="large"
-              icon={<SearchOutlined />}
-            >
+            <Button htmlType="submit" type="primary" icon={<SearchOutlined />}>
               Найти книгу
             </Button>
           </div>

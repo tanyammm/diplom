@@ -11,7 +11,7 @@ const StyledResult = styled(Result)`
   }
 `;
 
-const ErrorHandling = () => {
+const ErrorHandlingFragment = () => {
   return (
     <StyledResult
       icon={<FrownTwoTone twoToneColor="#f5222d" />}
@@ -20,4 +20,4 @@ const ErrorHandling = () => {
   );
 };
 
-export default ErrorHandling;
+export default ErrorHandlingFragment;
